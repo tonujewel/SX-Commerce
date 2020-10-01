@@ -2,6 +2,11 @@ import 'package:flutter/foundation.dart';
 
 class Language {
 
+  // Slider text
+  String sliderTextOne = "Demo text one";
+  String sliderTextTwo = "Demo text two";
+  String sliderTextThree = "Demo text three";
+
   String signUp = "Sign Up";
   String appBarTitle = "SoftX Commerce";
   String home = "Home";
@@ -16,9 +21,9 @@ class Language {
   String name = "Name";
   String doNotHaveAccount = "Don't have account? Sign Up";
   String alreadyHaveAnAccount = "Already have an Account? Login";
+  String updateProfile = "Update Profile";
 
-  // Slider text
-  String sliderTextOne = "Demo text one";
-  String sliderTextTwo = "Demo text two";
-  String sliderTextThree = "Demo text three";
+
+
+
 }

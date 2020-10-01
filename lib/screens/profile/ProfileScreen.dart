@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
+import 'package:sx_commerece/screens/main.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -8,6 +11,20 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  File _image;
+  final picker = ImagePicker();
+  Future getImage() async{
+    final pickFile = await picker.getImage(source: ImageSource.camera);
+    setState(() {
+      if(pickFile!=null){
+        _image = File(pickFile.path);
+      }else{
+        
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,14 +41,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   children: [
                     SizedBox(height: 70),
-                    TextFieldWithShadow(hintText: "User name"),
+                    TextFieldWithShadow(hintText: language.name),
                     SizedBox(height: 15),
-                    TextFieldWithShadow(hintText: "Email"),
-                    SizedBox(height: 15),
-                    TextFieldWithShadow(hintText: "user name"),
+                    TextFieldWithShadow(hintText: language.email),
                     SizedBox(height: 15),
                     RoundedButton(
-                      text: "Update Profile",
+                      text: language.updateProfile,
                       press: () {},
                     )
                   ],
@@ -76,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  // image picker
+
                 },
               ),
             ),

@@ -43,6 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
             SizedBox(height: 20),
             RoundedButton(text: language.login, press: () {
+              CustomToast('login done');
               Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));
             }),
             SizedBox(height: 20),
