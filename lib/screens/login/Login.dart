@@ -4,6 +4,7 @@ import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
 import 'package:sx_commerece/components/rounded_button.dart';
+import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -40,7 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 onChanged: (value) {}
                 ),
             SizedBox(height: 20),
-            RoundedButton(text: "Login", press: () {}),
+            RoundedButton(text: "Login", press: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));
+            }),
             SizedBox(height: 20),
             GestureDetector(
               onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},

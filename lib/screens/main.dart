@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sx_commerece/Language/Language.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/onBoard/on_board.dart';
 
 Language language = Language();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.deepPurple,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Raleway'),
-      home: OnBoard(),
+      home: Splash(),
     );
   }
 }
@@ -38,7 +39,7 @@ class _SplashState extends State<Splash> {
         Duration(seconds: 5),
         () => Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => OnBoard()),
+            MaterialPageRoute(builder: (context) => MainScreen()),
             (Route<dynamic> route) => false));
   }
 
