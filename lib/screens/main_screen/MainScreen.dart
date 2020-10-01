@@ -1,8 +1,8 @@
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:sx_commerece/screens/home/home_screen.dart';
-import 'package:sx_commerece/screens/order/oderScreen.dart';
-import 'package:sx_commerece/screens/profile/profileScreen.dart';
+import 'package:sx_commerece/screens/home/HomeScreen.dart';
+import 'package:sx_commerece/screens/order/OrderScreen.dart';
+import 'package:sx_commerece/screens/profile/ProfileScreen.dart';
 import 'package:sx_commerece/screens/search/SearchScreen.dart';
 import '../main.dart';
 
@@ -50,14 +50,16 @@ class _MainScreenState extends State<MainScreen>
         tabs: [
           TabData(iconData: Icons.home, title: language.home),
           TabData(iconData: Icons.search, title: language.search),
-          TabData(iconData: Icons.shopping_basket, title: language.order),
+          TabData(
+            iconData: Icons.shopping_basket,
+            title: language.order
+          ),
           TabData(iconData: Icons.person, title: language.profile)
         ],
         onTabChangedListener: (position) {
           setState(() {
             _currentIndex = position;
             _controller.animateTo(position);
-            debugPrint("onTabChangedListener'$position");
           });
         },
       ),

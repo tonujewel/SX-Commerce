@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/rounded_button.dart';
+import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/screens/login/Login.dart';
-import 'package:sx_commerece/screens/onBoard/on_board_content.dart';
+import 'package:sx_commerece/screens/main.dart';
+import 'package:sx_commerece/screens/onBoard/OnBoardContent.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 
 class OnBoard extends StatefulWidget {
@@ -57,7 +58,7 @@ class _OnBoardState extends State<OnBoard> {
                         Padding(
                             padding: EdgeInsets.only(left: 35,right: 35),
                             child: RoundedButton(
-                              text: "Login",
+                              text: language.login,
                               press: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                               }
@@ -66,7 +67,7 @@ class _OnBoardState extends State<OnBoard> {
                         Padding(
                             padding: EdgeInsets.only(left: 35,right: 35),
                             child: RoundedButton(
-                                text: "Sign Up",
+                                text: language.signUp,
                                 press: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));}
                             )

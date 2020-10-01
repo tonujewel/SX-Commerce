@@ -1,5 +1,6 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:sx_commerece/Utils/AppConstant.dart';
 
 class CarouselSlider extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
           borderRadius: new BorderRadius.all(Radius.circular(5)),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey,
+              color: primaryColor,
               offset: Offset(0.0, 1.0), //(x,y)
               blurRadius: 6.0,
             ),

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
-import 'package:sx_commerece/components/rounded_button.dart';
-import 'package:sx_commerece/screens/home/home_screen.dart';
+import 'package:sx_commerece/components/RoundedButton.dart';
+import 'package:sx_commerece/screens/home/HomeScreen.dart';
+import 'package:sx_commerece/screens/login/Login.dart';
+import 'package:sx_commerece/screens/main.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -23,34 +25,33 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(height: 50,),
-                Text("Let's Enter",
+                Text(language.letsStart,
                     style: TextStyle(
                         color: primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 22)),
                 Image.asset('assets/images/sign_up.png', height: 200, width: 200),
                 RoundedTextFormField(
-                  hints: 'Name',
+                  hints: language.name,
                   onChanged: (value) {},
                 ),
                 SizedBox(height: 15),
                 RoundedTextFormField(
-                  hints: 'Email',
+                  hints: language.email,
                   onChanged: (value) {},
                 ),
                 SizedBox(height: 15),
                 RoundedPasswordTextFormField(
-                    hint: "Password",
+                    hint: language.password,
                     onChanged: (value) {
-
                     }
                     ),
                 SizedBox(height: 20),
-                RoundedButton(text: "Sign Up", press: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));}),
+                RoundedButton(text:language.signUp, press: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));}),
                 SizedBox(height: 20),
                 GestureDetector(
-                  onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
-                  child: Text("Don't have account? Sign Up", style: TextStyle(color: primaryColor,),
+                  onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));},
+                  child: Text(language.alreadyHaveAnAccount, style: TextStyle(color: primaryColor,),
                   ),
                 ),
               ],

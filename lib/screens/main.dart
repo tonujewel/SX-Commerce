@@ -4,7 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sx_commerece/Language/Language.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
-import 'package:sx_commerece/screens/onBoard/on_board.dart';
+import 'package:sx_commerece/screens/onBoard/OnBoard.dart';
 
 Language language = Language();
 void main() {
@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'SofX E-commerce',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
+          primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Raleway'),
       home: Splash(),
@@ -39,7 +39,7 @@ class _SplashState extends State<Splash> {
         Duration(seconds: 5),
         () => Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => MainScreen()),
+            MaterialPageRoute(builder: (context) => OnBoard()),
             (Route<dynamic> route) => false));
   }
 

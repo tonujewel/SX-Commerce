@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
-import 'package:sx_commerece/components/rounded_button.dart';
+import 'package:sx_commerece/components/RoundedButton.dart';
+import 'package:sx_commerece/screens/main.dart';
 import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 
@@ -25,29 +26,35 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text("Let's Enter",
+            Text(language.letsStart,
                 style: TextStyle(
                     color: primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 22)),
             Image.asset('assets/images/login.png', height: 200, width: 200),
             RoundedTextFormField(
-              hints: 'Email',
+              hints: language.email,
               onChanged: (value) {},
             ),
             SizedBox(height: 20),
             RoundedPasswordTextFormField(
-                hint: "Password",
+                hint: language.password,
                 onChanged: (value) {}
                 ),
             SizedBox(height: 20),
-            RoundedButton(text: "Login", press: () {
+            RoundedButton(text: language.login, press: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));
             }),
             SizedBox(height: 20),
             GestureDetector(
               onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
               child: Text("Don't have account? Sign Up", style: TextStyle(color: primaryColor,),
+              ),
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
+              child: Text(language.forgotPassword, style: TextStyle(color: primaryColor,),
               ),
             ),
           ],
