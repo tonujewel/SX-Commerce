@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWithShadow extends StatelessWidget {
-  final String hintText;
+   String hintText;
+   String label;
+  TextEditingController controller;
 
-  const TextFieldWithShadow({Key key, this.hintText}) : super(key: key);
+  TextFieldWithShadow({Key key,@required this.controller, this.hintText,this.label}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +14,18 @@ class TextFieldWithShadow extends StatelessWidget {
       shadowColor: Colors.grey,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       child: TextFormField(
+        controller: controller,
+        keyboardType:TextInputType.text,
         decoration: InputDecoration(
-            hintText: '$hintText',
+            hintText: hintText,
+            labelText: label,
             hintStyle: TextStyle(
                 letterSpacing: 2,
                 color: Colors.black54,
                 fontWeight: FontWeight.bold),
             fillColor: Colors.white30,
             filled: true,
+
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide.none)),

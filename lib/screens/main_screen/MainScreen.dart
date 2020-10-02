@@ -1,10 +1,13 @@
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sx_commerece/provider/MainPageProvider.dart';
 import 'package:sx_commerece/screens/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/order/OrderScreen.dart';
 import 'package:sx_commerece/screens/profile/ProfileScreen.dart';
 import 'package:sx_commerece/screens/search/SearchScreen.dart';
 import '../main.dart';
+
 
 class MainScreen extends StatefulWidget {
   @override
@@ -13,9 +16,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
-  TabController _controller;
-  int _currentIndex = 0;
 
+  MainPageProvider provider;
   List<Widget> tabList = [
     HomeScreen(),
     SearchScreen(),
@@ -26,43 +28,35 @@ class _MainScreenState extends State<MainScreen>
   @override
   void initState() {
     super.initState();
-    _controller = TabController(vsync: this, length: tabList.length);
+
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(language.appBarTitle),
-      ),
-      body: TabBarView(
-        controller: _controller,
-        children: tabList,
-        physics: NeverScrollableScrollPhysics(),
-      ),
-      bottomNavigationBar: FancyBottomNavigation(
-        tabs: [
-          TabData(iconData: Icons.home, title: language.home),
-          TabData(iconData: Icons.search, title: language.search),
-          TabData(
-            iconData: Icons.shopping_basket,
-            title: language.order
-          ),
-          TabData(iconData: Icons.person, title: language.profile)
-        ],
-        onTabChangedListener: (position) {
-          setState(() {
-            _currentIndex = position;
-            _controller.animateTo(position);
-          });
+    return ChangeNotifierProvider<MainPageProvider>(
+      create: (_)=>MainPageProvider()..setVIew(context, this),
+      child: Consumer<MainPageProvider>(
+        builder: (context,model,child){
+          provider=model;
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(provider.tabs[provider.currentIndex].title),
+            ),
+            body: TabBarView(
+              controller: provider.controller,
+              children: tabList,
+              physics: NeverScrollableScrollPhysics(),
+            ),
+            bottomNavigationBar: FancyBottomNavigation(
+              tabs: provider.tabs.map((e) => TabData(iconData: e.icon, title: e.title)).toList(),
+              onTabChangedListener: (position) =>provider.changePage(position),
+            ),
+          );
         },
       ),
     );
   }
 }
+

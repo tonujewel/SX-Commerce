@@ -34,6 +34,8 @@ dependencies:
   fancy_bottom_navigation: ^0.3.2
   # Toast
   fluttertoast: ^7.1.1
+  # Provider
+  provider: ^4.3.2+2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -77,11 +79,9 @@ flutter:
        - asset: assets/fonts/Raleway-Regular.ttf
        - asset: assets/fonts/Raleway-Italic.ttf
          style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+   - family:  CustomIcon
+     fonts:
+       - asset: fonts/CustomIcon.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

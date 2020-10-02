@@ -1,12 +1,13 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
-import 'package:sx_commerece/components/RoundedButton.dart';
-import 'package:sx_commerece/screens/main.dart';
+import 'package:sx_commerece/provider/LoginProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
+import '../main.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -14,52 +15,58 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _showPassword = true;
-
+  LoginProvider loginProvider;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.only(left: 20, right: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(language.letsStart,
-                style: TextStyle(
-                    color: primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22)),
-            Image.asset('assets/images/login.png', height: 200, width: 200),
-            RoundedTextFormField(
-              hints: language.email,
-              onChanged: (value) {},
-            ),
-            SizedBox(height: 20),
-            RoundedPasswordTextFormField(
-                hint: language.password,
-                onChanged: (value) {}
-                ),
-            SizedBox(height: 20),
-            RoundedButton(text: language.login, press: () {
-              CustomToast('login done');
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));
-            }),
-            SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
-              child: Text("Don't have account? Sign Up", style: TextStyle(color: primaryColor,),
+    return ChangeNotifierProvider<LoginProvider>(
+      create: (_) =>LoginProvider()..setView(context) ,
+      child: Consumer<LoginProvider>(
+        builder: (context,model,child){
+          loginProvider=model;
+          return Scaffold(
+            backgroundColor: Colors.white,
+            body: Padding(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(language.letsStart,
+                      style: TextStyle(
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22)),
+                  Image.asset('assets/images/login.png', height: 200, width: 200),
+                  RoundedTextFormField(
+                    hints: language.email,
+                    onChanged: (value) {},
+                  ),
+                  SizedBox(height: 20),
+                  RoundedPasswordTextFormField(
+                      hint: language.password,
+                      onChanged: (value) {}
+                  ),
+                  SizedBox(height: 20),
+                  RoundedButton(text: language.login, press: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));
+                  }),
+                  SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {loginProvider.goTOSignUpScreen();},
+                    child: Text(language.doNotHaveAccount, style: TextStyle(color: primaryColor,),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
+                    child: Text(language.forgotPassword, style: TextStyle(color: primaryColor,),
+                    ),
+                  ),
+                ],
               ),
             ),
-            SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
-              child: Text(language.forgotPassword, style: TextStyle(color: primaryColor,),
-              ),
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

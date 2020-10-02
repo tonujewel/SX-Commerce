@@ -41,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   children: [
                     SizedBox(height: 70),
-                    TextFieldWithShadow(hintText: language.name),
+                    TextFieldWithShadow(hintText: language.name, controller: null,),
                     SizedBox(height: 15),
                     TextFieldWithShadow(hintText: language.email),
                     SizedBox(height: 15),
