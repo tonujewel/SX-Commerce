@@ -14,6 +14,8 @@ List<Map<String, String>> onBoardData = [
 const primaryColor = Color(0xFF2196F3);
 const textColor = Color(0xFF979797);
 
+const titleTextColor = Color(0xFF2196F3);
+
  CustomToast (String msg) async {
    Fluttertoast.showToast(
        msg: "$msg",

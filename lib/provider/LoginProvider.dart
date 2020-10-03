@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:sx_commerece/screens/forgot_password/ForgotPassword.dart';
+import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 
 class LoginProvider with ChangeNotifier {
@@ -13,7 +15,9 @@ class LoginProvider with ChangeNotifier {
 
   void goTOSignUpScreen() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-    notifyListeners();
+  }
+  void goToForgotScreen() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
   }
 
   void goToMainPage() {
@@ -22,11 +26,10 @@ class LoginProvider with ChangeNotifier {
     Timer(Duration(seconds: 2), () {
       loading = false;
       notifyListeners();
-      //
-      // Navigator.pushAndRemoveUntil(
-      //     context,
-      //     MaterialPageRoute(builder: (context) => MainScreen()),
-      //     (Route<dynamic> route) => false);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => MainScreen()),
+          (Route<dynamic> route) => false);
     });
   }
 }

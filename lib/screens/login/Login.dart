@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
+                    onTap: () {loginProvider.goToForgotScreen();},
                     child: Text(language.forgotPassword, style: TextStyle(color: primaryColor,),
                     ),
                   ),

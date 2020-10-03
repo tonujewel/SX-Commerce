@@ -36,6 +36,10 @@ dependencies:
   fluttertoast: ^7.1.1
   # Provider
   provider: ^4.3.2+2
+  # pin code field => for OTP Page
+  pin_code_fields: ^5.2.0
+  # drawer
+  flutter_zoom_drawer: ^1.0.4
 
 
   # The following adds the Cupertino Icons font to your application.
