@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
-import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
 import 'package:sx_commerece/provider/LoginProvider.dart';
 import 'package:provider/provider.dart';
-import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 import '../main.dart';
 
@@ -59,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     backgroundColor: primaryColor,
                     child: Container(
+                      height: 30,
                         width: mainWidth-20-(Dimension.Padding*2),
                         alignment: Alignment.center,
                         child: Text(language.login,style: TextStyle(color: Colors.white,fontSize: Dimension.Text_Size_Big,fontWeight: Dimension.boldText),)

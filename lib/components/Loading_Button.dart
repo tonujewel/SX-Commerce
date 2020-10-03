@@ -64,7 +64,7 @@ class _LoadingButtonState extends State<LoadingButton> {
       child: InkWell(
         onTap: widget.isLoading ? null : widget.onPressed,
         child: AnimatedContainer(
-          padding: widget.isLoading ? EdgeInsets.all(10) : EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: widget.isLoading ? EdgeInsets.all(10) : EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           //padding: widget.isLoading ? EdgeInsets.only(left: 10,right: 10) : EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           duration: Duration(milliseconds: 200),
           curve: Curves.easeInOut,
