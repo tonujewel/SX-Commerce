@@ -8,7 +8,6 @@ import 'package:sx_commerece/screens/profile/ProfileScreen.dart';
 import 'package:sx_commerece/screens/search/SearchScreen.dart';
 import '../main.dart';
 
-
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -16,8 +15,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
-
   MainPageProvider provider;
+
   List<Widget> tabList = [
     HomeScreen(),
     SearchScreen(),
@@ -28,18 +27,15 @@ class _MainScreenState extends State<MainScreen>
   @override
   void initState() {
     super.initState();
-
   }
-
-
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<MainPageProvider>(
-      create: (_)=>MainPageProvider()..setVIew(context, this),
+      create: (_) => MainPageProvider()..setVIew(context, this),
       child: Consumer<MainPageProvider>(
-        builder: (context,model,child){
-          provider=model;
+        builder: (context, model, child) {
+          provider = model;
           return Scaffold(
             appBar: AppBar(
               title: Text(provider.tabs[provider.currentIndex].title),
@@ -50,8 +46,10 @@ class _MainScreenState extends State<MainScreen>
               physics: NeverScrollableScrollPhysics(),
             ),
             bottomNavigationBar: FancyBottomNavigation(
-              tabs: provider.tabs.map((e) => TabData(iconData: e.icon, title: e.title)).toList(),
-              onTabChangedListener: (position) =>provider.changePage(position),
+              tabs: provider.tabs
+                  .map((e) => TabData(iconData: e.icon, title: e.title))
+                  .toList(),
+              onTabChangedListener: (position) => provider.changePage(position),
             ),
           );
         },
@@ -59,4 +57,3 @@ class _MainScreenState extends State<MainScreen>
     );
   }
 }
-

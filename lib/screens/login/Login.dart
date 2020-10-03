@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
@@ -40,16 +42,28 @@ class _LoginScreenState extends State<LoginScreen> {
                   RoundedTextFormField(
                     hints: language.email,
                     onChanged: (value) {},
+                    prefix: Icon(Icons.email,color: primaryColor,),
                   ),
                   SizedBox(height: 20),
                   RoundedPasswordTextFormField(
                       hint: language.password,
-                      onChanged: (value) {}
+                      onChanged: (value) {},
+                    prefixIcon: Icon(Icons.lock,color: primaryColor,),
                   ),
                   SizedBox(height: 20),
-                  RoundedButton(text: language.login, press: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MainScreen()));
-                  }),
+                  LoadingButton(
+                    isLoading: loginProvider.loading,
+                    defaultStyle: true,
+                    onPressed: () {
+                     loginProvider.goToMainPage();
+                    },
+                    backgroundColor: primaryColor,
+                    child: Container(
+                        width: mainWidth-20-(Dimension.Padding*2),
+                        alignment: Alignment.center,
+                        child: Text(language.login,style: TextStyle(color: Colors.white,fontSize: Dimension.Text_Size_Big,fontWeight: Dimension.boldText),)
+                    ),
+                  ),
                   SizedBox(height: 20),
                   GestureDetector(
                     onTap: () {loginProvider.goTOSignUpScreen();},

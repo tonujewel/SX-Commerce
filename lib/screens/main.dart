@@ -5,8 +5,10 @@ import 'package:sx_commerece/Language/Language.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoard.dart';
+import 'package:sx_commerece/screens/splash/SplashScreen.dart';
 
 Language language = Language();
+
 void main() {
   runApp(MyApp());
 }
@@ -21,10 +23,12 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Raleway'),
-      home: Splash(),
+      home: SplashScreen(),
     );
   }
 }
+
+double mainHeight, mainWidth, paddingTop, paddingBottom;
 
 class Splash extends StatefulWidget {
   @override
@@ -45,6 +49,10 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
+    mainHeight = MediaQuery.of(context).size.height;
+    mainWidth = MediaQuery.of(context).size.width;
+    paddingTop = MediaQuery.of(context).padding.top;
+    paddingBottom = MediaQuery.of(context).padding.bottom;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(

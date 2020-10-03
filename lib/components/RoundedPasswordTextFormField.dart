@@ -1,11 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 
 class RoundedPasswordTextFormField extends StatefulWidget {
-  final ValueChanged<String> onChanged;
-  final String hint;
-
-  const RoundedPasswordTextFormField({Key key, this.onChanged, this.hint})
+   ValueChanged<String> onChanged;
+   String hint;
+   Widget prefixIcon;
+   RoundedPasswordTextFormField({Key key, @required this.onChanged, this.hint,this.prefixIcon})
       : super(key: key);
 
   @override
@@ -16,6 +17,8 @@ class RoundedPasswordTextFormField extends StatefulWidget {
 class _RoundedPasswordTextFormFieldState
     extends State<RoundedPasswordTextFormField> {
   bool _showPassword = true;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +34,11 @@ class _RoundedPasswordTextFormFieldState
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(30.0)),
             borderSide: BorderSide(color: primaryColor)),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide(color: Colors.red)
+        ),
+        prefixIcon: widget.prefixIcon != null ? widget.prefixIcon :  null,
         suffixIcon: IconButton(
           onPressed: () {
             _showPassword = !_showPassword;

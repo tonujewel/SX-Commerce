@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/CustomIcon/custom_icon_icons.dart' as CustomIcon;
 import 'package:sx_commerece/screens/main.dart';
 
-
 class MainPageProvider with ChangeNotifier{
   BuildContext context;
   TabController controller;
