@@ -1,7 +1,5 @@
 import 'dart:math';
-
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -75,10 +73,10 @@ class _MainScreenState extends State<MainScreen>
                         .toList(),
                     onTabChangedListener: (position) => provider.changePage(position),
                   ),
-                 body: TabBarView(
-                controller: provider.controller,
+                   body: TabBarView(
+                    controller: provider.controller,
                 children: tabList,
-                physics: NeverScrollableScrollPhysics(),
+                    physics: NeverScrollableScrollPhysics(),
               ),
             )),
           );
