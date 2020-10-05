@@ -1,15 +1,16 @@
+import 'dart:math';
+
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/provider/MainPageProvider.dart';
-import 'package:sx_commerece/screens/drawer_menu/MenuScreen.dart';
 import 'package:sx_commerece/screens/home/HomeScreen.dart';
-import 'package:sx_commerece/screens/login/Login.dart';
 import 'package:sx_commerece/screens/order/OrderScreen.dart';
 import 'package:sx_commerece/screens/profile/ProfileScreen.dart';
 import 'package:sx_commerece/screens/search/SearchScreen.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-
 
 class MainScreen extends StatefulWidget {
   @override
@@ -34,40 +35,52 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
+    final rtl = ZoomDrawer.isRTL();
+    final angle = ZoomDrawer.isRTL() ? 180 * pi / 180 : 0.0;
     return ChangeNotifierProvider<MainPageProvider>(
       create: (_) => MainPageProvider()..setVIew(context, this),
       child: Consumer<MainPageProvider>(
         builder: (context, model, child) {
           provider = model;
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(provider.tabs[provider.currentIndex].title),
-            ),
-            body: TabBarView(
-              controller: provider.controller,
-              children: tabList,
-              physics: NeverScrollableScrollPhysics(),
-            ),
-            bottomNavigationBar: FancyBottomNavigation(
-              tabs: provider.tabs
-                  .map((e) => TabData(iconData: e.icon, title: e.title))
-                  .toList(),
-              onTabChangedListener: (position) => provider.changePage(position),
-            ),
-            drawer: ZoomDrawer(
-              controller: ZoomDrawerController(
-
+          return ValueListenableBuilder<DrawerState>(
+            valueListenable: ZoomDrawer.of(context).stateNotifier,
+            builder: (context, state, child) {
+              return AbsorbPointer(
+                absorbing: state != DrawerState.closed,
+                child: child,
+              );
+            },
+            child: GestureDetector(
+                child: Scaffold(
+                   backgroundColor: Colors.transparent,
+                   appBar: AppBar(
+                    automaticallyImplyLeading: false,
+                     title: Text(provider.tabs[provider.currentIndex].title),
+                     leading: Transform.rotate(
+                       angle: angle,
+                       child: PlatformIconButton(
+                         icon: Icon(
+                      Icons.menu,
+                         ),
+                         onPressed: () {
+                      ZoomDrawer.of(context).toggle();
+                    },
+                  ),
+                ),
+                // trailingActions: actions,
               ),
-              menuScreen: MenuScreen(),
-              mainScreen: MainScreen(),
-              borderRadius: 24.0,
-              showShadow: true,
-              angle: -12.0,
-              backgroundColor: Colors.grey[300],
-              slideWidth: MediaQuery.of(context).size.width*.65,
-              openCurve: Curves.fastOutSlowIn,
-              closeCurve: Curves.bounceIn,
-            ),
+                   bottomNavigationBar: FancyBottomNavigation(
+                    tabs: provider.tabs
+                        .map((e) => TabData(iconData: e.icon, title: e.title))
+                        .toList(),
+                    onTabChangedListener: (position) => provider.changePage(position),
+                  ),
+                 body: TabBarView(
+                controller: provider.controller,
+                children: tabList,
+                physics: NeverScrollableScrollPhysics(),
+              ),
+            )),
           );
         },
       ),

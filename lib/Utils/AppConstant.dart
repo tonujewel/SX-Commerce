@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sx_commerece/screens/main.dart';
 
 List<Map<String, String>> onBoardData = [
@@ -13,17 +10,14 @@ List<Map<String, String>> onBoardData = [
 
 const primaryColor = Color(0xFF2196F3);
 const textColor = Color(0xFF979797);
-
 const titleTextColor = Color(0xFF2196F3);
 
- CustomToast (String msg) async {
-   Fluttertoast.showToast(
-       msg: "$msg",
-       toastLength: Toast.LENGTH_SHORT,
-       gravity: ToastGravity.CENTER,
-       timeInSecForIosWeb: 1,
-       backgroundColor: Colors.red,
-       textColor: Colors.white,
-       fontSize: 16.0
-   );
-}
+List<BoxShadow> showlist = [
+  BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))
+];
+
+List<Map> categories = [
+  {"name": language.sliderTextOne, "image": "assets/images/one.png"},
+  {"name": language.sliderTextTwo, "image": "assets/images/two.png"},
+  {"name": language.sliderTextThree, "image": "assets/images/three.png"},
+];
