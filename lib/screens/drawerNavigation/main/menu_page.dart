@@ -3,7 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/drawerNavigation/main/MainDrawerProvider.dart';
@@ -20,6 +19,7 @@ class MenuScreen extends StatefulWidget {
     this.callback,
     this.current,
   });
+
 
   @override
   _MenuScreenState createState() => _MenuScreenState();
@@ -42,14 +42,15 @@ class _MenuScreenState extends State<MenuScreen> {
         return Scaffold(
           body: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).primaryColor,
-                  Colors.red,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+              // gradient: LinearGradient(
+              //   colors: [
+              //     Colors.white,
+              //     Colors.blue,
+              //
+              //   ],
+              //   begin: Alignment.topLeft,
+              //   end: Alignment.bottomRight,
+              // ),
             ),
             child: SafeArea(
               child: Column(
@@ -61,11 +62,14 @@ class _MenuScreenState extends State<MenuScreen> {
                     padding: const EdgeInsets.only(
                         bottom: 24.0, left: 24.0, right: 24.0),
                     child: Container(
-                      width: 80,
-                      height: 80,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        shape: BoxShape.circle,
+                          boxShadow: primaryShadow,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: CircleAvatar(
+                        foregroundColor: Colors.black,
+                        radius: 50,
+                        backgroundImage: AssetImage('assets/images/boy.png'),
+                        backgroundColor: Colors.white,
                       ),
                     ),
                   ),
@@ -76,7 +80,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       tr("name"),
                       style: TextStyle(
                         fontSize: 22,
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -94,7 +98,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                   selectedIndex: menuProvider.currentPage,
                                   callback: widget.callback,
                                   widthBox: widthBox,
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Colors.black),
                                   selected: index == item.index,
                                   onPress: () {
                                     menuProvider.newCurrentPage = item.index;
@@ -128,15 +132,16 @@ class _MenuScreenState extends State<MenuScreen> {
             style: TextStyle(fontSize: 18),
           ),
         ),
-        borderSide: BorderSide(color: Colors.white, width: 2.0),
+        borderSide: BorderSide(color: Colors.black, width: 2.0),
         onPressed: () => print("Pressed !"),
-        textColor: Colors.white,
+        textColor: Colors.black,
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       ),
     );
   }
 }
+
 
 class MenuItemWidget extends StatelessWidget {
   final MenuItem item;
@@ -151,31 +156,43 @@ class MenuItemWidget extends StatelessWidget {
 
   MenuItemWidget(
       {Key key,
-      this.item,
-      this.widthBox,
-      this.style,
-      this.callback,
-      this.selected,
-      this.selectedIndex,
-      this.onPress
+        this.item,
+        this.widthBox,
+        this.style,
+        this.callback,
+        this.selected,
+        this.selectedIndex,
+        this.onPress
       })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      padding: EdgeInsets.all(12),
-      onPressed: onPress,
+    Size size = MediaQuery.of(context).size;
+    double containerWidth = size.width * .78;
+    return GestureDetector(
+      onTap:onPress ,
+      child: Container(
+        height: size.height * 0.07,
+        width:  containerWidth ,
+        margin: EdgeInsets.only(top:10,left: 10),
+        padding: EdgeInsets.only(left: 15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+          boxShadow: shadow,
+        ),
 
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(item.icon, color: white, size: 24),
-          widthBox,
-          Expanded(child: Text(item.title, style: style))
-        ],
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(item.icon, color: Colors.black, size: 24),
+            widthBox,
+            Expanded(child: Text(item.title, style: style))
+          ],
+        ),
       ),
     );
   }

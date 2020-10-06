@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sx_commerece/Language/Language.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/screens/drawerNavigation/Settings/SettingsScreen.dart';
 import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoard.dart';
 import 'package:sx_commerece/screens/splash/SplashScreen.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Raleway'),
+   //   home: SettingsScreen(),
       home: SplashScreen(),
     );
   }

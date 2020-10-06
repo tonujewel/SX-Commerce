@@ -17,8 +17,12 @@ const titleTextColor = Color(0xFF2196F3);
 const drawerSelected = Color(0xFF64B5F6);
 
 // shadow
-List<BoxShadow> showlist = [
+List<BoxShadow> shadow = [
   BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))
+];
+
+List<BoxShadow> primaryShadow = [
+  BoxShadow(color: Colors.blue[100], blurRadius: 30, offset: Offset(0, 10))
 ];
 // carousel home page
 List<Map> categories = [
@@ -53,6 +57,7 @@ void showToast(String msg){
       textColor: Colors.white,
       fontSize: 16.0
   );
+
 }
 
 
