@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sx_commerece/screens/main.dart';
 
 // On board slider
@@ -29,7 +30,7 @@ List<Map> categories = [
 // navigation drawer items
  List<MenuItem> mainMenu = [
   MenuItem(tr("home"), Icons.home, 0),
-  MenuItem(tr("payment_history"), Icons.credit_card, 1),
+  MenuItem(tr("settings"), Icons.settings, 1),
   MenuItem(tr("notifications"), Icons.notifications, 2),
   MenuItem(tr("help"), Icons.help, 3),
   MenuItem(tr("about_us"), Icons.info_outline, 4),
@@ -39,7 +40,19 @@ class MenuItem {
   final String title;
   final IconData icon;
   final int index;
-
   const MenuItem(this.title, this.icon, this.index);
 }
+
+void showToast(String msg){
+  Fluttertoast.showToast(
+      msg: "$msg",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: primaryColor,
+      textColor: Colors.white,
+      fontSize: 16.0
+  );
+}
+
 

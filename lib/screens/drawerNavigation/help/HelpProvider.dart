@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class PaymentProvider with ChangeNotifier{
+class HelpProvider with ChangeNotifier{
 
   BuildContext context;
-  PaymentProvider();
+  HelpProvider();
   void setView(BuildContext context) => this.context = context;
 
 }
