@@ -3,7 +3,7 @@ import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
-import 'package:sx_commerece/screens/home/HomeScreen.dart';
+import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/login/Login.dart';
 import 'package:sx_commerece/screens/main.dart';
 

@@ -12,13 +12,14 @@ class MainPageProvider with ChangeNotifier{
         title: language.home
     ),
     BottomTab(
-        icon: Icons.search,
-        title: language.search
-    ),
-    BottomTab(
         icon: Icons.shopping_basket,
         title: language.order
     ),
+    BottomTab(
+        icon: Icons.favorite,
+        title: language.favorite
+    ),
+
     BottomTab(
         icon: Icons.person,
         title: language.profile

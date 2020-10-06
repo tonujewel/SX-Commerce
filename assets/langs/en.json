@@ -9,5 +9,8 @@
   "page": "Page",
   "current": "Current Page",
   "name": "Adan Balina",
-  "logout": "Logout"
+  "logout": "Logout",
+  "home": "Home",
+  "payment_history": "Payment History"
+
 }

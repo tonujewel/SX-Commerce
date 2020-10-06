@@ -29,5 +29,6 @@ class Language {
   String reset = "Reset";
   String verificationCode = "Verification Code";
   String sentTo = "Sent to";
+  String favorite = "Favorite";
 
 }

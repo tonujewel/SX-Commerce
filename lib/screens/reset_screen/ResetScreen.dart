@@ -4,7 +4,7 @@ import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
-import 'package:sx_commerece/provider/ResetProvider.dart';
+import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/reset_screen/ResetProvider.dart';
 import 'package:sx_commerece/screens/main.dart';
 
 class ResetScreen extends StatefulWidget {

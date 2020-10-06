@@ -8,8 +8,10 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('order',style: TextStyle(fontSize: 40),),
+    return Scaffold(
+      body: Center(
+        child: Text('order',style: TextStyle(fontSize: 40),),
+      ),
     );
   }
 }

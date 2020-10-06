@@ -5,7 +5,7 @@ import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
-import 'package:sx_commerece/provider/ForgotProvider.dart';
+import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/forgot_password/ForgotProvider.dart';
 import 'package:sx_commerece/screens/main.dart';
 
 class ForgotPassword extends StatefulWidget {
