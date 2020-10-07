@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
@@ -12,7 +13,7 @@ class AboutScreen extends StatefulWidget {
 class _AboutScreenState extends State<AboutScreen> {
   AboutProvider aboutProvider;
   double containerWidth;
-
+  final double circleRadius = 120.0;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -36,36 +37,86 @@ class _AboutScreenState extends State<AboutScreen> {
             ),
           ),
           body: BackgroundDesign(
-            child: Column(
-              children: [
-                SizedBox(height: size.height * .06),
-                Container(
-                  height: size.height * 0.5,
-                  width: containerWidth,
-                  margin: EdgeInsets.all(22.0),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: shadow),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(22.0),
-                        decoration: BoxDecoration(
-                          boxShadow: primaryShadow,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('assets/images/boy.png'),
-                          backgroundColor: Colors.white,
+            child: Container(
+              height: double.infinity,
+              width: double.infinity,
+              child: Stack(children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: <Widget>[
+                      Padding(
+                        padding:
+                        EdgeInsets.only(top: circleRadius / 2.0, ),  ///here we create space for the circle avatar to get ut of the box
+                        child: Container(
+                          height: 300.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 8.0,
+                                offset: Offset(0.0, 5.0),
+                              ),
+                            ],
+                          ),
+                          width: double.infinity,
+                          child: Padding(
+                              padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: size.height * 0.09),
+                                  Text("Digitalize Your Business With SoftX",
+                                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,)),
+
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(12),
+                                        child: Text(tr('description_text')),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              )
+                          ),
                         ),
                       ),
-                      Text(' SofX innovatin limited', style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor,fontSize: 22),),
+
+                      ///Image Avatar
+                      Container(
+                        width: circleRadius,
+                        height: circleRadius,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 8.0,
+                              offset: Offset(0.0, 5.0),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(4.0),
+                          child: Center(
+                            child: CircleAvatar(
+                              backgroundImage: AssetImage('assets/images/logo.jpg'),
+                              radius: 55,
+                              backgroundColor: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                )
-              ],
+                ),
+              ]),
             ),
           ),
         );

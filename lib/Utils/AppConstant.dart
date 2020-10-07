@@ -18,7 +18,7 @@ const drawerSelected = Color(0xFF64B5F6);
 
 // shadow
 List<BoxShadow> shadow = [
-  BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))
+  BoxShadow(color: Colors.black26, blurRadius: 8.0, offset: Offset(0.0, 5.0))
 ];
 
 List<BoxShadow> primaryShadow = [
@@ -32,7 +32,7 @@ List<Map> categories = [
 ];
 
 // navigation drawer items
- List<MenuItem> mainMenu = [
+List<MenuItem> mainMenu = [
   MenuItem(tr("home"), Icons.home, 0),
   MenuItem(tr("settings"), Icons.settings, 1),
   MenuItem(tr("notifications"), Icons.notifications, 2),
@@ -40,14 +40,35 @@ List<Map> categories = [
   MenuItem(tr("about_us"), Icons.info_outline, 4),
 ];
 
+//................... notification list  ................
+List<Map> notificationLIst = [
+  {
+    "title": "First Notification",
+    "description": "First sub title",
+    "image": "assets/images/one.png"
+  },
+  {
+    "title": "Second Notification",
+    "description": "Second sub title",
+    "image": "assets/images/two.png"
+  },
+  {
+    "title": "Third Notification",
+    "description": "Third sub title",
+    "image": "assets/images/three.png"
+  },
+
+];
+
 class MenuItem {
   final String title;
   final IconData icon;
   final int index;
+
   const MenuItem(this.title, this.icon, this.index);
 }
 
-void showToast(String msg){
+void showToast(String msg) {
   Fluttertoast.showToast(
       msg: "$msg",
       toastLength: Toast.LENGTH_SHORT,
@@ -55,9 +76,5 @@ void showToast(String msg){
       timeInSecForIosWeb: 1,
       backgroundColor: primaryColor,
       textColor: Colors.white,
-      fontSize: 16.0
-  );
-
+      fontSize: 16.0);
 }
-
-

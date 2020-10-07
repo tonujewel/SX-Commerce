@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sx_commerece/Utils/AppConstant.dart';
 
 class NotificationProvider with ChangeNotifier{
 
@@ -10,4 +11,9 @@ class NotificationProvider with ChangeNotifier{
     Navigator.pop(context);
   }
 
+  int currentIndex ;
+
+  void listOnClick (){
+    showToast("Clicked on : $currentIndex");
+  }
 }
