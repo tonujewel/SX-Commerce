@@ -6,4 +6,8 @@ class NotificationProvider with ChangeNotifier{
   NotificationProvider();
   void setView(BuildContext context) => this.context = context;
 
+  void backPress(){
+    Navigator.pop(context);
+  }
+
 }

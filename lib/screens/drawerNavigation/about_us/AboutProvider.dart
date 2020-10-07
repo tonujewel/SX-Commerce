@@ -6,4 +6,8 @@ class AboutProvider with ChangeNotifier{
   AboutProvider();
   void setView(BuildContext context) => this.context = context;
 
+  void backPress(){
+    Navigator.pop(context);
+  }
+
 }

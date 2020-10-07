@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/drawerNavigation/notification/NotificationProvider.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -16,7 +17,23 @@ class _NotificationScreenState extends State<NotificationScreen> {
       create: (_) => NotificationProvider()..setView(context),
       child: Consumer<NotificationProvider>(builder: (context, model, child) {
         notificationProvider = model;
-        return Container();
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Help'),
+            centerTitle: true,
+            backgroundColor: primaryColor,
+            elevation: 0,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                notificationProvider.backPress();
+              },
+            ),
+          ),
+          body: Center(
+            child: Text('Notifications'),
+          ),
+        );
       }),
     );
   }

@@ -6,4 +6,8 @@ class HelpProvider with ChangeNotifier{
   HelpProvider();
   void setView(BuildContext context) => this.context = context;
 
+  void backPress(){
+    Navigator.pop(context);
+  }
+
 }

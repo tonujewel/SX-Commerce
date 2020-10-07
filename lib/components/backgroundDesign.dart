@@ -21,7 +21,7 @@ class BackgroundDesign extends StatelessWidget {
               child: Container(
                 width: size.width,
                 height: size.height * 0.2,
-                color: Colors.blue,
+                color: primaryColor,
               )),
           Positioned.fill(child: child)
         ],
