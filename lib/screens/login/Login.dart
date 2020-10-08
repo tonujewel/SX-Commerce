@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
+import 'package:sx_commerece/components/PasswordTextFieldWithShadow.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
 import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/login/LoginProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 import '../main.dart';
 
@@ -16,6 +18,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   LoginProvider loginProvider;
+  TextEditingController emailController= TextEditingController();
+  TextEditingController passwordController= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<LoginProvider>(
@@ -37,17 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.bold,
                           fontSize: 22)),
                   Image.asset('assets/images/login.png', height: 200, width: 200),
-                  RoundedTextFormField(
-                    hints: language.email,
-                    onChanged: (value) {},
-                    prefix: Icon(Icons.email,color: primaryColor,),
-                  ),
+                  TextFieldWithShadow(hintText: language.email,controller: emailController,),
                   SizedBox(height: 20),
-                  RoundedPasswordTextFormField(
-                      hint: language.password,
-                      onChanged: (value) {},
-                    prefixIcon: Icon(Icons.lock,color: primaryColor,),
-                  ),
+                  PasswordTextFieldWithShadow(hintText: language.password,controller: passwordController,),
                   SizedBox(height: 20),
                   LoadingButton(
                     isLoading: loginProvider.loading,

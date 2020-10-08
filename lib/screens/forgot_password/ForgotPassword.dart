@@ -5,6 +5,7 @@ import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/components/RoundedTextFormFIeld.dart';
+import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/forgot_password/ForgotProvider.dart';
 import 'package:sx_commerece/screens/main.dart';
 
@@ -15,6 +16,8 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   ForgotProvider forgotProvider;
+
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +40,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         fontSize: 22)),
                 Image.asset('assets/images/forgot_icon.jpg',
                     height: 350, width: 350),
-                RoundedTextFormField(
-                  hints: language.email,
-                  onChanged: (value) {},
-                  prefix: Icon(
-                    Icons.email,
-                    color: primaryColor,
-                  ),
-                ),
+                TextFieldWithShadow(hintText: language.email,controller: emailController,),
                 SizedBox(height: 20),
                 LoadingButton(
                   isLoading: forgotProvider.loading,

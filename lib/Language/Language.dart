@@ -6,6 +6,18 @@ class Language {
   String sliderTextTwo = "Demo text two";
   String sliderTextThree = "Demo text three";
 
+  //............... on board ...............//
+
+  //............... login ...............//
+
+  //...............Sign up ...............//
+
+  //............... profile ...............//
+
+  //............... settings ...............//
+
+  //............... ...............//
+
   String signUp = "Sign Up";
   String appBarTitle = "SoftX Commerce";
   String home = "Home";

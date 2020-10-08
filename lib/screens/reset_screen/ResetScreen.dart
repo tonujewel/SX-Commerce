@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
+import 'package:sx_commerece/components/PasswordTextFieldWithShadow.dart';
 import 'package:sx_commerece/components/RoundedPasswordTextFormField.dart';
 import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/reset_screen/ResetProvider.dart';
 import 'package:sx_commerece/screens/main.dart';
@@ -35,17 +36,9 @@ class _ResetScreenState extends State<ResetScreen> {
                         fontSize: 22)),
                 Image.asset('assets/images/reset.png', height: 200, width: 200),
                 SizedBox(height: 20),
-                RoundedPasswordTextFormField(
-                  hint: language.password,
-                  onChanged: (value) {},
-                  prefixIcon: Icon(Icons.lock,color: primaryColor,),
-                ),
+                PasswordTextFieldWithShadow(hintText: language.password,controller: null,),
                 SizedBox(height: 20),
-                RoundedPasswordTextFormField(
-                  hint: language.confirmPassword,
-                  onChanged: (value) {},
-                  prefixIcon: Icon(Icons.lock,color: primaryColor,),
-                ),
+                PasswordTextFieldWithShadow(hintText: language.confirmPassword,controller: null,),
                 SizedBox(height: 20),
                 LoadingButton(
                   isLoading: resetProvider.loading,

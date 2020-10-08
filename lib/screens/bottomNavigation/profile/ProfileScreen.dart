@@ -12,6 +12,9 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
 
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
   File _image;
   final picker = ImagePicker();
   Future getImage() async{
@@ -41,9 +44,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   children: [
                     SizedBox(height: 70),
-                    TextFieldWithShadow(hintText: language.name, controller: null,),
+                    TextFieldWithShadow(hintText: language.name, controller: nameController,),
                     SizedBox(height: 15),
-                    TextFieldWithShadow(hintText: language.email),
+                    TextFieldWithShadow(hintText: language.email,controller: emailController,),
                     SizedBox(height: 15),
                     RoundedButton(
                       text: language.updateProfile,
