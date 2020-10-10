@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "New",
+                      "New Product",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: Dimension.Text_Size_Big),
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
       height: size.height * .6,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: categoryList.length,
+        itemCount: newProductList.length,
         itemBuilder: (context, index) {
           return Container(
             padding: EdgeInsets.all(15),
@@ -157,24 +157,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Image.asset('assets/images/t_shirt.png',
+                            Image.asset(newProductList[index]["image"],
                               height: 200,
                               width: 180,
                             ),
                             Text(
-                              "Black T-shirt ",
+                              newProductList[index]["name"],
+                              maxLines: 1,
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: Dimension.Text_Size_Big, fontWeight: Dimension.boldText),
+                                  fontSize: Dimension.Text_Size_Big, fontWeight: Dimension.boldText,),
                             ),
                             Text(
-                              "\$500 ",
+                              newProductList[index]["price"],
+                              maxLines: 1,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: Dimension.Text_Size_Big),
                             ),
                             RatingBar.readOnly(
-                              initialRating: 5,
+                              initialRating: newProductList[index]["rating"],
                               isHalfAllowed: true,
                               halfFilledIcon: Icons.star_half,
                               filledIcon: Icons.star,
@@ -198,13 +200,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: IconButton(
                             icon: Icon(Icons.favorite_border),
+                            color: Colors.grey,
                             onPressed: () {},
                           ),
-
-                          // child: Image.asset('assets/images/favorite_no.png',
-                          // color: Colors.red,
-                          // height: 30,
-                          // width: 30,),
                         ),
                       ),
                     ),
@@ -217,12 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: primaryColor,
                             boxShadow: shadow,
                           ),
-                          child: Center(child: Text("-50%",style: TextStyle(color: Colors.white),))
-
-                        // child: Image.asset('assets/images/favorite_no.png',
-                        // color: Colors.red,
-                        // height: 30,
-                        // width: 30,),
+                          child: Center(child: Text("${newProductList[index]["discount"]}",style: TextStyle(color: Colors.white),))
                       ),
                     )
                   ],
@@ -235,7 +228,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
   Container searchContainer() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),

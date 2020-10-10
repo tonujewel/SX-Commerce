@@ -61,25 +61,78 @@ List<Map> notificationLIst = [
 
 //................... Home page category list  ................
 List<Map> categoryList = [
-  {"id":"1","name": 'Pants', "image": "assets/images/pants.png"},
-  {"id":"2","name": 'Shirts', "image": "assets/images/shirt.png"},
-  {"id":"3","name": 'Laptops', "image": "assets/images/laptop.png"},
-  {"id":"4","name": 'Desktop', "image": "assets/images/desktop.png"},
-  {"id":"5","name": 'Mobile', "image": "assets/images/mobile.png"},
-  {"id":"5","name": 'Shoes', "image": "assets/images/shoe.png"},
-  {"id":"5","name": 'Watches', "image": "assets/images/watch.png"},
+  {"id": "1", "name": 'Pants', "image": "assets/images/pants.png"},
+  {"id": "2", "name": 'Shirts', "image": "assets/images/shirt.png"},
+  {"id": "3", "name": 'Laptops', "image": "assets/images/laptop.png"},
+  {"id": "4", "name": 'Desktop', "image": "assets/images/desktop.png"},
+  {"id": "5", "name": 'Mobile', "image": "assets/images/mobile.png"},
+  {"id": "5", "name": 'Shoes', "image": "assets/images/shoe.png"},
+  {"id": "5", "name": 'Watches', "image": "assets/images/watch.png"},
 ];
 
 //................... New product list  ................
 List<Map> newProductList = [
-  {"id":"1","name": 'Black T-shirt', "image": "t_shirt.png","price":"500","rating":5,"isFavorite":true},
-
+  {
+    "id": "0",
+    "name": 'Black T-shirt',
+    "image": "assets/images/t_shirt.png",
+    "price": "\$500",
+    "rating": 5.0,
+    "isFavorite": true,
+    "discount": "-25%"
+  },
+  {
+    "id": "1",
+    "name": 'iMac 2020 ',
+    "image": "assets/images/imac.png",
+    "price": "\$2700",
+    "rating": 3.0,
+    "isFavorite": false,
+    "discount": "-15%"
+  },
+  {
+    "id": "2",
+    "name": 'Adidas shoe - blue ',
+    "image": "assets/images/shoe_colored.png",
+    "price": "\$430",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "-10%"
+  },
+  {
+    "id": "3",
+    "name": 'Xiaomi Mi A3 - 6.088inches - 4GB RAM - 64GB ROM',
+    "image": "assets/images/mia3.png",
+    "price": "\$320",
+    "rating": 4.0,
+    "isFavorite": false,
+    "discount": "-45%"
+  },
+  {
+    "id": "4",
+    "name": 'Redmi Display 1A Monitor 23.8- Inch Full HD IPS',
+    "image": "assets/images/redmi_monitor.png",
+    "price": "\$1050",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "-45%"
+  },
+  {
+    "id": "5",
+    "name": 'Mackbook Pro 2020',
+    "image": "assets/images/macbook_pro.png",
+    "price": "\$1050",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "-45%"
+  },
 ];
 
 class MenuItem {
   final String title;
   final IconData icon;
   final int index;
+
   const MenuItem(this.title, this.icon, this.index);
 }
 
