@@ -25,7 +25,7 @@ List<BoxShadow> primaryShadow = [
   BoxShadow(color: Colors.blue[100], blurRadius: 30, offset: Offset(0, 10))
 ];
 // carousel home page
-List<Map> categories = [
+List<Map> carouselCategories = [
   {"name": language.sliderTextOne, "image": "assets/images/one.png"},
   {"name": language.sliderTextTwo, "image": "assets/images/two.png"},
   {"name": language.sliderTextThree, "image": "assets/images/three.png"},
@@ -57,6 +57,22 @@ List<Map> notificationLIst = [
     "description": "Third sub title",
     "image": "assets/images/three.png"
   },
+];
+
+//................... Home page category list  ................
+List<Map> categoryList = [
+  {"id":"1","name": 'Pants', "image": "assets/images/pants.png"},
+  {"id":"2","name": 'Shirts', "image": "assets/images/shirt.png"},
+  {"id":"3","name": 'Laptops', "image": "assets/images/laptop.png"},
+  {"id":"4","name": 'Desktop', "image": "assets/images/desktop.png"},
+  {"id":"5","name": 'Mobile', "image": "assets/images/mobile.png"},
+  {"id":"5","name": 'Shoes', "image": "assets/images/shoe.png"},
+  {"id":"5","name": 'Watches', "image": "assets/images/watch.png"},
+];
+
+//................... New product list  ................
+List<Map> newProductList = [
+  {"id":"1","name": 'Black T-shirt', "image": "t_shirt.png","price":"500","rating":5,"isFavorite":true},
 
 ];
 
@@ -64,7 +80,6 @@ class MenuItem {
   final String title;
   final IconData icon;
   final int index;
-
   const MenuItem(this.title, this.icon, this.index);
 }
 
@@ -78,3 +93,7 @@ void showToast(String msg) {
       textColor: Colors.white,
       fontSize: 16.0);
 }
+
+double marginTop = 0.02;
+
+String dollarSign = String.fromCharCodes(new Runes('\u0024'));
