@@ -2,18 +2,18 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 
-class CarouselSlider extends StatefulWidget {
-  @override
-  _CarouselSliderState createState() => _CarouselSliderState();
-}
+class CarouselSlider extends StatelessWidget {
 
-class _CarouselSliderState extends State<CarouselSlider> {
+   bool showRadius = false;
+   double height = 200;
+  CarouselSlider({this.showRadius});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: new BorderRadius.all(Radius.circular(5)),
-        boxShadow: shadow
+          borderRadius: new BorderRadius.all(Radius.circular(5)),
+          boxShadow: shadow
       ),
       height: 200,
       child: Carousel(
@@ -29,4 +29,5 @@ class _CarouselSliderState extends State<CarouselSlider> {
       ),
     );
   }
+
 }

@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:rating_bar/rating_bar.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/CarouselSlider.dart';
-import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomePageProvider.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+int _current = 0;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -34,11 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: size.height * marginTop),
               // carousel
-              Padding(
-                padding: EdgeInsets.only(top: 10, right: 15, left: 15),
-                child: CarouselSlider(),
-              ),
-              SizedBox(height: size.height * marginTop * 2),
+              carouselColumn(),
               // category title
               Padding(
                 padding: EdgeInsets.only(top: 10, right: 15, left: 15),
@@ -74,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       "New Product",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: Dimension.Text_Size_Big),
+                          fontSize: Dimension.Text_Size_Big)
                     ),
                     Text(
                       "See all",
@@ -91,6 +87,52 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       }),
     );
+  }
+
+  Column carouselColumn() {
+    return Column(
+              children: [
+                CarouselSlider(
+                    items: imageSliders,
+                    options: CarouselOptions(
+                      height: size.height * .32,
+                      aspectRatio: 10 / 9,
+                      viewportFraction: 0.8,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      onPageChanged: (index, reason){
+                        setState(() {
+                          _current = index;
+                        });
+                      },
+                      scrollDirection: Axis.horizontal,
+                    )
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: imgList.map((url) {
+                    int index = imgList.indexOf(url);
+                    return Container(
+                      width: 8.0,
+                      height: 8.0,
+                      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _current == index
+                            ? Color.fromRGBO(0, 0, 0, 0.9)
+                            : Color.fromRGBO(0, 0, 0, 0.4),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ],
+            );
   }
 
   Container categoryContainer() {
@@ -248,4 +290,44 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  final List<Widget> imageSliders = imgList.map((item) =>
+      Column(
+        children: [
+          Container(
+            child: Container(
+              margin: EdgeInsets.all(5.0),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  child: Stack(
+                    children: <Widget>[
+                      Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                      Positioned(
+                        bottom: 0.0,
+                        left: 0.0,
+                        right: 0.0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromARGB(200, 0, 0, 0),
+                                Color.fromARGB(0, 0, 0, 0)
+                              ],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                            ),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 20.0),
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+          ),
+
+        ],
+
+      ))
+      .toList();
 }
