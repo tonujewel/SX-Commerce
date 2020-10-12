@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/images/splash_icon.png'),
+            Image.asset('assets/images/logo.jpg'),
             SizedBox(height: 60.0),
             SpinKitDoubleBounce(
               color: primaryColor,

@@ -11,7 +11,7 @@ List<Map<String, String>> onBoardData = [
   {"text": language.sliderTextThree, "image": "assets/images/three.png"},
 ];
 
-const primaryColor = Color(0xFF2196F3);
+const primaryColor = Color(0xFF90A4AE);
 const textColor = Color(0xFF979797);
 const titleTextColor = Color(0xFF2196F3);
 const drawerSelected = Color(0xFF64B5F6);
@@ -159,3 +159,9 @@ void showToast(String msg) {
 double marginTop = 0.02;
 
 String dollarSign = String.fromCharCodes(new Runes('\u0024'));
+
+String heroTag = '';
+
+List<BoxShadow> greyShadow = [
+  BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))
+];

@@ -29,11 +29,11 @@ class MyApp extends StatelessWidget {
       title: 'SofX E-commerce',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.blueGrey,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Raleway'),
-      //     home: SplashScreen(),
-          home: ProductDetailsScreen(),
+          home: SplashScreen(),
+      //    home: ProductDetailsScreen(),
     );
   }
 }
