@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
-import 'package:sx_commerece/screens/main.dart';
+import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/main.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 

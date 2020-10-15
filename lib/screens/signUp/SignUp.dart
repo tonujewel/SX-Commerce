@@ -7,7 +7,7 @@ import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/login/Login.dart';
-import 'package:sx_commerece/screens/main.dart';
+import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/main.dart';
 
 class SignUp extends StatefulWidget {
   @override

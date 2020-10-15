@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Language/Language.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetailsScreen.dart';
+import 'package:sx_commerece/screens/search_screen.dart';
 import 'package:sx_commerece/screens/splash/SplashScreen.dart';
 
 Language language = Language();
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blueGrey,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Raleway'),
-          home: SplashScreen(),
+          home: SearchScreen(),
       //    home: ProductDetailsScreen(),
     );
   }

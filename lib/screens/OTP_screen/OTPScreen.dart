@@ -7,7 +7,7 @@ import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/OTP_screen/OTPProvider.dart';
-import 'package:sx_commerece/screens/main.dart';
+import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/main.dart';
 
 class OTPScreen extends StatefulWidget {
   @override

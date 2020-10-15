@@ -9,7 +9,7 @@ import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
-import '../main.dart';
+import '../../main.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
