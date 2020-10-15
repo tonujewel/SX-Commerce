@@ -5,8 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/drawerNavigation/main/MainDrawerProvider.dart';
 import 'package:sx_commerece/screens/drawerNavigation/main/MenuProvider.dart';
+
+import 'MainDrawerProvider.dart';
 
 class MenuScreen extends StatefulWidget {
   final List<MenuItem> mainMenu;

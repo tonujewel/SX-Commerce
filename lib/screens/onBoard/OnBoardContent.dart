@@ -11,12 +11,11 @@ class OnBoardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Column(
       children:<Widget> [
-        Spacer(),
-        Text("$text",style: TextStyle(color: textColor, fontWeight: FontWeight.bold,fontSize: 22),),
-        Spacer(),
-        Image.asset('$image',)
+        Text("$text",style: TextStyle(color: boardTextColor, fontWeight: FontWeight.bold,fontSize: 22),),
+        Image.asset('$image',height: size.height*.44,)
       ],
     );
   }

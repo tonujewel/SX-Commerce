@@ -38,9 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: <Widget>[
             Image.asset('assets/images/logo.jpg'),
             SizedBox(height: 60.0),
-            SpinKitDoubleBounce(
-              color: primaryColor,
-            )
+
           ],
         ),
       ),

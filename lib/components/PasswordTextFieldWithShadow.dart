@@ -25,7 +25,7 @@ class _PasswordTextFieldWithShadowState
     return Material(
       elevation: 4,
       shadowColor: Colors.grey,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.only(left: 12),
         child: TextFormField(

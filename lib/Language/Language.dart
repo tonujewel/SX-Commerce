@@ -1,16 +1,32 @@
 import 'package:flutter/foundation.dart';
 
 class Language {
-  // Slider text
+
+
+
+  //............... on board ...............//
   String sliderTextOne = "Demo text one";
   String sliderTextTwo = "Demo text two";
   String sliderTextThree = "Demo text three";
 
-  //............... on board ...............//
-
   //............... login ...............//
+  String letsStart = "Let's Enter with Login";
+  String email = "Email";
+  String password = "Password";
+  String login = "Login";
+  String doNotHaveAccount = "Don't have account? Sign Up";
+  String forgotPassword = "Forgot password?";
+
+
 
   //...............Sign up ...............//
+  String letsStartSignUp = "Let's Enter with Sign Up";
+  String confirmPassword = "Confirm Password";
+  String signUp = "Sign Up";
+  String alreadyHaveAnAccount = "Already have an Account? Login";
+
+
+
 
   //............... profile ...............//
 
@@ -18,23 +34,23 @@ class Language {
 
   //............... ...............//
 
-  String signUp = "Sign Up";
+
   String appBarTitle = "SoftX Commerce";
   String home = "Home";
   String search = "Search";
   String order = "Order";
   String profile = "Profile";
-  String letsStart = "Let's Enter";
-  String email = "Email";
-  String password = "Password";
-  String confirmPassword = "Confirm Password";
-  String login = "Login";
-  String forgotPassword = "Forgot password?";
+
+
+
+
+
   String name = "Name";
-  String doNotHaveAccount = "Don't have account? Sign Up";
-  String alreadyHaveAnAccount = "Already have an Account? Login";
+
+
   String updateProfile = "Update Profile";
   String letUsHelp = "Let us help you";
+  String enterOTP = "Enter OTP";
   String submit = "Submit";
   String otp = "Enter Otp";
   String resetPassword = "Reset your password";

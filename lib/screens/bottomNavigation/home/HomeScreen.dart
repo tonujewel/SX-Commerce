@@ -9,7 +9,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetailsScreen.dart';
 
 int _current = 0;
-
+Size size;
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -47,11 +47,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       "Categories",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: Dimension.Text_Size_Big),
+                          fontSize: Dimension.Text_Size_Big,color: textColor),
                     ),
                     Text(
                       "See all",
-                      style: TextStyle(fontSize: Dimension.Text_Size_Big),
+                      style: TextStyle(fontSize: Dimension.Text_Size_Big,color: textColor),
                     ),
                   ],
                 ),
@@ -71,10 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text("New Product",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: Dimension.Text_Size_Big)),
+                            fontSize: Dimension.Text_Size_Big,color: textColor)),
                     Text(
                       "See all",
-                      style: TextStyle(fontSize: Dimension.Text_Size_Big),
+                      style: TextStyle(fontSize: Dimension.Text_Size_Big,color: textColor),
                     ),
                   ],
                 ),
@@ -93,7 +93,43 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       children: [
         CarouselSlider(
-            items: imageSliders,
+            items: imgList
+                .map((item) => Column(
+              children: [
+                Container(
+                  child: Container(
+                    margin: EdgeInsets.all(5.0),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        child: Stack(
+                          children: <Widget>[
+                            Image.network(item, fit: BoxFit.cover, width: 1000.0,height: size.height * .25),
+                            Positioned(
+                              bottom: 0.0,
+                              left: 0.0,
+                              right: 0.0,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(200, 0, 0, 0),
+                                      Color.fromARGB(0, 0, 0, 0)
+                                    ],
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                  ),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10.0, horizontal: 20.0),
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                ),
+              ],
+            ))
+                .toList(),
             options: CarouselOptions(
               height: size.height * .32,
               aspectRatio: 10 / 9,
@@ -136,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container categoryContainer() {
     return Container(
-      height: size.height * .17,
+      height: size.height * .19,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categoryList.length,
@@ -159,12 +195,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       categoryList[index]['image'],
                       height: 50,
                       width: 50,
-                      color: Colors.grey[700],
+                        color: textColor
                     ),
                   ),
                 ),
                 SizedBox(height: size.height * marginTop),
-                Text(categoryList[index]['name'])
+                Text(categoryList[index]['name'],style: TextStyle(color: textColor),)
               ],
             ),
           );
@@ -195,7 +231,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 builder: (context) => ProductDetailsScreen()));
                       },
                       child: Container(
-                        height: size.height * .38,
                         width: size.height * .25,
                         margin: EdgeInsets.all(10),
                         decoration: BoxDecoration(
@@ -287,12 +322,13 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
     );
+
+
   }
 
   Container searchContainer() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      //margin: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -300,51 +336,14 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(Icons.search),
+          Icon(Icons.search,color: textColor,),
           Padding(
             padding: EdgeInsets.only(left: 15),
-            child: Text("Search", style: TextStyle(fontSize: 20)),
+            child: Text("Search", style: TextStyle(fontSize: 20,color: textColor)),
           ),
         ],
       ),
     );
   }
 
-  final List<Widget> imageSliders = imgList
-      .map((item) => Column(
-            children: [
-              Container(
-                child: Container(
-                  margin: EdgeInsets.all(5.0),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                      child: Stack(
-                        children: <Widget>[
-                          Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                          Positioned(
-                            bottom: 0.0,
-                            left: 0.0,
-                            right: 0.0,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color.fromARGB(200, 0, 0, 0),
-                                    Color.fromARGB(0, 0, 0, 0)
-                                  ],
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter,
-                                ),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10.0, horizontal: 20.0),
-                            ),
-                          ),
-                        ],
-                      )),
-                ),
-              ),
-            ],
-          ))
-      .toList();
 }

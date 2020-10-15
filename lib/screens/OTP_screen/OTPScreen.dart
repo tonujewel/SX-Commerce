@@ -1,13 +1,14 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/components/CustomBackground.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/OTP_screen/OTPProvider.dart';
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/main.dart';
+import 'package:sx_commerece/main.dart';
+import 'package:pin_input_text_field/pin_input_text_field.dart';
+import 'OTPProvider.dart';
 
 class OTPScreen extends StatefulWidget {
   @override
@@ -18,7 +19,8 @@ class _OTPScreenState extends State<OTPScreen> {
   OTPProvider otpProvider;
   var onTapRecognizer;
 
-  TextEditingController textEditingController = TextEditingController();
+  TextEditingController _pinEditingController =
+      TextEditingController(text: '123');
 
   // ..text = "123456";
 
@@ -28,86 +30,102 @@ class _OTPScreenState extends State<OTPScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return ChangeNotifierProvider<OTPProvider>(
       create: (_) => OTPProvider()..setView(context),
       child: Consumer<OTPProvider>(builder: (context, model, child) {
         otpProvider = model;
         return Scaffold(
           backgroundColor: Colors.white,
-          body: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/images/reset.png', height: 200, width: 200),
-                Text(language.verificationCode, style: TextStyle(color: titleTextColor, fontSize: 26,fontWeight: FontWeight.bold)),
-                SizedBox(height: 6,),
-                Text("${language.sentTo} +880123456789"),
-                SizedBox(height: 20,),
-                PinCodeTextField(
-                  appContext: context,
-                  pastedTextStyle: TextStyle(
-                    color: primaryColor,
-                    fontWeight: FontWeight.bold,
+          body: CustomBackground(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: size.height*.15),
+                  Row(
+                    children: [
+                      SizedBox(width: 15),
+                      Text(language.enterOTP,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22)),
+                    ],
                   ),
-                  length: 4,
-                  // obscureText: true,
-                  // obscuringCharacter: '?',
-                  animationType: AnimationType.fade,
-                  validator: (v) {
-                    if (v.length < 3) {
-                      return "I'm from validator";
-                    } else {
-                      return null;
-                    }
-                  },
-                  pinTheme: PinTheme(
-                    shape: PinCodeFieldShape.underline,
-                    borderRadius: BorderRadius.circular(15),
-                    fieldHeight: 40,
-                    fieldWidth: 40,
-                    inactiveColor: Colors.blueGrey,
-                    activeColor: primaryColor,
-                    activeFillColor: hasError ? Colors.blueGrey : Colors.white,
+                  Container(
+                    height: size.height * 0.5,
+                    width: size.width * .9,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: shadow),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(language.verificationCode,
+                              style: TextStyle(
+                                  color: textColor,
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold)),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          Text("${language.sentTo} +880123456789",style: TextStyle(color: textColor),),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left:8.0,right: 8.0),
+                            child: PinInputTextField(
+                              pinLength: 4,
+                              decoration: CirclePinDecoration(
+                                strokeColorBuilder:
+                                PinListenColorBuilder(primaryColor, textColor),
+                              ),
+                              controller: _pinEditingController,
+                              textInputAction: TextInputAction.go,
+                              enabled: true,
+                              keyboardType: TextInputType.number,
+                              textCapitalization: TextCapitalization.characters,
+                              onSubmit: (pin) {
+                                debugPrint('submit pin:$pin');
+                              },
+                              onChanged: (pin) {
+                                debugPrint('onChanged execute. pin:$pin');
+                              },
+                              enableInteractiveSelection: false,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          LoadingButton(
+                            isLoading: otpProvider.loading,
+                            defaultStyle: true,
+                            onPressed: () {
+                              otpProvider.goToResetPage();
+                            },
+                            backgroundColor: primaryColor,
+                            child: Container(
+                                height: 30,
+                                width: mainWidth - 20 - (Dimension.Padding * 2),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  language.submit,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: Dimension.Text_Size_Big,
+                                      fontWeight: Dimension.boldText),
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  animationDuration: Duration(milliseconds: 300),
-                  //  backgroundColor: Colors.blue.shade50,
-                  enableActiveFill: false,
-                  errorAnimationController: errorController,
-                  controller: textEditingController,
-                  keyboardType: TextInputType.number,
-                  onCompleted: (v) {
-                    print("Completed");
-                  },
-                  onChanged: (value) {
-                    print(value);
-                    setState(() {
-                      currentText = value;
-                    });
-                  },
-                  beforeTextPaste: (text) {
-                    print("Allowing to paste $text");
-                    //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                    //but you can show anything you want here, like your pop up saying wrong paste format or etc
-                    return true;
-                  },
-                ),
-                SizedBox(height: 20,),
-                LoadingButton(
-                  isLoading: otpProvider.loading,
-                  defaultStyle: true,
-                  onPressed: () {
-                    otpProvider.goToResetPage();
-                  },
-                  backgroundColor: primaryColor,
-                  child: Container(
-                      height: 30,
-                      width: mainWidth-20-(Dimension.Padding*2),
-                      alignment: Alignment.center,
-                      child: Text(language.submit,style: TextStyle(color: Colors.white,fontSize: Dimension.Text_Size_Big,fontWeight: Dimension.boldText),)
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

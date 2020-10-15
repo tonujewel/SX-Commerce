@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/CustomIcon/custom_icon_icons.dart' as CustomIcon;
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/main.dart';
+import 'package:sx_commerece/main.dart';
 
 class MainPageProvider with ChangeNotifier{
   BuildContext context;

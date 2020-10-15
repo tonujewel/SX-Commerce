@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:sx_commerece/screens/drawerNavigation/Settings/SettingsScreen.dart';
 import 'package:sx_commerece/screens/drawerNavigation/about_us/AboutScreen.dart';
 import 'package:sx_commerece/screens/drawerNavigation/help/HelpScreen.dart';
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/drawerNavigation/main/MainDrawerProvider.dart';
 import 'package:sx_commerece/screens/drawerNavigation/notification/NotificationScreen.dart';
+
+import 'MainDrawerProvider.dart';
 
 class MenuProvider with ChangeNotifier {
   BuildContext context;

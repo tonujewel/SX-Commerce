@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/screens/drawerNavigation/main/MainDrawerProvider.dart';
 import 'package:sx_commerece/screens/drawerNavigation/main/menu_page.dart';
 import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+
+import 'MainDrawerProvider.dart';
 
 class MainDrawerScreen extends StatefulWidget {
   @override

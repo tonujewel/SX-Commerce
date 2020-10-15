@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
+import 'package:sx_commerece/main.dart';
+import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/login/Login.dart';
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/main.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoardContent.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 
@@ -16,11 +17,14 @@ class _OnBoardState extends State<OnBoard> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SizedBox(
         width: double.infinity,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Spacer(),
             Expanded(
@@ -43,14 +47,12 @@ class _OnBoardState extends State<OnBoard> {
               child: Center(
                 child: Column(
                   children: <Widget>[
-                    Spacer(),
-                    Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(onBoardData.length,
                           (index) => buildDot(index: index)),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height:size.height * 0.1),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,6 +66,7 @@ class _OnBoardState extends State<OnBoard> {
                               }
                             )
                         ),
+                        SizedBox(height:size.height * 0.03),
                         Padding(
                             padding: EdgeInsets.only(left: 35,right: 35),
                             child: RoundedButton(

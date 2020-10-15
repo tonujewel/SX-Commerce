@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'file:///D:/SoftX/Flutter%20project/sx_commerece/sx_commerece/lib/main.dart';
+import 'package:sx_commerece/main.dart';
 
 // On board slider
 List<Map<String, String>> onBoardData = [
@@ -11,10 +11,18 @@ List<Map<String, String>> onBoardData = [
   {"text": language.sliderTextThree, "image": "assets/images/three.png"},
 ];
 
-const primaryColor = Color(0xFF90A4AE);
-const textColor = Color(0xFF979797);
+// Theme color
+const primaryColor = Color(0xFF2291FF);
+const textColor = Color(0xFF0E3746);
+const bgColor = Color(0xFFDADDE1);
+const white = Color(0xFFFFFFFF);
+
+// onBoard
+const boardTextColor = Color(0xFF2291FF);
+
 const titleTextColor = Color(0xFF2196F3);
 const drawerSelected = Color(0xFF64B5F6);
+
 
 // shadow
 List<BoxShadow> shadow = [

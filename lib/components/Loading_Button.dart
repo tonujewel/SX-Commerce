@@ -38,7 +38,7 @@ class _LoadingButtonState extends State<LoadingButton> {
     decoration = widget.decoration ??
         BoxDecoration(
           color: widget.backgroundColor ?? Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(10),
         );
   }
 
