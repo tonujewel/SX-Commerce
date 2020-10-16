@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/CustomIcon/custom_icon_icons.dart' as CustomIcon;
 import 'package:sx_commerece/main.dart';
+import 'package:sx_commerece/screens/search_screen.dart';
 
 class MainPageProvider with ChangeNotifier{
   BuildContext context;
@@ -43,11 +44,15 @@ class MainPageProvider with ChangeNotifier{
     controller.animateTo(position);
     notifyListeners();
   }
+
+  void goToSearchScreen(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
+  }
 }
 
 class BottomTab{
   IconData icon;
   String title;
-
   BottomTab({this.icon, this.title});
 }
+

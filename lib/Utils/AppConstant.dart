@@ -14,7 +14,7 @@ List<Map<String, String>> onBoardData = [
 // Theme color
 const primaryColor = Color(0xFF2291FF);
 const textColor = Color(0xFF0E3746);
-const bgColor = Color(0xFFDADDE1);
+const bgColor = Color(0xFFF2F9FF);
 const white = Color(0xFFFFFFFF);
 
 // onBoard
@@ -96,7 +96,7 @@ List<Map> newProductList = [
     "price": "\$500",
     "rating": 5.0,
     "isFavorite": true,
-    "discount": "-25%"
+    "discount": "\$700"
   },
   {
     "id": "1",
@@ -105,7 +105,7 @@ List<Map> newProductList = [
     "price": "\$2700",
     "rating": 3.0,
     "isFavorite": false,
-    "discount": "-15%"
+    "discount": "\$3000"
   },
   {
     "id": "2",
@@ -114,25 +114,17 @@ List<Map> newProductList = [
     "price": "\$430",
     "rating": 4.0,
     "isFavorite": true,
-    "discount": "-10%"
+    "discount": "\$700"
   },
-  {
-    "id": "3",
-    "name": 'Xiaomi Mi A3 - 6.088inches - 4GB RAM - 64GB ROM',
-    "image": "assets/images/mia3.png",
-    "price": "\$320",
-    "rating": 4.0,
-    "isFavorite": false,
-    "discount": "-45%"
-  },
+
   {
     "id": "4",
     "name": 'Redmi Display 1A Monitor 23.8- Inch Full HD IPS',
     "image": "assets/images/redmi_monitor.png",
     "price": "\$1050",
-    "rating": 4.0,
+    "rating": 4.5,
     "isFavorite": true,
-    "discount": "-45%"
+    "discount": "\$1170"
   },
   {
     "id": "5",
@@ -141,7 +133,7 @@ List<Map> newProductList = [
     "price": "\$1050",
     "rating": 4.0,
     "isFavorite": true,
-    "discount": "-45%"
+    "discount": "\$1700"
   },
 ];
 
