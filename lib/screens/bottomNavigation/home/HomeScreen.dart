@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:rating_bar/rating_bar.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomePageProvider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:sx_commerece/screens/main_screen/MainPageProvider.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetailsScreen.dart';
 
 int _current = 0;
@@ -30,12 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
         return Scaffold(
           body: ListView(
             children: <Widget>[
-              // search
-              Padding(
-                padding: EdgeInsets.only(top: 10, right: 15, left: 15),
-                child: searchContainer(),
-              ),
               // carousel
+              SizedBox(height: 10,),
               carouselColumn(),
               // category title
               Padding(
@@ -238,11 +234,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        heroTag = "product$index";
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ProductDetailsScreen()));
+                        // heroTag = "product$index";
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => ProductDetailsScreen()));
+
+                        Provider.of<MainPageProvider>(context, listen: false).incrementCounter();
                       },
                       child: Container(
                         width: size.width * .42,
@@ -367,27 +365,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Container searchContainer() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: shadow),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.search,
-            color: textColor,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 15),
-            child: Text("Search",
-                style: TextStyle(fontSize: 20, color: textColor)),
-          ),
-        ],
-      ),
-    );
-  }
 }

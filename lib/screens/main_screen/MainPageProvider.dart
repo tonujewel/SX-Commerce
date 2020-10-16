@@ -7,6 +7,8 @@ class MainPageProvider with ChangeNotifier{
   BuildContext context;
   TabController controller;
   int currentIndex = 0;
+  int counter = 0;
+
   List<BottomTab> tabs=[
     BottomTab(
         icon: CustomIcon.CustomIcon.home,
@@ -26,6 +28,11 @@ class MainPageProvider with ChangeNotifier{
         title: language.profile
     ),
   ];
+
+  void incrementCounter(){
+    counter++;
+    notifyListeners();
+  }
 
   @override
   void dispose() {

@@ -1,10 +1,11 @@
 import 'dart:math';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
+import 'package:badges/badges.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/components/ShoppingCartBadge.dart';
 import 'package:sx_commerece/screens/bottomNavigation/favorite/FavoriteScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/order/OrderScreen.dart';
@@ -20,7 +21,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   MainPageProvider provider;
-
   bool isOpen = false;
 
   List<Widget> tabList = [
@@ -54,77 +54,40 @@ class _MainScreenState extends State<MainScreen>
             },
             child: GestureDetector(
                 child: Scaffold(
-                   appBar: AppBar(
-                     backgroundColor: Colors.white,
-                     elevation: 0.8,
-                     automaticallyImplyLeading: false,
-                     leading: IconButton(
-                        onPressed: () {
-                         provider.goToSearchScreen();
-                  },
-                      icon: Icon(
-                       Icons.search,
-                        color: Colors.grey,
-                           ),
+                  appBar: AppBar(
+                    leading: IconButton(
+                      icon: Icon(Icons.search, color: textColor,),
+                      onPressed: () {},
+                    ),
+                    backgroundColor: Colors.white,
+                    actions: <Widget>[
+                      ShoppingCartBadge(
+                        counter: provider.counter,
+                        onPress: (){
+                          showToast("this is a msg");
+                        }
                       ),
-                 actions: <Widget>[
-                      Stack(
-                        children: [
-                         IconButton(
-                            icon: Icon(
-                            Icons.add_shopping_cart,
-                             color: Colors.grey,
-                         ),
-                           onPressed: () {
-                          // do something
-                        },
-                      ),
-                      Positioned(
-                        top: 0,
-                          right: 0,
-                          child: Container(
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: primaryColor
-                            ),
-                            child: Center(child: Text('1')),
-                          ),
-                      )
                     ],
-                  )
-                ],
 
-                //............... drawer open ...................
-                //          leading: Transform.rotate(
-                //   angle: angle,
-
-                //   child: PlatformIconButton(
-                //    icon: Icon(Icons.menu),
-                //   onPressed: () {
-                //     ZoomDrawer.of(context).toggle();
-                //   },
-                // ),
-                // ),
-                // trailingActions: actions,
-              ),
-                   bottomNavigationBar: FancyBottomNavigation(
-                     tabs: provider.tabs
+                  ),
+                 bottomNavigationBar: FancyBottomNavigation(
+                 tabs: provider.tabs
                     .map((e) => TabData(iconData: e.icon, title: e.title))
                     .toList(),
-                      onTabChangedListener: (position) =>
+                 onTabChangedListener: (position) =>
                     provider.changePage(position),
               ),
-                  body: TabBarView(
-                   controller: provider.controller,
-                   children: tabList,
-                   physics: NeverScrollableScrollPhysics(),
-              ),
-            )),
+                 body: TabBarView(
+                    controller: provider.controller,
+                    children: tabList,
+                    physics: NeverScrollableScrollPhysics(),
+                   ),
+               )
+            ),
           );
         },
       ),
     );
   }
+
 }
