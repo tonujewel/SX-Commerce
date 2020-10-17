@@ -9,7 +9,6 @@ import 'package:sx_commerece/screens/bottomNavigation/favorite/FavoriteScreen.da
 import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/order/OrderScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/profile/ProfileScreen.dart';
-
 import 'MainPageProvider.dart';
 
 class MainScreen extends StatefulWidget {
@@ -27,6 +26,7 @@ class _MainScreenState extends State<MainScreen>
     OrderScreen(),
     FavoriteScreen(),
     ProfileScreen(),
+
   ];
 
   @override
@@ -36,8 +36,7 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
-    final rtl = ZoomDrawer.isRTL();
-    final angle = ZoomDrawer.isRTL() ? 180 * pi / 180 : 0.0;
+
     return ChangeNotifierProvider<MainPageProvider>(
       create: (_) => MainPageProvider()..setVIew(context, this),
       child: Consumer<MainPageProvider>(
@@ -63,19 +62,18 @@ class _MainScreenState extends State<MainScreen>
                       ShoppingCartBadge(
                         counter: provider.counter,
                         onPress: (){
-                          showToast("this is a msg");
+                          showToast("This is a msg");
                         }
                       ),
                     ],
-
                   ),
                  bottomNavigationBar: FancyBottomNavigation(
                  tabs: provider.tabs
                     .map((e) => TabData(iconData: e.icon, title: e.title))
                     .toList(),
-                 onTabChangedListener: (position) =>
+                     onTabChangedListener: (position) =>
                     provider.changePage(position),
-              ),
+                  ),
                  body: TabBarView(
                     controller: provider.controller,
                     children: tabList,
@@ -90,3 +88,6 @@ class _MainScreenState extends State<MainScreen>
   }
 
 }
+
+
+

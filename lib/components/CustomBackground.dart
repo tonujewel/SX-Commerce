@@ -13,7 +13,7 @@ class CustomBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      color: Colors.white,
+      color: bgColor,
       child: Stack(
         children: [
           Positioned(

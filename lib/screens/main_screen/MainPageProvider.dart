@@ -25,7 +25,7 @@ class MainPageProvider with ChangeNotifier{
 
     BottomTab(
         icon: Icons.person,
-        title: language.profile
+        title: language.account
     ),
   ];
 

@@ -34,12 +34,13 @@ class Language {
 
   //............... ...............//
 
-
+  //...............  bottom tab...............//
   String appBarTitle = "SoftX Commerce";
   String home = "Home";
   String search = "Search";
   String order = "Order";
   String profile = "Profile";
+  String account = "Account";
 
 
 

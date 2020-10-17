@@ -30,6 +30,22 @@ class _ProductDetailsState extends State<ProductDetails> {
               price_rating(),
               name(),
               divider(),
+
+              TabBar(
+                tabs: [
+                  new Tab(icon: new Icon(Icons.directions_car)),
+                  new Tab(icon: new Icon(Icons.directions_transit)),
+                  new Tab(icon: new Icon(Icons.directions_bike)),
+                ],
+              ),
+
+
+
+              
+
+
+
+
             ],
           ),
         );

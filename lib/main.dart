@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Poppins'),
-      //    home: SplashScreen(),
-          home: ProductDetails(),
+          home: SplashScreen(),
+      //   home: ProductDetails(),
     );
   }
 }
