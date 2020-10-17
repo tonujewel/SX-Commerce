@@ -28,10 +28,9 @@ dependencies:
   flutter_spinkit: "^4.1.2"
   #Image picker
   image_picker: ^0.6.7+11
+
   # Carousel slider
-  carousel_pro: ^1.0.0 #............ old ..............
-  # Carousel slider
-  carousel_slider: ^2.3.1  #............ New ..............
+  carousel_slider: ^2.3.1
   # fancy bottom navigation
   fancy_bottom_navigation: ^0.3.2
   # Toast

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Language/Language.dart';
+import 'package:sx_commerece/screens/product_details/ProductDetails.dart';
 import 'package:sx_commerece/screens/search_screen.dart';
 import 'package:sx_commerece/screens/splash/SplashScreen.dart';
 
@@ -31,8 +32,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Poppins'),
-          home: SplashScreen(),
-      //    home: ProductDetailsScreen(),
+      //    home: SplashScreen(),
+          home: ProductDetails(),
     );
   }
 }

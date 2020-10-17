@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/main.dart';
-import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/login/Login.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoardContent.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';

@@ -11,6 +11,13 @@ List<Map<String, String>> onBoardData = [
   {"text": language.sliderTextThree, "image": "assets/images/three.png"},
 ];
 
+// On board slider
+List<Map> productDetails= [
+  {"image": "assets/images/t_shirt.png"},
+  {"image": "assets/images/shoe_colored.png"},
+  {"image": "assets/images/redmi_monitor.png"},
+];
+
 // Theme color
 const primaryColor = Color(0xFF2291FF);
 const textColor = Color(0xFF0E3746);
@@ -19,9 +26,11 @@ const white = Color(0xFFFFFFFF);
 
 // onBoard
 const boardTextColor = Color(0xFF2291FF);
-
 const titleTextColor = Color(0xFF2196F3);
 const drawerSelected = Color(0xFF64B5F6);
+
+// product details
+const imageBg = Color(0xFFEBEDEF);
 
 
 // shadow
@@ -86,6 +95,14 @@ List<Map> categoryList = [
   {"id": "5", "name": 'Shoes', "image": "assets/images/shoe.png"},
   {"id": "5", "name": 'Watches', "image": "assets/images/watch.png"},
 ];
+List<Map> imageList =[
+  {"image":"assets/images/t_shirt.png"},
+  {"image":"assets/images/t_shirt.png"},
+  {"image":"assets/images/t_shirt.png"},
+  {"image":"assets/images/t_shirt.png"},
+  {"image":"assets/images/t_shirt.png"},
+  {"image":"assets/images/t_shirt.png"},
+  ];
 
 //................... New product list  ................
 List<Map> newProductList = [
