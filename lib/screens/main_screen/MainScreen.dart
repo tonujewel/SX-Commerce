@@ -52,21 +52,6 @@ class _MainScreenState extends State<MainScreen>
             },
             child: GestureDetector(
                 child: Scaffold(
-                  appBar: AppBar(
-                    leading: IconButton(
-                      icon: Icon(Icons.search, color: textColor,),
-                      onPressed: () {},
-                    ),
-                    backgroundColor: Colors.white,
-                    actions: <Widget>[
-                      ShoppingCartBadge(
-                        counter: provider.counter,
-                        onPress: (){
-                          showToast("This is a msg");
-                        }
-                      ),
-                    ],
-                  ),
                  bottomNavigationBar: FancyBottomNavigation(
                  tabs: provider.tabs
                     .map((e) => TabData(iconData: e.icon, title: e.title))

@@ -25,14 +25,11 @@ class MainPageProvider with ChangeNotifier{
 
     BottomTab(
         icon: Icons.person,
-        title: language.account
+        title: language.profile
     ),
   ];
 
-  void incrementCounter(){
-    counter++;
-    notifyListeners();
-  }
+
 
   @override
   void dispose() {

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sx_commerece/components/TextFieldWithShadow.dart';
-import 'package:sx_commerece/components/RoundedButton.dart';
-import 'dart:io';
-import 'package:image_picker/image_picker.dart';
-import 'package:sx_commerece/main.dart';
-
-
+import 'package:flutter/painting.dart';
+import 'package:provider/provider.dart';
+import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/components/CustomBackground.dart';
+import 'package:sx_commerece/screens/bottomNavigation/profile/ProfileProvider.dart';
+import 'package:sx_commerece/CustomIcon/custom_icon_icons.dart' as CustomIcon;
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -13,112 +12,164 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-
-  File _image;
-  final picker = ImagePicker();
-  Future getImage() async{
-    final pickFile = await picker.getImage(source: ImageSource.camera);
-    setState(() {
-      if(pickFile!=null){
-        _image = File(pickFile.path);
-      }else{
-        
-      }
-    });
-  }
+  ProfileProvider profileProvider;
+  double paading = 12;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                height: 450,
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  children: [
-                    SizedBox(height: 70),
-                    TextFieldWithShadow(hintText: language.name, controller: nameController,),
-                    SizedBox(height: 15),
-                    TextFieldWithShadow(hintText: language.email,controller: emailController,),
-                    SizedBox(height: 15),
-                    RoundedButton(
-                      text: language.updateProfile,
-                      press: () {},
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          CustomPaint(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-            ),
-            painter: HeaderCurvedContainer(),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 60,
+    Size size = MediaQuery.of(context).size;
+    return ChangeNotifierProvider<ProfileProvider>(
+      create: (_) => ProfileProvider()..setViwe(context),
+      child: Consumer<ProfileProvider>(
+        builder: (context, model, child) {
+          profileProvider = model;
+          return Scaffold(
+            body: CustomBackground(
+              height: 0.4,
+              child: Column(
+                children: [
+                  SizedBox(height: size.height * 0.08),
+                  topTitle(),
+                  accountInfo(),
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: Column(
+                        children: [
+                          SingleItemButton('Shipping Address',
+                              CustomIcon.CustomIcon.map_marker,
+                              press: () {}
+                              ),
+                          SingleItemButton('Payment Method',
+                              CustomIcon.CustomIcon.credit_card,
+                              press: () {}
+                              ),
+                          SingleItemButton('Order History',
+                              CustomIcon.CustomIcon.history,
+                              press: () {}
+                              ),
+                          SingleItemButton('Delivery Status',
+                              CustomIcon.CustomIcon.truck,
+                              press: () {}
+                              ),
+                          SingleItemButton('Language',
+                              CustomIcon.CustomIcon.language,
+                              press: () {}
+                              ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                width: MediaQuery.of(context).size.width / 2,
-                height: MediaQuery.of(context).size.width / 2,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 5),
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/images/boy.png'))),
-              )
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 270, left: 184),
-            child: CircleAvatar(
-              backgroundColor: Colors.black54,
-              child: IconButton(
-                icon: Icon(
-                  Icons.edit,
-                  color: Colors.white,
-                ),
-                onPressed: () {
+            ),
+          );
+        },
+      ),
+    );
+  }
 
-                },
-              ),
+  GestureDetector SingleItemButton(String text, IconData icon,
+      {Function press}) {
+    return GestureDetector(
+      onTap: press,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Icon(
+                  icon,
+                  color: primaryColor,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  text,
+                  style: TextStyle(fontSize: 15, color: textColor),
+                )
+              ],
             ),
-          )
+            Padding(
+              padding: const EdgeInsets.only(left: 35, top: 10, right: 20),
+              child: Divider(
+                thickness: 1,
+                color: primaryColor,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding accountInfo() {
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 35,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('assets/images/boy.png'),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Jewel Rana",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  ),
+                  Text(
+                    "tonujewel@gmail.com",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  )
+                ],
+              ),
+            ],
+          ),
+          Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: editButtonBg,
+              ),
+              child: IconButton(
+                  icon: Icon(
+                    Icons.edit,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {}))
         ],
       ),
     );
   }
-}
 
-class HeaderCurvedContainer extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = Color(0xFF2196F3);
-    Path path = Path()
-      ..relativeLineTo(0, 150)
-      ..quadraticBezierTo(size.width / 2, 225, size.width, 150)
-      ..relativeLineTo(0, -150)
-      ..close();
-    canvas.drawPath(path, paint);
+  Padding topTitle() {
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        children: [
+          Text(
+            "Account",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26),
+          ),
+        ],
+      ),
+    );
   }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

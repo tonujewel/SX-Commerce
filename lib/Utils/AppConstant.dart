@@ -32,6 +32,9 @@ const drawerSelected = Color(0xFF64B5F6);
 // product details
 const imageBg = Color(0xFFEBEDEF);
 
+// profile
+const editButtonBg = Color(0xFF4297ED);
+
 
 // shadow
 List<BoxShadow> shadow = [

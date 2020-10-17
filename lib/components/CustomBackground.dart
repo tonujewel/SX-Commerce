@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 
 class CustomBackground extends StatelessWidget {
-  final Widget child;
+   Widget child;
+   double height;
 
-  const CustomBackground({Key key, this.child})
+   CustomBackground({Key key, this.child, this.height})
       : super(
     key: key,
   );
@@ -20,7 +21,7 @@ class CustomBackground extends StatelessWidget {
               top: 0,
               child: Container(
                 width: size.width,
-                height: size.height * 0.5,
+                height:height==null?size.height * 0.5:size.height* height,
                 decoration: BoxDecoration(
                     color: primaryColor,
                 ),

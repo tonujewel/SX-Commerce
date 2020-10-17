@@ -19,6 +19,66 @@
       "search": [
         "home"
       ]
+    },
+    {
+      "uid": "6ad074bda46c1f4c7cfe9c02199cedf0",
+      "css": "map-marker",
+      "code": 59443,
+      "src": "linearicons"
+    },
+    {
+      "uid": "c5cd6ea1981cecdd85c42d9d209bc3b8",
+      "css": "credit-card",
+      "code": 59393,
+      "src": "entypo"
+    },
+    {
+      "uid": "ba3310d4a6d1084e024afe9a1e858e49",
+      "css": "history",
+      "code": 59491,
+      "src": "linearicons"
+    },
+    {
+      "uid": "f5053e43ef8be31afb905801449ae26d",
+      "css": "truck",
+      "code": 59394,
+      "src": "linecons"
+    },
+    {
+      "uid": "4fc9b8c122d1b5ca3df42a104a655e8b",
+      "css": "language",
+      "code": 61867,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "b964cb13964ea8fcef0754bcc1c6fbad",
+      "css": "favorite_border",
+      "code": 59395,
+      "src": "material"
+    },
+    {
+      "uid": "e9f1a45d968111eab72aacfdce5a3d9f",
+      "css": "lock",
+      "code": 62233,
+      "src": "octicons"
+    },
+    {
+      "uid": "9c9f0a69d4abbeb5ff9d779df7679356",
+      "css": "question-circle-o",
+      "code": 62108,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a42812e03059244a58cd9f15efd1a394",
+      "css": "info_outline",
+      "code": 59396,
+      "src": "material"
+    },
+    {
+      "uid": "5a79eed97fae4b71456036d4c1692013",
+      "css": "star_border",
+      "code": 59397,
+      "src": "material"
     }
   ]
 }

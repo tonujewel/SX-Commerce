@@ -40,15 +40,8 @@ class Language {
   String search = "Search";
   String order = "Order";
   String profile = "Profile";
-  String account = "Account";
-
-
-
-
 
   String name = "Name";
-
-
   String updateProfile = "Update Profile";
   String letUsHelp = "Let us help you";
   String enterOTP = "Enter OTP";

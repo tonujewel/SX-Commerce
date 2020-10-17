@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/components/appbar/AppBarProvider.dart';
+import 'package:sx_commerece/components/appbar/CustomAppbar.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomePageProvider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sx_commerece/screens/main_screen/MainPageProvider.dart';
@@ -30,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return Scaffold(
           body: ListView(
             children: <Widget>[
+              CustomAppbar(),
               // carousel
               SizedBox(height: 10,),
               carouselColumn(),
@@ -240,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         //     MaterialPageRoute(
                         //         builder: (context) => ProductDetailsScreen()));
 
-                        Provider.of<MainPageProvider>(context, listen: false).incrementCounter();
+                        Provider.of<AppbarProvider>(context, listen: false).incrementCounter();
                       },
                       child: Container(
                         width: size.width * .42,
