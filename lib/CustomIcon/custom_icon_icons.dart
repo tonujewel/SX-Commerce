@@ -24,6 +24,10 @@
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 ///         Homepage:  https://design.google.com/icons/
+/// * Zocial, Copyright (C) 2012 by Sam Collins
+///         Author:    Sam Collins
+///         License:   MIT (http://opensource.org/licenses/mit-license.php)
+///         Homepage:  http://zocial.smcllns.com/
 /// * Linearicons Free, Copyright (C) Linearicons.com
 ///         Author:    Perxis
 ///         License:   CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -51,6 +55,7 @@ class CustomIcon {
   static const IconData favorite_border = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData info_outline = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData star_border = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cart = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData map_marker = IconData(0xe833, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData history = IconData(0xe863, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData language = IconData(0xf1ab, fontFamily: _kFontFam, fontPackage: _kFontPkg);

@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Poppins'),
           home: SplashScreen(),
-      //   home: ProductDetails(),
+      //   home: SplashScreen(),
     );
   }
 }

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:rating_bar/rating_bar.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/ShoppingCartBadge.dart';
-import 'package:sx_commerece/screens/onBoard/OnBoardContent.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetailsProvider.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -11,9 +10,18 @@ class ProductDetails extends StatefulWidget {
   _ProductDetailsState createState() => _ProductDetailsState();
 }
 
-class _ProductDetailsState extends State<ProductDetails> {
+class _ProductDetailsState extends State<ProductDetails>
+    with SingleTickerProviderStateMixin {
   int currentPage = 0;
   ProductDetailsProvider productDetailsProvider;
+
+  TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = new TabController(length: 3, vsync: this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,32 +32,203 @@ class _ProductDetailsState extends State<ProductDetails> {
         return Scaffold(
           backgroundColor: Colors.white,
           appBar: buildAppBar(),
-          body: Column(
+          body: Stack(
             children: [
-              topImageSlider(size),
-              price_rating(),
-              name(),
-              divider(),
+              Column(
+                children: [
+                  topImageSlider(size),
+                  price_rating(),
+                  name(),
+                  divider(),
+                  TabBar(
+                    unselectedLabelColor: Colors.black,
+                    indicatorColor: Colors.transparent,
+                    labelColor: primaryColor,
+                    tabs: [
+                      Tab(child: tabItems("Product")),
+                      Tab(child: tabItems("Details")),
+                      Tab(child: tabItems("Reviews"))
+                    ],
+                    controller: _tabController,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: ListView(
+                            children: [
+                              Text(
+                                'Select Color',
+                                style: TextStyle(
+                                color: textColor,
+                                fontWeight: FontWeight.bold),
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    height:size.height*0.1,
+                                    width: size.width*0.1,
+                                    decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle
+                                    ),
+                                  ),
+                                  SizedBox(width: 10,),
+                                  Container(
+                                    height:size.height*0.1,
+                                    width: size.width*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        shape: BoxShape.circle
+                                    ),
+                                  ),
+                                  SizedBox(width: 10,),
+                                  Container(
+                                    height:size.height*0.1,
+                                    width: size.width*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.green,
+                                        shape: BoxShape.circle
+                                    ),
+                                  ),
+                                ],
+                              ),
 
-              TabBar(
-                tabs: [
-                  new Tab(icon: new Icon(Icons.directions_car)),
-                  new Tab(icon: new Icon(Icons.directions_transit)),
-                  new Tab(icon: new Icon(Icons.directions_bike)),
+                              Text(
+                                'Select Size',
+                                style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    height:size.height*0.1,
+                                    width: size.width*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        shape: BoxShape.circle
+                                    ),
+                                    child:Center(
+                                      child: Text('5.5',style: TextStyle(color: Colors.white),)
+                                    ) ,
+                                  ),
+                                  SizedBox(width: 10,),
+                                  Container(
+                                    height:size.height*0.1,
+                                    width: size.width*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        shape: BoxShape.circle
+                                    ),
+                                    child:Center(
+                                        child: Text('6.5',style: TextStyle(color: Colors.white),)
+                                    ) ,
+                                  ),
+                                  SizedBox(width: 10,),
+                                  Container(
+                                    height:size.height*0.1,
+                                    width: size.width*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        shape: BoxShape.circle
+                                    ),
+                                    child:Center(
+                                        child: Text('7.5',style: TextStyle(color: Colors.white),)
+                                    ) ,
+                                  ),
+                                  SizedBox(width: 10,),
+                                  Container(
+                                    height:size.height*0.1,
+                                    width: size.width*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        shape: BoxShape.circle
+                                    ),
+                                    child:Center(
+                                        child: Text('8.5',style: TextStyle(color: Colors.white),)
+                                    ) ,
+                                  ),
+                                  SizedBox(width: 10,),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(child: Center(child: Text('Details'))),
+                        Container(child: Center(child: Text('Reviews'))),
+                      ],
+                      controller: _tabController,
+                    ),
+                  ),
                 ],
               ),
-
-
-
-              
-
-
-
-
+              bottomContainer(size)
             ],
           ),
         );
       }),
+    );
+  }
+
+  Positioned bottomContainer(Size size) {
+    return Positioned(
+        bottom: 0,
+        left: 0,
+        right: 0,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: size.width * .45,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.blueAccent),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Center(child: Text("Add To Cart")),
+                ),
+              ),
+              Container(
+                width: size.width * .45,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: FlatButton(
+                    color: primaryColor,
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Center(
+                          child: Text(
+                        "Buy Now",
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ));
+  }
+
+  Container tabItems(String name) {
+    return Container(
+      decoration: BoxDecoration(
+          color: bgColor,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: primaryShadow),
+      child: Padding(
+        padding:
+            const EdgeInsets.only(left: 18.0, right: 18, top: 5, bottom: 5),
+        child: Text('$name'),
+      ),
     );
   }
 
@@ -69,15 +248,10 @@ class _ProductDetailsState extends State<ProductDetails> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            "Black T-shirt ",
-            style: TextStyle(
-                fontSize: 16, color: textColor, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "In Stock",
-            style: TextStyle(color: primaryColor),
-          ),
+          Text("Black T-shirt ",
+              style: TextStyle(
+                  fontSize: 16, color: textColor, fontWeight: FontWeight.bold)),
+          Text("In Stock", style: TextStyle(color: primaryColor)),
         ],
       ),
     );
@@ -121,7 +295,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       child: Stack(
         children: [
           Container(
-            height: size.height * .35,
+            height: size.height * .25,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10), color: imageBg),
             child: PageView.builder(
@@ -137,7 +311,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     padding: const EdgeInsets.all(8.0),
                     child: Image.asset(
                       '${productDetails[index]['image']}',
-                      height: size.height * .3,
+                      height: size.height * .2,
                       width: size.width,
                     ),
                   )
@@ -188,6 +362,10 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   AppBar buildAppBar() {
     return AppBar(
+      title: Text(
+        'Cart',
+        style: TextStyle(color: textColor),
+      ),
       leading: IconButton(
         icon: Icon(
           Icons.arrow_back,

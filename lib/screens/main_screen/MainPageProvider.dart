@@ -15,8 +15,8 @@ class MainPageProvider with ChangeNotifier{
         title: language.home
     ),
     BottomTab(
-        icon: Icons.shopping_basket,
-        title: language.order
+        icon: CustomIcon.CustomIcon.cart,
+        title: language.cart
     ),
     BottomTab(
         icon: Icons.favorite,

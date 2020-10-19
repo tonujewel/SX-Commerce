@@ -9,6 +9,7 @@ import 'package:sx_commerece/screens/bottomNavigation/favorite/FavoriteScreen.da
 import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/order/OrderScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/profile/ProfileScreen.dart';
+import 'package:sx_commerece/screens/cart/CartScreen.dart';
 import 'MainPageProvider.dart';
 
 class MainScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _MainScreenState extends State<MainScreen>
 
   List<Widget> tabList = [
     HomeScreen(),
-    OrderScreen(),
+    CartScreen(),
     FavoriteScreen(),
     ProfileScreen(),
 

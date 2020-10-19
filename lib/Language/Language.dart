@@ -38,7 +38,7 @@ class Language {
   String appBarTitle = "SoftX Commerce";
   String home = "Home";
   String search = "Search";
-  String order = "Order";
+  String cart = "Cart";
   String profile = "Profile";
 
   String name = "Name";

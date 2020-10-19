@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
-                        boxShadow: shadow),
+                        boxShadow: primaryShadow),
                     child: Padding(
                         padding: const EdgeInsets.only(left: 15, right: 15),
                         child: Column(

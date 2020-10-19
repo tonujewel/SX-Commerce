@@ -8,6 +8,7 @@ import 'package:sx_commerece/components/appbar/CustomAppbar.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomePageProvider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sx_commerece/screens/main_screen/MainPageProvider.dart';
+import 'package:sx_commerece/screens/product_details/ProductDetails.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetailsScreen.dart';
 
 int _current = 0;
@@ -30,60 +31,67 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Consumer<HomePageProvider>(builder: (context, model, child) {
         homePageProvider = model;
         return Scaffold(
-          body: ListView(
+          body: Column(
             children: <Widget>[
               CustomAppbar(),
               // carousel
-              SizedBox(height: 10,),
-              carouselColumn(),
-              // category title
-              Padding(
-                padding: EdgeInsets.only(right: 15, left: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Expanded(
+                child: ListView(
                   children: [
-                    Text(
-                      "Categories",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Dimension.Text_Size_Big,
-                          color: textColor),
+                    carouselColumn(),
+                    Padding(
+                      padding: EdgeInsets.only(right: 15, left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Categories",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: Dimension.Text_Size_Big,
+                                color: textColor),
+                          ),
+                          Text(
+                            "See all",
+                            style: TextStyle(
+                                fontSize: Dimension.Text_Size_Big, color: textColor),
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      "See all",
-                      style: TextStyle(
-                          fontSize: Dimension.Text_Size_Big, color: textColor),
+                    // category list
+                    Padding(
+                      padding: EdgeInsets.only( right: 15, left: 15),
+                      child: categoryContainer(),
                     ),
+                    // new title
+                    Padding(
+                      padding: EdgeInsets.only( right: 15, left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("New Product",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimension.Text_Size_Big,
+                                  color: textColor)),
+                          Text(
+                            "See all",
+                            style: TextStyle(
+                                fontSize: Dimension.Text_Size_Big, color: textColor),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // category title
+
+                    //new items
+                    newProductContainer(),
                   ],
                 ),
               ),
-              // category list
-              Padding(
-                padding: EdgeInsets.only( right: 15, left: 15),
-                child: categoryContainer(),
-              ),
-              // new title
-              Padding(
-                padding: EdgeInsets.only( right: 15, left: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("New Product",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Dimension.Text_Size_Big,
-                            color: textColor)),
-                    Text(
-                      "See all",
-                      style: TextStyle(
-                          fontSize: Dimension.Text_Size_Big, color: textColor),
-                    ),
-                  ],
-                ),
-              ),
-              //new items
-              newProductContainer(),
-              SizedBox(height: size.height * marginTop * 8),
+
             ],
           ),
         );
@@ -237,13 +245,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        // heroTag = "product$index";
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ProductDetailsScreen()));
+                        heroTag = "product$index";
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProductDetails()));
 
-                        Provider.of<AppbarProvider>(context, listen: false).incrementCounter();
                       },
                       child: Container(
                         width: size.width * .42,
@@ -358,7 +365,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   "${newProductList[index]["rating"]}",
                   maxLines: 1,
-                  style: TextStyle(color: white, fontSize: 14),
+                  style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
               ],
             ),

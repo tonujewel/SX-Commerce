@@ -23,7 +23,7 @@ class CustomAppbar extends StatelessWidget {
             ShoppingCartBadge(
                 counter: appbarProvider.counter,
                 onPress: (){
-                  appbarProvider.goToCartPage();
+                  appbarProvider.goNotificationPage();
                 }
             ),
           ],

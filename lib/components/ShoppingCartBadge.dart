@@ -20,7 +20,7 @@ class ShoppingCartBadge extends StatelessWidget {
         counter.toString(),
         style: TextStyle(color: Colors.white),
       ),
-      child: IconButton(icon: Icon(Icons.shopping_cart,color: textColor,),
+      child: IconButton(icon: Icon(Icons.notifications,color: textColor,),
           onPressed: onPress),
     );
   }

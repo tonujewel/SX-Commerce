@@ -79,6 +79,12 @@
       "css": "star_border",
       "code": 59397,
       "src": "material"
+    },
+    {
+      "uid": "c1f0120c5cb9af80a2f56d7d7fb2f489",
+      "css": "cart",
+      "code": 59398,
+      "src": "zocial"
     }
   ]
 }

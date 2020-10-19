@@ -12,7 +12,7 @@ List<Map<String, String>> onBoardData = [
 ];
 
 // On board slider
-List<Map> productDetails= [
+List<Map> productDetails = [
   {"image": "assets/images/t_shirt.png"},
   {"image": "assets/images/shoe_colored.png"},
   {"image": "assets/images/redmi_monitor.png"},
@@ -22,7 +22,6 @@ List<Map> productDetails= [
 const primaryColor = Color(0xFF2291FF);
 const textColor = Color(0xFF0E3746);
 const bgColor = Color(0xFFF2F9FF);
-const white = Color(0xFFFFFFFF);
 
 // onBoard
 const boardTextColor = Color(0xFF2291FF);
@@ -35,15 +34,23 @@ const imageBg = Color(0xFFEBEDEF);
 // profile
 const editButtonBg = Color(0xFF4297ED);
 
-
 // shadow
 List<BoxShadow> shadow = [
-  BoxShadow(color: Colors.black26, blurRadius: 8.0, offset: Offset(0.0, 5.0))
+  BoxShadow(
+    color: Color(0xFF90CAF9),
+    blurRadius: 5.0,
+    spreadRadius: 2.0,
+  )
 ];
 
 List<BoxShadow> primaryShadow = [
-  BoxShadow(color: Colors.blue[100], blurRadius: 30, offset: Offset(0, 10))
+  BoxShadow(
+    color: Color(0xFF90CAF9),
+    blurRadius: 5.0,
+    spreadRadius: 2.0,
+  )
 ];
+
 // carousel home page
 List<Map> carouselCategories = [
   {"image": "assets/images/one.png"},
@@ -98,14 +105,14 @@ List<Map> categoryList = [
   {"id": "5", "name": 'Shoes', "image": "assets/images/shoe.png"},
   {"id": "5", "name": 'Watches', "image": "assets/images/watch.png"},
 ];
-List<Map> imageList =[
-  {"image":"assets/images/t_shirt.png"},
-  {"image":"assets/images/t_shirt.png"},
-  {"image":"assets/images/t_shirt.png"},
-  {"image":"assets/images/t_shirt.png"},
-  {"image":"assets/images/t_shirt.png"},
-  {"image":"assets/images/t_shirt.png"},
-  ];
+List<Map> imageList = [
+  {"image": "assets/images/t_shirt.png"},
+  {"image": "assets/images/t_shirt.png"},
+  {"image": "assets/images/t_shirt.png"},
+  {"image": "assets/images/t_shirt.png"},
+  {"image": "assets/images/t_shirt.png"},
+  {"image": "assets/images/t_shirt.png"},
+];
 
 //................... New product list  ................
 List<Map> newProductList = [
@@ -136,7 +143,54 @@ List<Map> newProductList = [
     "isFavorite": true,
     "discount": "\$700"
   },
+  {
+    "id": "4",
+    "name": 'Redmi Display 1A Monitor 23.8- Inch Full HD IPS',
+    "image": "assets/images/redmi_monitor.png",
+    "price": "\$1050",
+    "rating": 4.5,
+    "isFavorite": true,
+    "discount": "\$1170"
+  },
+  {
+    "id": "5",
+    "name": 'Mackbook Pro 2020',
+    "image": "assets/images/macbook_pro.png",
+    "price": "\$1050",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "\$1700"
+  },
+];
 
+List<Map> cartList = [
+  {
+    "id": "0",
+    "name": 'Black T-shirt',
+    "image": "assets/images/t_shirt.png",
+    "price": "\$500",
+    "rating": 5.0,
+    "isFavorite": true,
+    "discount": "\$700"
+  },
+  {
+    "id": "1",
+    "name": 'iMac 2020 ',
+    "image": "assets/images/imac.png",
+    "price": "\$2700",
+    "rating": 3.0,
+    "isFavorite": false,
+    "discount": "\$3000"
+  },
+  {
+    "id": "2",
+    "name": 'Adidas shoe - blue ',
+    "image": "assets/images/shoe_colored.png",
+    "price": "\$430",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "\$700"
+  },
   {
     "id": "4",
     "name": 'Redmi Display 1A Monitor 23.8- Inch Full HD IPS',

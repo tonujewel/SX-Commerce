@@ -13,7 +13,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   ProfileProvider profileProvider;
-  double paading = 12;
 
   @override
   Widget build(BuildContext context) {
@@ -26,48 +25,78 @@ class _ProfileScreenState extends State<ProfileScreen> {
           return Scaffold(
             body: CustomBackground(
               height: 0.4,
-              child: Column(
-                children: [
-                  SizedBox(height: size.height * 0.08),
-                  topTitle(),
-                  accountInfo(),
-                  Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white),
-                      child: Column(
-                        children: [
-                          SingleItemButton('Shipping Address',
-                              CustomIcon.CustomIcon.map_marker,
-                              press: () {}
-                              ),
-                          SingleItemButton('Payment Method',
-                              CustomIcon.CustomIcon.credit_card,
-                              press: () {}
-                              ),
-                          SingleItemButton('Order History',
-                              CustomIcon.CustomIcon.history,
-                              press: () {}
-                              ),
-                          SingleItemButton('Delivery Status',
-                              CustomIcon.CustomIcon.truck,
-                              press: () {}
-                              ),
-                          SingleItemButton('Language',
-                              CustomIcon.CustomIcon.language,
-                              press: () {}
-                              ),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: size.height * 0.08),
+                    topTitle(),
+                    accountInfo(),
+                    firstContainer(),
+                    secondContainer()
+                  ],
+                ),
               ),
             ),
           );
         },
+      ),
+    );
+  }
+
+  Padding secondContainer() {
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Container(
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+            boxShadow: primaryShadow),
+        child: Column(
+          children: [
+            SingleItemButton('Favorite', CustomIcon.CustomIcon.favorite_border,
+                press: () {}),
+            SingleItemButton('Privacy Policy', CustomIcon.CustomIcon.lock,
+                press: () {}),
+            SingleItemButton('Frequently Asked Questions',
+                CustomIcon.CustomIcon.question_circle_o,
+                press: () {}),
+            SingleItemButton(
+                'Legal Information', CustomIcon.CustomIcon.info_outline,
+                press: () {}),
+            SingleItemButton('Rate Our App', CustomIcon.CustomIcon.star_border,
+                press: () {}),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Padding firstContainer() {
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Container(
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+            boxShadow: primaryShadow),
+        child: Column(
+          children: [
+            SingleItemButton(
+                'Shipping Address', CustomIcon.CustomIcon.map_marker,
+                press: () {}),
+            SingleItemButton(
+                'Payment Method', CustomIcon.CustomIcon.credit_card,
+                press: () {}),
+            SingleItemButton('Order History', CustomIcon.CustomIcon.history,
+                press: () {}),
+            SingleItemButton('Delivery Status', CustomIcon.CustomIcon.truck,
+                press: () {}),
+            SingleItemButton('Language', CustomIcon.CustomIcon.language,
+                press: () {}),
+          ],
+        ),
       ),
     );
   }
@@ -77,7 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return GestureDetector(
       onTap: press,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(5),
         child: Column(
           children: [
             Row(
@@ -91,12 +120,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontSize: 15, color: textColor),
+                  style: TextStyle(color: textColor),
                 )
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 35, top: 10, right: 20),
+              padding: const EdgeInsets.only(left: 35, top: 5, right: 20),
               child: Divider(
                 thickness: 1,
                 color: primaryColor,
@@ -144,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
+                borderRadius: BorderRadius.circular(40),
                 color: editButtonBg,
               ),
               child: IconButton(
@@ -152,7 +181,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Icons.edit,
                     color: Colors.white,
                   ),
-                  onPressed: () {}))
+                  onPressed: () {
+                    showToast('edit icon clicked');
+                  }))
         ],
       ),
     );
@@ -162,12 +193,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             "Account",
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26),
           ),
+          IconButton(
+              icon: Icon(
+                Icons.logout,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                showToast('Logout clicked');
+              })
         ],
       ),
     );

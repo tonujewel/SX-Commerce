@@ -11,7 +11,7 @@ class TextFieldWithShadow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 4,
-      shadowColor: Colors.grey,
+      shadowColor: Colors.blue,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.only(left: 12),
