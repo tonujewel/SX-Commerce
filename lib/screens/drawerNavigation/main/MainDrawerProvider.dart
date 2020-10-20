@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:provider/provider.dart';
 
 class MainDrawerProvider with ChangeNotifier {
   BuildContext context;

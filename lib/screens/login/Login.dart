@@ -70,13 +70,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               backgroundColor: primaryColor,
                               child: Container(
                                   height: 30,
-                                  width: mainWidth - 20 - (Dimension.Padding * 2),
+                                  width: mainWidth - 20 - (Dimension.padding * 2),
                                   alignment: Alignment.center,
                                   child: Text(
                                     language.login,
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: Dimension.Text_Size_Big,
+                                        fontSize: Dimension.textSizeBig,
                                         fontWeight: Dimension.boldText),
                                   )),
                             ),

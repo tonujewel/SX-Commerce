@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/cart/CartScreen.dart';
 import 'package:sx_commerece/screens/drawerNavigation/notification/NotificationScreen.dart';
 
@@ -11,7 +12,8 @@ class AppbarProvider with ChangeNotifier {
   int counter = 0;
 
   void incrementCounter() {
-    counter++;
+    showToast('msg');
+    counter = 5;
     notifyListeners();
   }
 

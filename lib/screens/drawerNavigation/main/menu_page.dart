@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -137,6 +136,7 @@ class _MenuScreenState extends State<MenuScreen> {
   }
 }
 
+// ignore: must_be_immutable
 class MenuItemWidget extends StatelessWidget {
   final MenuItem item;
   final Widget widthBox;

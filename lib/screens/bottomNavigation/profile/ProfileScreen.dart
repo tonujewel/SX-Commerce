@@ -52,11 +52,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
         child: Column(
           children: [
-            SingleItemButton('Favorite', CustomIcon.CustomIcon.favorite_border, press: () {}),
-            SingleItemButton('Privacy Policy', CustomIcon.CustomIcon.lock, press: () {}),
-            SingleItemButton('Frequently Asked Questions', CustomIcon.CustomIcon.question_circle_o, press: () {}),
-            SingleItemButton('Legal Information', CustomIcon.CustomIcon.info_outline, press: () {}),
-            SingleItemButton('Rate Our App', CustomIcon.CustomIcon.star_border, press: () {}),
+            singleItemButton('Favorite', CustomIcon.CustomIcon.favorite_border, press: () {}),
+            singleItemButton('Privacy Policy', CustomIcon.CustomIcon.lock, press: () {}),
+            singleItemButton('Frequently Asked Questions', CustomIcon.CustomIcon.question_circle_o, press: () {}),
+            singleItemButton('Legal Information', CustomIcon.CustomIcon.info_outline, press: () {}),
+            singleItemButton('Rate Our App', CustomIcon.CustomIcon.star_border, press: () {}),
           ],
         ),
       ),
@@ -72,18 +72,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
             BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
         child: Column(
           children: [
-            SingleItemButton('Shipping Address', CustomIcon.CustomIcon.map_marker, press: () {}),
-            SingleItemButton('Payment Method', CustomIcon.CustomIcon.credit_card, press: () {}),
-            SingleItemButton('Order History', CustomIcon.CustomIcon.history, press: () {}),
-            SingleItemButton('Delivery Status', CustomIcon.CustomIcon.truck, press: () {}),
-            SingleItemButton('Language', CustomIcon.CustomIcon.language, press: () {}),
+            singleItemButton('Shipping Address', CustomIcon.CustomIcon.map_marker, press: () {}),
+            singleItemButton('Payment Method', CustomIcon.CustomIcon.credit_card, press: () {}),
+            singleItemButton('Order History', CustomIcon.CustomIcon.history, press: () {}),
+            singleItemButton('Delivery Status', CustomIcon.CustomIcon.truck, press: () {}),
+            singleItemButton('Language', CustomIcon.CustomIcon.language, press: () {}),
           ],
         ),
       ),
     );
   }
 
-  GestureDetector SingleItemButton(String text, IconData icon, {Function press}) {
+  GestureDetector singleItemButton(String text, IconData icon, {Function press}) {
     return GestureDetector(
       onTap: press,
       child: Padding(

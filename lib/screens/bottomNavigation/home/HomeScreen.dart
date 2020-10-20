@@ -7,12 +7,11 @@ import 'package:sx_commerece/components/appbar/AppBarProvider.dart';
 import 'package:sx_commerece/components/appbar/CustomAppbar.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomePageProvider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:sx_commerece/screens/main_screen/MainPageProvider.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetails.dart';
-import 'package:sx_commerece/screens/product_details/ProductDetailsScreen.dart';
 
 int _current = 0;
 Size size;
+int counternew = 0;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -33,7 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
         return Scaffold(
           body: Column(
             children: <Widget>[
-              CustomAppbar(),
+              CustomAppbar(
+                leadingPress: () {
+                  homePageProvider.goToSearchScreen();
+                },
+                leadIcon: Icons.search,
+                title: "Home",
+                counter: counternew,
+              ),
               // carousel
               Expanded(
                 child: ListView(
@@ -47,11 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             "Categories",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: Dimension.Text_Size_Big, color: textColor),
+                                fontWeight: FontWeight.bold, fontSize: Dimension.textSizeBig, color: textColor),
                           ),
                           Text(
                             "See all",
-                            style: TextStyle(fontSize: Dimension.Text_Size_Big, color: textColor),
+                            style: TextStyle(fontSize: Dimension.textSizeBig, color: textColor),
                           ),
                         ],
                       ),
@@ -69,10 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Text("New Product",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: Dimension.Text_Size_Big, color: textColor)),
+                                  fontWeight: FontWeight.bold, fontSize: Dimension.textSizeBig, color: textColor)),
                           Text(
                             "See all",
-                            style: TextStyle(fontSize: Dimension.Text_Size_Big, color: textColor),
+                            style: TextStyle(fontSize: Dimension.textSizeBig, color: textColor),
                           ),
                         ],
                       ),
@@ -258,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     maxLines: 1,
                                     style: TextStyle(
                                         color: textColor,
-                                        fontSize: Dimension.Text_Size_Big,
+                                        fontSize: Dimension.textSizeBig,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(
@@ -269,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     maxLines: 1,
                                     style: TextStyle(
                                         color: primaryColor,
-                                        fontSize: Dimension.Text_Size_Small,
+                                        fontSize: Dimension.textSizeSmaill,
                                         decoration: TextDecoration.lineThrough),
                                   ),
                                 ],
@@ -279,18 +285,32 @@ class _HomeScreenState extends State<HomeScreen> {
                             SizedBox(
                               height: 10,
                             ),
-                            Container(
-                                width: size.width,
-                                height: size.height * .05,
-                                decoration: BoxDecoration(
-                                    color: primaryColor,
-                                    borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))),
-                                child: Center(
-                                    child: Text(
-                                  'Add to cart',
-                                  style: TextStyle(color: Colors.white),
-                                )))
+                            GestureDetector(
+                              onTap: (){
+                                Provider.of<AppbarProvider>(context, listen: false).incrementCounter();
+                              },
+                              child: Container(
+                                  width: size.width,
+                                  height: size.height * .05,
+                                  decoration: BoxDecoration(
+                                      color: primaryColor,
+                                      borderRadius: BorderRadius.only(
+                                          bottomRight: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))),
+                                  child: GestureDetector(
+                                    onTap: (){
+                                    //  homePageProvider.callIncrementMethod();
+                                      setState(() {
+                                        counternew ++;
+                                      });
+
+                                    },
+                                    child: Center(
+                                        child: Text(
+                                      'Add to cart',
+                                      style: TextStyle(color: Colors.white),
+                                    )),
+                                  )),
+                            )
                           ],
                         ),
                       ),

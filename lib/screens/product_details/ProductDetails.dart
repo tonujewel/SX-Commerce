@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rating_bar/rating_bar.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/ShoppingCartBadge.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetailsProvider.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -37,7 +36,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
               Column(
                 children: [
                   topImageSlider(size),
-                  price_rating(),
+                  priceRating(),
                   name(),
                   divider(),
                   TabBar(
@@ -56,8 +55,8 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
                     child: TabBarView(
                       children: [
                         productContainer(size),
-                        DetailsContainer(size),
-                        ReviewsList(size),
+                        detailsContainer(size),
+                        reviewsList(size),
                       ],
                       controller: _tabController,
                     ),
@@ -72,7 +71,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
     );
   }
 
-  Padding ReviewsList(Size size) {
+  Padding reviewsList(Size size) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 60),
       child: ListView.builder(
@@ -116,7 +115,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
                                   overflow: TextOverflow.ellipsis),
                               Text('10-12-2020', style: TextStyle(color: textColor), overflow: TextOverflow.ellipsis),
                               Text(
-                                "Nice product, perfect size. and comfotable to use ",
+                                "Nice product, perfect size. and comfortable to use ",
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(color: textColor),
                               ),
@@ -145,19 +144,19 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
     );
   }
 
-  Padding DetailsContainer(Size size) {
+  Padding detailsContainer(Size size) {
     return Padding(
       padding: const EdgeInsets.all(15),
       child: ListView(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [leftColumn('Band', "Freeland Garments"), RightColumn('SKU', '05904589024136')],
+            children: [leftColumn('Band', "Freeland Garments"), rightColumn('SKU', '05904589024136')],
           ),
           SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [leftColumn('Category', "Men T-Shirt "), RightColumn('Material', 'Not Specified')],
+            children: [leftColumn('Category', "Men T-Shirt "), rightColumn('Material', 'Not Specified')],
           ),
           SizedBox(height: 10),
           Text('Specifications', style: TextStyle(fontSize: 18, color: textColor, fontWeight: FontWeight.bold)),
@@ -173,7 +172,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
     );
   }
 
-  Column RightColumn(String name, value) {
+  Column rightColumn(String name, value) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
@@ -316,20 +315,23 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: size.width * .45,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.blueAccent),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Center(
-                        child: Text(
-                      "Add To Cart",
-                      style: TextStyle(color: primaryColor),
-                    )),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    width: size.width * .45,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.blueAccent),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Center(
+                          child: Text(
+                        "Add To Cart",
+                        style: TextStyle(color: primaryColor),
+                      )),
+                    ),
                   ),
                 ),
                 Container(
@@ -389,7 +391,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
     );
   }
 
-  Padding price_rating() {
+  Padding priceRating() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -500,15 +502,17 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
           Icons.arrow_back,
           color: textColor,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
       backgroundColor: Colors.white,
       actions: <Widget>[
-        ShoppingCartBadge(
-            counter: 5,
-            onPress: () {
-              showToast("this is a msg");
-            }),
+        // ShoppingCartBadge(
+        //     counter: 5,
+        //     onPress: () {
+        //       Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
+        //     }),
       ],
     );
   }

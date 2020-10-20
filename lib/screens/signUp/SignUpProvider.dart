@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/screens/drawerNavigation/main/MainDrawerScreen.dart';
-import 'package:sx_commerece/screens/forgot_password/ForgotPassword.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 
 class SignUpProvider with ChangeNotifier {

@@ -23,6 +23,7 @@ class _OTPScreenState extends State<OTPScreen> {
 
   // ..text = "123456";
 
+  // ignore: close_sinks
   StreamController<ErrorAnimationType> errorController;
   String currentText = "";
   bool hasError = false;
@@ -103,13 +104,13 @@ class _OTPScreenState extends State<OTPScreen> {
                             backgroundColor: primaryColor,
                             child: Container(
                                 height: 30,
-                                width: mainWidth - 20 - (Dimension.Padding * 2),
+                                width: mainWidth - 20 - (Dimension.padding * 2),
                                 alignment: Alignment.center,
                                 child: Text(
                                   language.submit,
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: Dimension.Text_Size_Big,
+                                      fontSize: Dimension.textSizeBig,
                                       fontWeight: Dimension.boldText),
                                 )),
                           ),

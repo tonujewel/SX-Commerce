@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoard.dart';
 import '../../main.dart';
 

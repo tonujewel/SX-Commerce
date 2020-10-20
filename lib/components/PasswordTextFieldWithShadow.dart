@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sx_commerece/Utils/AppConstant.dart';
 
+// ignore: must_be_immutable
 class PasswordTextFieldWithShadow extends StatefulWidget {
   String hintText;
   String label;

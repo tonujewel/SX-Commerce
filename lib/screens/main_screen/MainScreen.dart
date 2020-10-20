@@ -1,13 +1,9 @@
-import 'dart:math';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
-import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/ShoppingCartBadge.dart';
 import 'package:sx_commerece/screens/bottomNavigation/favorite/FavoriteScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
-import 'package:sx_commerece/screens/bottomNavigation/order/OrderScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/profile/ProfileScreen.dart';
 import 'package:sx_commerece/screens/cart/CartScreen.dart';
 import 'MainPageProvider.dart';
@@ -50,14 +46,14 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
             },
             child: GestureDetector(
                 child: Scaffold(
-              bottomNavigationBar: FancyBottomNavigation(
-                tabs: provider.tabs.map((e) => TabData(iconData: e.icon, title: e.title)).toList(),
-                onTabChangedListener: (position) => provider.changePage(position),
-              ),
-              body: TabBarView(
-                controller: provider.controller,
-                children: tabList,
-                physics: NeverScrollableScrollPhysics(),
+                  bottomNavigationBar: FancyBottomNavigation(
+                   tabs: provider.tabs.map((e) => TabData(iconData: e.icon, title: e.title)).toList(),
+                   onTabChangedListener: (position) => provider.changePage(position),
+                 ),
+                   body: TabBarView(
+                    controller: provider.controller,
+                    children: tabList,
+                    physics: NeverScrollableScrollPhysics(),
               ),
             )),
           );

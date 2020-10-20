@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class Language {
   //............... on board ...............//
   String sliderTextOne = "Demo text one";

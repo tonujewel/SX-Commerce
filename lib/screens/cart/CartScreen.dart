@@ -23,7 +23,8 @@ class _CartScreenState extends State<CartScreen> {
         return Scaffold(
           body: Column(
             children: <Widget>[
-              CustomAppbar(),
+              CustomAppbar(          leadingPress: () {},
+                leadIcon: Icons.search,),
               Row(
                 children: [
                   Padding(
