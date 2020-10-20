@@ -30,21 +30,20 @@ class MenuProvider with ChangeNotifier {
     if (newCurrentPage == 0) {
       Provider.of<MainDrawerProvider>(context, listen: false).toggleDrawer(newCurrentPage);
       notifyListeners();
-    }  else if (newCurrentPage == 1) {
+    } else if (newCurrentPage == 1) {
       nextPage(SettingsScreen());
     } else if (newCurrentPage == 2) {
       nextPage(NotificationScreen());
     } else if (newCurrentPage == 3) {
       nextPage(HelpScreen());
-    }else if (newCurrentPage == 4) {
+    } else if (newCurrentPage == 4) {
       nextPage(AboutScreen());
     }
   }
 
   void nextPage(Widget screen) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
-    Provider.of<MainDrawerProvider>(context, listen: false)
-        .toggleDrawer(newCurrentPage);
+    Provider.of<MainDrawerProvider>(context, listen: false).toggleDrawer(newCurrentPage);
     notifyListeners();
   }
 }

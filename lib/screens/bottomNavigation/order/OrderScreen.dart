@@ -10,7 +10,10 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('order',style: TextStyle(fontSize: 40),),
+        child: Text(
+          'order',
+          style: TextStyle(fontSize: 40),
+        ),
       ),
     );
   }

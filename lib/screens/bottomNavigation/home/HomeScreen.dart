@@ -47,38 +47,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             "Categories",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: Dimension.Text_Size_Big,
-                                color: textColor),
+                                fontWeight: FontWeight.bold, fontSize: Dimension.Text_Size_Big, color: textColor),
                           ),
                           Text(
                             "See all",
-                            style: TextStyle(
-                                fontSize: Dimension.Text_Size_Big, color: textColor),
+                            style: TextStyle(fontSize: Dimension.Text_Size_Big, color: textColor),
                           ),
                         ],
                       ),
                     ),
                     // category list
                     Padding(
-                      padding: EdgeInsets.only( right: 15, left: 15),
+                      padding: EdgeInsets.only(right: 15, left: 15),
                       child: categoryContainer(),
                     ),
                     // new title
                     Padding(
-                      padding: EdgeInsets.only( right: 15, left: 15),
+                      padding: EdgeInsets.only(right: 15, left: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("New Product",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: Dimension.Text_Size_Big,
-                                  color: textColor)),
+                                  fontWeight: FontWeight.bold, fontSize: Dimension.Text_Size_Big, color: textColor)),
                           Text(
                             "See all",
-                            style: TextStyle(
-                                fontSize: Dimension.Text_Size_Big, color: textColor),
+                            style: TextStyle(fontSize: Dimension.Text_Size_Big, color: textColor),
                           ),
                         ],
                       ),
@@ -91,7 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-
             ],
           ),
         );
@@ -110,14 +103,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Container(
                             margin: EdgeInsets.all(5.0),
                             child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
+                                borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                 child: Stack(
                                   children: <Widget>[
-                                    Image.network(item,
-                                        fit: BoxFit.cover,
-                                        width: 1000.0,
-                                        height: size.height * .25),
+                                    Image.network(item, fit: BoxFit.cover, width: 1000.0, height: size.height * .25),
                                     Positioned(
                                       bottom: 0.0,
                                       left: 0.0,
@@ -125,16 +114,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
-                                            colors: [
-                                              Color.fromARGB(200, 0, 0, 0),
-                                              Color.fromARGB(0, 0, 0, 0)
-                                            ],
+                                            colors: [Color.fromARGB(200, 0, 0, 0), Color.fromARGB(0, 0, 0, 0)],
                                             begin: Alignment.bottomCenter,
                                             end: Alignment.topCenter,
                                           ),
                                         ),
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 10.0, horizontal: 20.0),
+                                        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                                       ),
                                     ),
                                   ],
@@ -213,8 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Column(
                   children: [
-                    Image.asset(categoryList[index]['image'],
-                        height: 50, width: 50, color: primaryColor),
+                    Image.asset(categoryList[index]['image'], height: 50, width: 50, color: primaryColor),
                     SizedBox(height: size.height * marginTop),
                     Text(
                       categoryList[index]['name'],
@@ -246,18 +230,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     GestureDetector(
                       onTap: () {
                         heroTag = "product$index";
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ProductDetails()));
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetails()));
                       },
                       child: Container(
                         width: size.width * .42,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: shadow,
-                            borderRadius: BorderRadius.circular(10)),
+                            color: Colors.white, boxShadow: shadow, borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           children: [
                             Padding(
@@ -307,8 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 decoration: BoxDecoration(
                                     color: primaryColor,
                                     borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(10.0),
-                                        bottomLeft: Radius.circular(10.0))),
+                                        bottomRight: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))),
                                 child: Center(
                                     child: Text(
                                   'Add to cart',
@@ -321,9 +298,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     Positioned(
                         right: 0,
                         child: IconButton(
-                          onPressed: () {  },
+                          onPressed: () {},
                           color: primaryColor,
-                          icon: Icon(Icons.favorite_border,),
+                          icon: Icon(
+                            Icons.favorite_border,
+                          ),
                         ))
                   ],
                 ),
@@ -353,8 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Container(
             padding: EdgeInsets.only(left: 2, right: 2),
-            decoration: BoxDecoration(
-                color: primaryColor, borderRadius: BorderRadius.circular(2)),
+            decoration: BoxDecoration(color: primaryColor, borderRadius: BorderRadius.circular(2)),
             child: Row(
               children: [
                 Icon(
@@ -374,5 +352,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
 }

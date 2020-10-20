@@ -33,7 +33,7 @@ class _MainDrawerScreenState extends State<MainDrawerScreen> {
           backgroundColor: Colors.grey[300],
           showShadow: true,
           angle: 0.0,
-          slideWidth: MediaQuery.of(context).size.width*(ZoomDrawer.isRTL()? .30: 0.70),
+          slideWidth: MediaQuery.of(context).size.width * (ZoomDrawer.isRTL() ? .30 : 0.70),
         );
       }),
     );

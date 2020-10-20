@@ -5,7 +5,9 @@ class RoundedTextFormField extends StatelessWidget {
   ValueChanged<String> onChanged;
   String hints;
   Widget prefix;
-RoundedTextFormField({this.hints, this.prefix, @required this.onChanged});
+
+  RoundedTextFormField({this.hints, this.prefix, @required this.onChanged});
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -14,11 +16,9 @@ RoundedTextFormField({this.hints, this.prefix, @required this.onChanged});
         prefixIcon: prefix != null ? prefix : null,
         labelText: '$hints',
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
-            borderSide: BorderSide(color: primaryColor)),
+            borderRadius: BorderRadius.all(Radius.circular(30.0)), borderSide: BorderSide(color: primaryColor)),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
-            borderSide: BorderSide(color: primaryColor)),
+            borderRadius: BorderRadius.all(Radius.circular(30.0)), borderSide: BorderSide(color: primaryColor)),
       ),
     );
   }

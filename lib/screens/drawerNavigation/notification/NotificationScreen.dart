@@ -39,7 +39,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             child: ListView.builder(
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     notificationProvider.currentIndex = index;
                     notificationProvider.listOnClick();
                   },
@@ -48,9 +48,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       height: containerHeight,
                       width: containerWidth,
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: shadow),
+                          color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: shadow),
                       child: ListTile(
                         leading: imageContainer(index),
                         title: Text(notificationLIst[index]['title']),

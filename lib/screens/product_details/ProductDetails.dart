@@ -10,12 +10,12 @@ class ProductDetails extends StatefulWidget {
   _ProductDetailsState createState() => _ProductDetailsState();
 }
 
-class _ProductDetailsState extends State<ProductDetails>
-    with SingleTickerProviderStateMixin {
+class _ProductDetailsState extends State<ProductDetails> with SingleTickerProviderStateMixin {
   int currentPage = 0;
   ProductDetailsProvider productDetailsProvider;
 
   TabController _tabController;
+  double containerWidth, containerHeight;
 
   @override
   void initState() {
@@ -55,110 +55,9 @@ class _ProductDetailsState extends State<ProductDetails>
                   Expanded(
                     child: TabBarView(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(15),
-                          child: ListView(
-                            children: [
-                              Text(
-                                'Select Color',
-                                style: TextStyle(
-                                color: textColor,
-                                fontWeight: FontWeight.bold),
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    height:size.height*0.1,
-                                    width: size.width*0.1,
-                                    decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      shape: BoxShape.circle
-                                    ),
-                                  ),
-                                  SizedBox(width: 10,),
-                                  Container(
-                                    height:size.height*0.1,
-                                    width: size.width*0.1,
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        shape: BoxShape.circle
-                                    ),
-                                  ),
-                                  SizedBox(width: 10,),
-                                  Container(
-                                    height:size.height*0.1,
-                                    width: size.width*0.1,
-                                    decoration: BoxDecoration(
-                                        color: Colors.green,
-                                        shape: BoxShape.circle
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                              Text(
-                                'Select Size',
-                                style: TextStyle(
-                                    color: textColor,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    height:size.height*0.1,
-                                    width: size.width*0.1,
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        shape: BoxShape.circle
-                                    ),
-                                    child:Center(
-                                      child: Text('5.5',style: TextStyle(color: Colors.white),)
-                                    ) ,
-                                  ),
-                                  SizedBox(width: 10,),
-                                  Container(
-                                    height:size.height*0.1,
-                                    width: size.width*0.1,
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        shape: BoxShape.circle
-                                    ),
-                                    child:Center(
-                                        child: Text('6.5',style: TextStyle(color: Colors.white),)
-                                    ) ,
-                                  ),
-                                  SizedBox(width: 10,),
-                                  Container(
-                                    height:size.height*0.1,
-                                    width: size.width*0.1,
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        shape: BoxShape.circle
-                                    ),
-                                    child:Center(
-                                        child: Text('7.5',style: TextStyle(color: Colors.white),)
-                                    ) ,
-                                  ),
-                                  SizedBox(width: 10,),
-                                  Container(
-                                    height:size.height*0.1,
-                                    width: size.width*0.1,
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        shape: BoxShape.circle
-                                    ),
-                                    child:Center(
-                                        child: Text('8.5',style: TextStyle(color: Colors.white),)
-                                    ) ,
-                                  ),
-                                  SizedBox(width: 10,),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(child: Center(child: Text('Details'))),
-                        Container(child: Center(child: Text('Reviews'))),
+                        productContainer(size),
+                        DetailsContainer(size),
+                        ReviewsList(size),
                       ],
                       controller: _tabController,
                     ),
@@ -173,60 +72,295 @@ class _ProductDetailsState extends State<ProductDetails>
     );
   }
 
+  Padding ReviewsList(Size size) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 60),
+      child: ListView.builder(
+          itemCount: 5,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, indext) {
+            return Padding(
+              padding: const EdgeInsets.only(
+                left: 15,
+                right: 15,
+                bottom: 10,
+                top: 10,
+              ),
+              child: Container(
+                height: size.height * 0.15,
+                width: size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: primaryShadow),
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFECEFF1),
+                          borderRadius: new BorderRadius.only(
+                              topLeft: const Radius.circular(10), bottomLeft: const Radius.circular(10))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child:
+                            Image.asset('assets/images/boy.png', height: size.height * 0.15, width: size.width * 0.28),
+                      ),
+                    ),
+                    Flexible(
+                      child: Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Jewel Rana',
+                                  style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+                                  overflow: TextOverflow.ellipsis),
+                              Text('10-12-2020', style: TextStyle(color: textColor), overflow: TextOverflow.ellipsis),
+                              Text(
+                                "Nice product, perfect size. and comfotable to use ",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(color: textColor),
+                              ),
+                              Row(
+                                children: [
+                                  RatingBar.readOnly(
+                                    initialRating: 4.5,
+                                    isHalfAllowed: true,
+                                    halfFilledIcon: Icons.star_half,
+                                    filledIcon: Icons.star,
+                                    emptyIcon: Icons.star_border,
+                                    size: 20,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }),
+    );
+  }
+
+  Padding DetailsContainer(Size size) {
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: ListView(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [leftColumn('Band', "Freeland Garments"), RightColumn('SKU', '05904589024136')],
+          ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [leftColumn('Category', "Men T-Shirt "), RightColumn('Material', 'Not Specified')],
+          ),
+          SizedBox(height: 10),
+          Text('Specifications', style: TextStyle(fontSize: 18, color: textColor, fontWeight: FontWeight.bold)),
+          SizedBox(height: 5),
+          Text(
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+              style: TextStyle(
+                color: textColor,
+              )),
+          SizedBox(height: size.height * 0.08),
+        ],
+      ),
+    );
+  }
+
+  Column RightColumn(String name, value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          '$name',
+          style: TextStyle(color: textColor),
+        ),
+        Text(
+          '$value',
+          style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+        ),
+      ],
+    );
+  }
+
+  Column leftColumn(String name, value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '$name',
+          style: TextStyle(color: textColor),
+        ),
+        Text(
+          '$value',
+          style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+        ),
+      ],
+    );
+  }
+
+  Padding productContainer(Size size) {
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: ListView(
+        children: [
+          Text(
+            'Select Color',
+            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+          ),
+          Row(
+            children: [
+              Container(
+                height: size.height * 0.1,
+                width: size.width * 0.1,
+                decoration: BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: size.height * 0.1,
+                width: size.width * 0.1,
+                decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: size.height * 0.1,
+                width: size.width * 0.1,
+                decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
+              ),
+            ],
+          ),
+          Text(
+            'Select Size',
+            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+          ),
+          Row(
+            children: [
+              Container(
+                height: size.height * 0.1,
+                width: size.width * 0.1,
+                decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+                child: Center(
+                    child: Text(
+                  '5.5',
+                  style: TextStyle(color: Colors.white),
+                )),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: size.height * 0.1,
+                width: size.width * 0.1,
+                decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+                child: Center(
+                    child: Text(
+                  '6.5',
+                  style: TextStyle(color: Colors.white),
+                )),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: size.height * 0.1,
+                width: size.width * 0.1,
+                decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+                child: Center(
+                    child: Text(
+                  '7.5',
+                  style: TextStyle(color: Colors.white),
+                )),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: size.height * 0.1,
+                width: size.width * 0.1,
+                decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+                child: Center(
+                    child: Text(
+                  '8.5',
+                  style: TextStyle(color: Colors.white),
+                )),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   Positioned bottomContainer(Size size) {
     return Positioned(
         bottom: 0,
         left: 0,
         right: 0,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: size.width * .45,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.blueAccent),
-                  borderRadius: BorderRadius.circular(10),
+        child: Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: size.width * .45,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.blueAccent),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Center(
+                        child: Text(
+                      "Add To Cart",
+                      style: TextStyle(color: primaryColor),
+                    )),
+                  ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Center(child: Text("Add To Cart")),
-                ),
-              ),
-              Container(
-                width: size.width * .45,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: FlatButton(
-                    color: primaryColor,
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Center(
-                          child: Text(
-                        "Buy Now",
-                        style: TextStyle(color: Colors.white),
-                      )),
+                Container(
+                  width: size.width * .45,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: FlatButton(
+                      color: primaryColor,
+                      onPressed: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Center(
+                            child: Text(
+                          "Buy Now",
+                          style: TextStyle(color: Colors.white),
+                        )),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ));
   }
 
   Container tabItems(String name) {
     return Container(
-      decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: primaryShadow),
+      decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(20), boxShadow: primaryShadow),
       child: Padding(
-        padding:
-            const EdgeInsets.only(left: 18.0, right: 18, top: 5, bottom: 5),
+        padding: const EdgeInsets.only(left: 18.0, right: 18, top: 5, bottom: 5),
         child: Text('$name'),
       ),
     );
@@ -248,9 +382,7 @@ class _ProductDetailsState extends State<ProductDetails>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("Black T-shirt ",
-              style: TextStyle(
-                  fontSize: 16, color: textColor, fontWeight: FontWeight.bold)),
+          Text("Black T-shirt ", style: TextStyle(fontSize: 16, color: textColor, fontWeight: FontWeight.bold)),
           Text("In Stock", style: TextStyle(color: primaryColor)),
         ],
       ),
@@ -265,8 +397,7 @@ class _ProductDetailsState extends State<ProductDetails>
         children: [
           Text(
             "\$199.99",
-            style: TextStyle(
-                fontSize: 16, color: primaryColor, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16, color: primaryColor, fontWeight: FontWeight.bold),
           ),
           Row(
             children: [
@@ -296,8 +427,7 @@ class _ProductDetailsState extends State<ProductDetails>
         children: [
           Container(
             height: size.height * .25,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: imageBg),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: imageBg),
             child: PageView.builder(
               onPageChanged: (value) {
                 setState(() {
@@ -327,8 +457,7 @@ class _ProductDetailsState extends State<ProductDetails>
               padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                    productDetails.length, (index) => buildDot(index: index)),
+                children: List.generate(productDetails.length, (index) => buildDot(index: index)),
               ),
             ),
           ),
@@ -363,7 +492,7 @@ class _ProductDetailsState extends State<ProductDetails>
   AppBar buildAppBar() {
     return AppBar(
       title: Text(
-        'Cart',
+        'Product Details',
         style: TextStyle(color: textColor),
       ),
       leading: IconButton(

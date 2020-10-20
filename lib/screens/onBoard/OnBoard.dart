@@ -48,32 +48,28 @@ class _OnBoardState extends State<OnBoard> {
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(onBoardData.length,
-                          (index) => buildDot(index: index)),
+                      children: List.generate(onBoardData.length, (index) => buildDot(index: index)),
                     ),
-                    SizedBox(height:size.height * 0.1),
+                    SizedBox(height: size.height * 0.1),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                            padding: EdgeInsets.only(left: 35,right: 35),
+                            padding: EdgeInsets.only(left: 35, right: 35),
                             child: RoundedButton(
-                              text: language.login,
-                              press: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
-                              }
-                            )
-                        ),
-                        SizedBox(height:size.height * 0.03),
+                                text: language.login,
+                                press: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                                })),
+                        SizedBox(height: size.height * 0.03),
                         Padding(
-                            padding: EdgeInsets.only(left: 35,right: 35),
+                            padding: EdgeInsets.only(left: 35, right: 35),
                             child: RoundedButton(
                                 text: language.signUp,
-                                press: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));}
-                            )
-                        ),
+                                press: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                                })),
                       ],
                     ),
                     Spacer(),

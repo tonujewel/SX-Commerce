@@ -1,9 +1,6 @@
 import 'package:flutter/foundation.dart';
 
 class Language {
-
-
-
   //............... on board ...............//
   String sliderTextOne = "Demo text one";
   String sliderTextTwo = "Demo text two";
@@ -17,16 +14,11 @@ class Language {
   String doNotHaveAccount = "Don't have account? Sign Up";
   String forgotPassword = "Forgot password?";
 
-
-
   //...............Sign up ...............//
   String letsStartSignUp = "Let's Enter with Sign Up";
   String confirmPassword = "Confirm Password";
   String signUp = "Sign Up";
   String alreadyHaveAnAccount = "Already have an Account? Login";
-
-
-
 
   //............... profile ...............//
 
@@ -52,5 +44,4 @@ class Language {
   String verificationCode = "Verification Code";
   String sentTo = "Sent to";
   String favorite = "Favorite";
-
 }

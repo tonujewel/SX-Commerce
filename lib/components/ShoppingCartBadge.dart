@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 
 class ShoppingCartBadge extends StatelessWidget {
-
   int counter = 0;
-  Function onPress ;
-
+  Function onPress;
 
   ShoppingCartBadge({this.counter, this.onPress});
 
@@ -20,7 +18,11 @@ class ShoppingCartBadge extends StatelessWidget {
         counter.toString(),
         style: TextStyle(color: Colors.white),
       ),
-      child: IconButton(icon: Icon(Icons.notifications,color: textColor,),
+      child: IconButton(
+          icon: Icon(
+            Icons.notifications,
+            color: textColor,
+          ),
           onPressed: onPress),
     );
   }

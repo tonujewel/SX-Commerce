@@ -27,19 +27,19 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             children: [
               Positioned.fill(
                   child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          color: Colors.blueGrey[300],
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  )),
+                children: [
+                  Expanded(
+                    child: Container(
+                      color: Colors.blueGrey[300],
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              )),
               Column(
                 children: [
                   SizedBox(height: size.height * .05),
@@ -56,15 +56,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   ),
                   Hero(
                       tag: heroTag,
-                      child: Image.asset('assets/images/t_shirt.png',
-                          height: size.height * .32, width: size.width)),
+                      child: Image.asset('assets/images/t_shirt.png', height: size.height * .32, width: size.width)),
                   Container(
                     padding: EdgeInsets.all(15),
                     margin: EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: greyShadow,
-                        color: Colors.white),
+                        borderRadius: BorderRadius.circular(20), boxShadow: greyShadow, color: Colors.white),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,10 +71,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           children: [
                             Text('Black T-shirt ',
                                 maxLines: 1,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20)),
+                                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20)),
                           ],
                         ),
                         SizedBox(height: 10),
@@ -100,10 +94,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         Row(
                           children: [
                             Text('\$500   ',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold)),
+                                style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
                             Text('\$650',
                                 style: TextStyle(
                                     color: Colors.grey,
@@ -115,12 +106,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         SizedBox(height: 10),
                         Text('Description',
                             maxLines: 1,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20)),
+                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20)),
                         SizedBox(height: 10),
-                        Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,")
+                        Text(
+                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,")
                       ],
                     ),
                   )
@@ -133,9 +122,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   width: size.width,
                   decoration: BoxDecoration(
                       color: Colors.blueGrey[300],
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40))),
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))),
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
@@ -143,9 +130,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         Container(
                           height: 60,
                           width: 60,
-                          decoration: BoxDecoration(
-                              color: Colors.blueGrey,
-                              borderRadius: BorderRadius.circular(20)),
+                          decoration: BoxDecoration(color: Colors.blueGrey, borderRadius: BorderRadius.circular(20)),
                           child: Icon(
                             Icons.favorite_border,
                             color: Colors.white,
@@ -155,14 +140,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         Container(
                           height: 60,
                           width: 250,
-                          decoration: BoxDecoration(
-                              color: Colors.blueGrey,
-                              borderRadius: BorderRadius.circular(20)),
+                          decoration: BoxDecoration(color: Colors.blueGrey, borderRadius: BorderRadius.circular(20)),
                           child: Center(
                               child: Text(
-                                'Boy Now',
-                                style: TextStyle(color: Colors.white, fontSize: 20),
-                              )),
+                            'Boy Now',
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          )),
                         ),
                       ],
                     ),
@@ -175,5 +158,4 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       }),
     );
   }
-
 }

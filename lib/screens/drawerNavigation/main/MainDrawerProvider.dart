@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
 
-class MainDrawerProvider with ChangeNotifier{
-
+class MainDrawerProvider with ChangeNotifier {
   BuildContext context;
+
   MainDrawerProvider();
+
   void setView(BuildContext context) {
-  this.context = context;
+    this.context = context;
   }
 
   final drawerController = ZoomDrawerController();
@@ -20,5 +21,4 @@ class MainDrawerProvider with ChangeNotifier{
   void toggleDrawer(index) {
     drawerController.toggle();
   }
-
 }

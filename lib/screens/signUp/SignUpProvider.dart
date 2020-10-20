@@ -24,9 +24,7 @@ class SignUpProvider with ChangeNotifier {
       loading = false;
       notifyListeners();
       Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => MainDrawerScreen()),
-          (Route<dynamic> route) => false);
+          context, MaterialPageRoute(builder: (context) => MainDrawerScreen()), (Route<dynamic> route) => false);
     });
   }
 }

@@ -9,16 +9,16 @@ class LoadingButton extends StatefulWidget {
   final Widget loadingWidget;
   final bool defaultStyle;
 
-  const LoadingButton({
-    Key key,
-    this.child,
-    this.onPressed,
-    this.isLoading = false,
-    this.backgroundColor,
-    this.decoration,
-    this.loadingWidget,
-    this.defaultStyle=false
-  }) : super(key: key);
+  const LoadingButton(
+      {Key key,
+      this.child,
+      this.onPressed,
+      this.isLoading = false,
+      this.backgroundColor,
+      this.decoration,
+      this.loadingWidget,
+      this.defaultStyle = false})
+      : super(key: key);
 
   @override
   _LoadingButtonState createState() => _LoadingButtonState();
@@ -27,6 +27,7 @@ class LoadingButton extends StatefulWidget {
 class _LoadingButtonState extends State<LoadingButton> {
   BoxDecoration decoration;
   Widget loadingWidget;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();

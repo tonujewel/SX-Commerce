@@ -78,21 +78,9 @@ List<MenuItem> mainMenu = [
 
 //................... notification list  ................
 List<Map> notificationLIst = [
-  {
-    "title": "First Notification",
-    "description": "First sub title",
-    "image": "assets/images/one.png"
-  },
-  {
-    "title": "Second Notification",
-    "description": "Second sub title",
-    "image": "assets/images/two.png"
-  },
-  {
-    "title": "Third Notification",
-    "description": "Third sub title",
-    "image": "assets/images/three.png"
-  },
+  {"title": "First Notification", "description": "First sub title", "image": "assets/images/one.png"},
+  {"title": "Second Notification", "description": "Second sub title", "image": "assets/images/two.png"},
+  {"title": "Third Notification", "description": "Third sub title", "image": "assets/images/three.png"},
 ];
 
 //................... Home page category list  ................
@@ -236,6 +224,4 @@ String dollarSign = String.fromCharCodes(new Runes('\u0024'));
 
 String heroTag = '';
 
-List<BoxShadow> greyShadow = [
-  BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))
-];
+List<BoxShadow> greyShadow = [BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))];

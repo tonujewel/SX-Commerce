@@ -48,24 +48,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
       padding: const EdgeInsets.all(12),
       child: Container(
         padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
-            boxShadow: primaryShadow),
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
         child: Column(
           children: [
-            SingleItemButton('Favorite', CustomIcon.CustomIcon.favorite_border,
-                press: () {}),
-            SingleItemButton('Privacy Policy', CustomIcon.CustomIcon.lock,
-                press: () {}),
-            SingleItemButton('Frequently Asked Questions',
-                CustomIcon.CustomIcon.question_circle_o,
-                press: () {}),
-            SingleItemButton(
-                'Legal Information', CustomIcon.CustomIcon.info_outline,
-                press: () {}),
-            SingleItemButton('Rate Our App', CustomIcon.CustomIcon.star_border,
-                press: () {}),
+            SingleItemButton('Favorite', CustomIcon.CustomIcon.favorite_border, press: () {}),
+            SingleItemButton('Privacy Policy', CustomIcon.CustomIcon.lock, press: () {}),
+            SingleItemButton('Frequently Asked Questions', CustomIcon.CustomIcon.question_circle_o, press: () {}),
+            SingleItemButton('Legal Information', CustomIcon.CustomIcon.info_outline, press: () {}),
+            SingleItemButton('Rate Our App', CustomIcon.CustomIcon.star_border, press: () {}),
           ],
         ),
       ),
@@ -77,32 +68,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
       padding: const EdgeInsets.all(12),
       child: Container(
         padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
-            boxShadow: primaryShadow),
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
         child: Column(
           children: [
-            SingleItemButton(
-                'Shipping Address', CustomIcon.CustomIcon.map_marker,
-                press: () {}),
-            SingleItemButton(
-                'Payment Method', CustomIcon.CustomIcon.credit_card,
-                press: () {}),
-            SingleItemButton('Order History', CustomIcon.CustomIcon.history,
-                press: () {}),
-            SingleItemButton('Delivery Status', CustomIcon.CustomIcon.truck,
-                press: () {}),
-            SingleItemButton('Language', CustomIcon.CustomIcon.language,
-                press: () {}),
+            SingleItemButton('Shipping Address', CustomIcon.CustomIcon.map_marker, press: () {}),
+            SingleItemButton('Payment Method', CustomIcon.CustomIcon.credit_card, press: () {}),
+            SingleItemButton('Order History', CustomIcon.CustomIcon.history, press: () {}),
+            SingleItemButton('Delivery Status', CustomIcon.CustomIcon.truck, press: () {}),
+            SingleItemButton('Language', CustomIcon.CustomIcon.language, press: () {}),
           ],
         ),
       ),
     );
   }
 
-  GestureDetector SingleItemButton(String text, IconData icon,
-      {Function press}) {
+  GestureDetector SingleItemButton(String text, IconData icon, {Function press}) {
     return GestureDetector(
       onTap: press,
       child: Padding(
@@ -158,10 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     "Jewel Rana",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   Text(
                     "tonujewel@gmail.com",
@@ -197,8 +175,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: [
           Text(
             "Account",
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26),
           ),
           IconButton(
               icon: Icon(

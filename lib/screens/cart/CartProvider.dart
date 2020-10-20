@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CartProvider with ChangeNotifier{
-
+class CartProvider with ChangeNotifier {
   BuildContext context;
 
   CartProvider();

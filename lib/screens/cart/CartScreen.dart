@@ -27,14 +27,10 @@ class _CartScreenState extends State<CartScreen> {
               Row(
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 10),
+                    padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
                     child: Text(
                       'Cart',
-                      style: TextStyle(
-                          color: textColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24),
+                      style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 24),
                     ),
                   ),
                 ],
@@ -54,9 +50,7 @@ class _CartScreenState extends State<CartScreen> {
                           height: size.height * 0.14,
                           width: size.width,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: primaryShadow),
+                              color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: primaryShadow),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -64,13 +58,11 @@ class _CartScreenState extends State<CartScreen> {
                                 decoration: BoxDecoration(
                                     color: Color(0xFFECEFF1),
                                     borderRadius: new BorderRadius.only(
-                                        topLeft: const Radius.circular(10),
-                                        bottomLeft: const Radius.circular(10))),
+                                        topLeft: const Radius.circular(10), bottomLeft: const Radius.circular(10))),
                                 child: Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: Image.asset(cartList[indext]['image'],
-                                      height: size.height * 0.14,
-                                      width: size.width * 0.28),
+                                      height: size.height * 0.14, width: size.width * 0.28),
                                 ),
                               ),
                               SizedBox(
@@ -81,8 +73,7 @@ class _CartScreenState extends State<CartScreen> {
                                   child: Padding(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Flexible(
                                           child: Text(
@@ -101,20 +92,15 @@ class _CartScreenState extends State<CartScreen> {
                                             Text(
                                               cartList[indext]['price'],
                                               maxLines: 1,
-                                              style: TextStyle(
-                                                  color: primaryColor,
-                                                  fontWeight: FontWeight.bold),
+                                              style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
                                             ),
                                             SizedBox(
                                               width: 5,
                                             ),
                                             Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 2, right: 2),
+                                              padding: EdgeInsets.only(left: 2, right: 2),
                                               decoration: BoxDecoration(
-                                                  color: primaryColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(2)),
+                                                  color: primaryColor, borderRadius: BorderRadius.circular(2)),
                                               child: Row(
                                                 children: [
                                                   Icon(
@@ -125,9 +111,7 @@ class _CartScreenState extends State<CartScreen> {
                                                   Text(
                                                     '${cartList[indext]['rating']}',
                                                     maxLines: 1,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 14),
+                                                    style: TextStyle(color: Colors.white, fontSize: 14),
                                                   ),
                                                 ],
                                               ),
@@ -140,11 +124,9 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 10, top: 5, bottom: 6),
+                                padding: const EdgeInsets.only(right: 10, top: 5, bottom: 6),
                                 child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Icon(
                                       Icons.add,
@@ -156,13 +138,13 @@ class _CartScreenState extends State<CartScreen> {
                                       width: size.width * 0.08,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        border: Border.all(
-                                            color: Colors.blueAccent),
+                                        border: Border.all(color: Colors.blueAccent),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       child: Center(child: Text("1")),
                                     ),
-                                    Icon(Icons.minimize,
+                                    Icon(
+                                      Icons.minimize,
                                       color: Colors.grey,
                                     ),
                                   ],

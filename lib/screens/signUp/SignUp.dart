@@ -34,15 +34,12 @@ class _SignUpState extends State<SignUp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: size.height*.15),
+                  SizedBox(height: size.height * .15),
                   Row(
                     children: [
                       SizedBox(width: 15),
                       Text(language.letsStartSignUp,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22)),
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
                     ],
                   ),
                   SizedBox(height: 20),
@@ -50,9 +47,7 @@ class _SignUpState extends State<SignUp> {
                     height: size.height * 0.56,
                     width: size.width * .9,
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: primaryShadow),
+                        color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: primaryShadow),
                     child: Padding(
                         padding: const EdgeInsets.only(left: 15, right: 15),
                         child: Column(
@@ -82,8 +77,7 @@ class _SignUpState extends State<SignUp> {
                               backgroundColor: primaryColor,
                               child: Container(
                                   height: 30,
-                                  width:
-                                      mainWidth - 20 - (Dimension.Padding * 2),
+                                  width: mainWidth - 20 - (Dimension.Padding * 2),
                                   alignment: Alignment.center,
                                   child: Text(
                                     language.login,
@@ -96,10 +90,7 @@ class _SignUpState extends State<SignUp> {
                             SizedBox(height: 20),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginScreen()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                               },
                               child: Text(
                                 language.alreadyHaveAnAccount,

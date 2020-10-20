@@ -17,8 +17,7 @@ class MainScreen extends StatefulWidget {
   _MainScreenState createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen>
-    with SingleTickerProviderStateMixin {
+class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin {
   MainPageProvider provider;
   bool isOpen = false;
 
@@ -27,7 +26,6 @@ class _MainScreenState extends State<MainScreen>
     CartScreen(),
     FavoriteScreen(),
     ProfileScreen(),
-
   ];
 
   @override
@@ -37,7 +35,6 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
-
     return ChangeNotifierProvider<MainPageProvider>(
       create: (_) => MainPageProvider()..setVIew(context, this),
       child: Consumer<MainPageProvider>(
@@ -53,27 +50,19 @@ class _MainScreenState extends State<MainScreen>
             },
             child: GestureDetector(
                 child: Scaffold(
-                 bottomNavigationBar: FancyBottomNavigation(
-                 tabs: provider.tabs
-                    .map((e) => TabData(iconData: e.icon, title: e.title))
-                    .toList(),
-                     onTabChangedListener: (position) =>
-                    provider.changePage(position),
-                  ),
-                 body: TabBarView(
-                    controller: provider.controller,
-                    children: tabList,
-                    physics: NeverScrollableScrollPhysics(),
-                   ),
-               )
-            ),
+              bottomNavigationBar: FancyBottomNavigation(
+                tabs: provider.tabs.map((e) => TabData(iconData: e.icon, title: e.title)).toList(),
+                onTabChangedListener: (position) => provider.changePage(position),
+              ),
+              body: TabBarView(
+                controller: provider.controller,
+                children: tabList,
+                physics: NeverScrollableScrollPhysics(),
+              ),
+            )),
           );
         },
       ),
     );
   }
-
 }
-
-
-

@@ -6,17 +6,9 @@ class ButtonWithShadow extends StatelessWidget {
   String text;
   IconData icon;
 
-  List<BoxShadow> shadow = [
-    BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))
-  ];
+  List<BoxShadow> shadow = [BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))];
 
-  ButtonWithShadow(
-      {Key key,
-      @required this.onPressed,
-      @required this.text,
-      this.width,
-      this.icon})
-      : super(key: key);
+  ButtonWithShadow({Key key, @required this.onPressed, @required this.text, this.width, this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

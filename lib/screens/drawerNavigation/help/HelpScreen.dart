@@ -42,10 +42,8 @@ class _HelpScreenState extends State<HelpScreen> {
                   height: size.height * 0.5,
                   width: containerWidth,
                   margin: EdgeInsets.all(22.0),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: shadow),
+                  decoration:
+                      BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: shadow),
                   child: Column(
                     children: [
                       Container(
@@ -60,7 +58,10 @@ class _HelpScreenState extends State<HelpScreen> {
                           backgroundColor: Colors.white,
                         ),
                       ),
-                      Text(' SofX innovatin limited', style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor,fontSize: 22),),
+                      Text(
+                        ' SofX innovatin limited',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: primaryColor, fontSize: 22),
+                      ),
                     ],
                   ),
                 )

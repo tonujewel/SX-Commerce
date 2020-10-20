@@ -6,18 +6,13 @@ class PasswordTextFieldWithShadow extends StatefulWidget {
   String label;
   TextEditingController controller;
 
-  PasswordTextFieldWithShadow(
-      {Key key, @required this.controller, this.hintText, this.label})
-      : super(key: key);
+  PasswordTextFieldWithShadow({Key key, @required this.controller, this.hintText, this.label}) : super(key: key);
 
   @override
-  _PasswordTextFieldWithShadowState createState() =>
-      _PasswordTextFieldWithShadowState();
+  _PasswordTextFieldWithShadowState createState() => _PasswordTextFieldWithShadowState();
 }
 
-class _PasswordTextFieldWithShadowState
-    extends State<PasswordTextFieldWithShadow> {
-
+class _PasswordTextFieldWithShadowState extends State<PasswordTextFieldWithShadow> {
   bool _showPassword = true;
 
   @override
@@ -46,16 +41,10 @@ class _PasswordTextFieldWithShadowState
                   color: Colors.black54,
                 ),
               ),
-              hintStyle: TextStyle(
-                  letterSpacing: 2,
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold),
+              hintStyle: TextStyle(letterSpacing: 2, color: Colors.black54, fontWeight: FontWeight.bold),
               fillColor: Colors.white30,
               filled: true,
-
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none)),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none)),
         ),
       ),
     );

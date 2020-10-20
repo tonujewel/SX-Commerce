@@ -9,7 +9,11 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Favorite',style: TextStyle(fontSize: 40),)),
+      body: Center(
+          child: Text(
+        'Favorite',
+        style: TextStyle(fontSize: 40),
+      )),
     );
   }
 }

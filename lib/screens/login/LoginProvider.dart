@@ -16,6 +16,7 @@ class LoginProvider with ChangeNotifier {
   void goTOSignUpScreen() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
   }
+
   void goToForgotScreen() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
   }
@@ -27,9 +28,7 @@ class LoginProvider with ChangeNotifier {
       loading = false;
       notifyListeners();
       Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => MainDrawerScreen()),
-          (Route<dynamic> route) => false);
+          context, MaterialPageRoute(builder: (context) => MainDrawerScreen()), (Route<dynamic> route) => false);
     });
   }
 }

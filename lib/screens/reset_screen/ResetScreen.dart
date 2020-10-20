@@ -29,53 +29,57 @@ class _ResetScreenState extends State<ResetScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: size.height*.15),
+                  SizedBox(height: size.height * .15),
                   Row(
                     children: [
                       SizedBox(width: 15),
                       Text(language.resetPassword,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22)),
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
                     ],
                   ),
                   SizedBox(height: 20),
                   Container(
                     height: size.height * 0.52,
                     width: size.width * .9,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: shadow),
+                    decoration:
+                        BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: shadow),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          PasswordTextFieldWithShadow(hintText: language.password,controller: null,),
-                          SizedBox(height: 20),
-                          PasswordTextFieldWithShadow(hintText: language.confirmPassword,controller: null,),
-                          SizedBox(height: 20),
-                          LoadingButton(
-                            isLoading: resetProvider.loading,
-                            defaultStyle: true,
-                            onPressed: () {
-                              resetProvider.goToLoginPage();
-                            },
-                            backgroundColor: primaryColor,
-                            child: Container(
-                                height: 30,
-                                width: mainWidth-20-(Dimension.Padding*2),
-                                alignment: Alignment.center,
-                                child: Text(language.reset,style: TextStyle(color: Colors.white,fontSize: Dimension.Text_Size_Big,fontWeight: Dimension.boldText),)
+                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            PasswordTextFieldWithShadow(
+                              hintText: language.password,
+                              controller: null,
                             ),
-                          ),
-                        ],
-                      )
-                    ),
+                            SizedBox(height: 20),
+                            PasswordTextFieldWithShadow(
+                              hintText: language.confirmPassword,
+                              controller: null,
+                            ),
+                            SizedBox(height: 20),
+                            LoadingButton(
+                              isLoading: resetProvider.loading,
+                              defaultStyle: true,
+                              onPressed: () {
+                                resetProvider.goToLoginPage();
+                              },
+                              backgroundColor: primaryColor,
+                              child: Container(
+                                  height: 30,
+                                  width: mainWidth - 20 - (Dimension.Padding * 2),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    language.reset,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: Dimension.Text_Size_Big,
+                                        fontWeight: Dimension.boldText),
+                                  )),
+                            ),
+                          ],
+                        )),
                   ),
-
                 ],
               ),
             ),

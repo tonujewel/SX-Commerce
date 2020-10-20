@@ -76,10 +76,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       height: size.height * 0.27,
       width: containerWidth,
       margin: EdgeInsets.all(22.0),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: shadow),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: shadow),
       child: Padding(
         padding: const EdgeInsets.only(right: 8.0, top: 15),
         child: Stack(
@@ -88,9 +85,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Column(
               children: [
                 Container(
-                  decoration: BoxDecoration(
-                      boxShadow: primaryShadow,
-                      borderRadius: BorderRadius.circular(30)),
+                  decoration: BoxDecoration(boxShadow: primaryShadow, borderRadius: BorderRadius.circular(30)),
                   child: CircleAvatar(
                     foregroundColor: Colors.red,
                     radius: 50,
@@ -99,13 +94,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 SizedBox(height: size.height * .02),
-                Text('Jewel Rana',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                        color: Colors.black)),
-                Text('tonujewel@gmail.com',
-                    style: TextStyle(color: Colors.grey)),
+                Text('Jewel Rana', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black)),
+                Text('tonujewel@gmail.com', style: TextStyle(color: Colors.grey)),
               ],
             ),
             Positioned(

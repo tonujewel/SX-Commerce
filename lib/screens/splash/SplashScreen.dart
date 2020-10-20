@@ -17,10 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
         Duration(seconds: 5),
-            () => Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => OnBoard()),
-                (Route<dynamic> route) => false));
+        () => Navigator.pushAndRemoveUntil(
+            context, MaterialPageRoute(builder: (context) => OnBoard()), (Route<dynamic> route) => false));
   }
 
   @override
@@ -38,7 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
           children: <Widget>[
             Image.asset('assets/images/logo.jpg'),
             SizedBox(height: 60.0),
-
           ],
         ),
       ),

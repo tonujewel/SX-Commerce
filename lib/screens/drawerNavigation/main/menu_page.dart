@@ -21,7 +21,6 @@ class MenuScreen extends StatefulWidget {
     this.current,
   });
 
-
   @override
   _MenuScreenState createState() => _MenuScreenState();
 }
@@ -43,16 +42,16 @@ class _MenuScreenState extends State<MenuScreen> {
         return Scaffold(
           body: Container(
             decoration: BoxDecoration(
-              // gradient: LinearGradient(
-              //   colors: [
-              //     Colors.white,
-              //     Colors.blue,
-              //
-              //   ],
-              //   begin: Alignment.topLeft,
-              //   end: Alignment.bottomRight,
-              // ),
-            ),
+                // gradient: LinearGradient(
+                //   colors: [
+                //     Colors.white,
+                //     Colors.blue,
+                //
+                //   ],
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
+                ),
             child: SafeArea(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -60,12 +59,9 @@ class _MenuScreenState extends State<MenuScreen> {
                 children: <Widget>[
                   Spacer(),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        bottom: 24.0, left: 24.0, right: 24.0),
+                    padding: const EdgeInsets.only(bottom: 24.0, left: 24.0, right: 24.0),
                     child: Container(
-                      decoration: BoxDecoration(
-                          boxShadow: primaryShadow,
-                          borderRadius: BorderRadius.circular(30)),
+                      decoration: BoxDecoration(boxShadow: primaryShadow, borderRadius: BorderRadius.circular(30)),
                       child: CircleAvatar(
                         foregroundColor: Colors.black,
                         radius: 50,
@@ -75,8 +71,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        bottom: 36.0, left: 24.0, right: 24.0),
+                    padding: const EdgeInsets.only(bottom: 36.0, left: 24.0, right: 24.0),
                     child: Text(
                       tr("name"),
                       style: TextStyle(
@@ -136,13 +131,11 @@ class _MenuScreenState extends State<MenuScreen> {
         borderSide: BorderSide(color: Colors.black, width: 2.0),
         onPressed: () => print("Pressed !"),
         textColor: Colors.black,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       ),
     );
   }
 }
-
 
 class MenuItemWidget extends StatelessWidget {
   final MenuItem item;
@@ -156,15 +149,7 @@ class MenuItemWidget extends StatelessWidget {
   final white = Colors.white;
 
   MenuItemWidget(
-      {Key key,
-        this.item,
-        this.widthBox,
-        this.style,
-        this.callback,
-        this.selected,
-        this.selectedIndex,
-        this.onPress
-      })
+      {Key key, this.item, this.widthBox, this.style, this.callback, this.selected, this.selectedIndex, this.onPress})
       : super(key: key);
 
   @override
@@ -172,18 +157,17 @@ class MenuItemWidget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     double containerWidth = size.width * .78;
     return GestureDetector(
-      onTap:onPress ,
+      onTap: onPress,
       child: Container(
         height: size.height * 0.07,
-        width:  containerWidth ,
-        margin: EdgeInsets.only(top:10,left: 10),
+        width: containerWidth,
+        margin: EdgeInsets.only(top: 10, left: 10),
         padding: EdgeInsets.only(left: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
           boxShadow: shadow,
         ),
-
         child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,

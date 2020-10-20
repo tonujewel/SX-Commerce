@@ -14,6 +14,7 @@ class _AboutScreenState extends State<AboutScreen> {
   AboutProvider aboutProvider;
   double containerWidth;
   final double circleRadius = 120.0;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -47,8 +48,11 @@ class _AboutScreenState extends State<AboutScreen> {
                     alignment: Alignment.topCenter,
                     children: <Widget>[
                       Padding(
-                        padding:
-                        EdgeInsets.only(top: circleRadius / 2.0, ),  ///here we create space for the circle avatar to get ut of the box
+                        padding: EdgeInsets.only(
+                          top: circleRadius / 2.0,
+                        ),
+
+                        ///here we create space for the circle avatar to get ut of the box
                         child: Container(
                           height: 300.0,
                           decoration: BoxDecoration(
@@ -69,8 +73,10 @@ class _AboutScreenState extends State<AboutScreen> {
                                 children: [
                                   SizedBox(height: size.height * 0.09),
                                   Text("Digitalize Your Business With SoftX",
-                                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,)),
-
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      )),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,8 +88,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                     ],
                                   )
                                 ],
-                              )
-                          ),
+                              )),
                         ),
                       ),
 

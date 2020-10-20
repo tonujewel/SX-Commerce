@@ -16,30 +16,28 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   LoginProvider loginProvider;
-  TextEditingController emailController= TextEditingController();
-  TextEditingController passwordController= TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return ChangeNotifierProvider<LoginProvider>(
-      create: (_) =>LoginProvider()..setView(context) ,
+      create: (_) => LoginProvider()..setView(context),
       child: Consumer<LoginProvider>(
-        builder: (context,model,child){
-          loginProvider=model;
+        builder: (context, model, child) {
+          loginProvider = model;
           return Scaffold(
             body: CustomBackground(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(height: size.height*.15),
+                    SizedBox(height: size.height * .15),
                     Row(
                       children: [
                         SizedBox(width: 15),
                         Text(language.letsStart,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22)),
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
                       ],
                     ),
                     SizedBox(height: 20),
@@ -47,17 +45,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: size.height * 0.52,
                       width: size.width * .9,
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: primaryShadow),
+                          color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: primaryShadow),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 15, right: 15),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            TextFieldWithShadow(hintText: language.email,controller: emailController,),
+                            TextFieldWithShadow(
+                              hintText: language.email,
+                              controller: emailController,
+                            ),
                             SizedBox(height: 20),
-                            PasswordTextFieldWithShadow(hintText: language.password,controller: passwordController,),
+                            PasswordTextFieldWithShadow(
+                              hintText: language.password,
+                              controller: passwordController,
+                            ),
                             SizedBox(height: 20),
                             LoadingButton(
                               isLoading: loginProvider.loading,
@@ -68,28 +70,44 @@ class _LoginScreenState extends State<LoginScreen> {
                               backgroundColor: primaryColor,
                               child: Container(
                                   height: 30,
-                                  width: mainWidth-20-(Dimension.Padding*2),
+                                  width: mainWidth - 20 - (Dimension.Padding * 2),
                                   alignment: Alignment.center,
-                                  child: Text(language.login,style: TextStyle(color: Colors.white,fontSize: Dimension.Text_Size_Big,fontWeight: Dimension.boldText),)
+                                  child: Text(
+                                    language.login,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: Dimension.Text_Size_Big,
+                                        fontWeight: Dimension.boldText),
+                                  )),
+                            ),
+                            SizedBox(height: 20),
+                            GestureDetector(
+                              onTap: () {
+                                loginProvider.goTOSignUpScreen();
+                              },
+                              child: Text(
+                                language.doNotHaveAccount,
+                                style: TextStyle(
+                                  color: primaryColor,
+                                ),
                               ),
                             ),
                             SizedBox(height: 20),
                             GestureDetector(
-                              onTap: () {loginProvider.goTOSignUpScreen();},
-                              child: Text(language.doNotHaveAccount, style: TextStyle(color: primaryColor,),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            GestureDetector(
-                              onTap: () {loginProvider.goToForgotScreen();},
-                              child: Text(language.forgotPassword, style: TextStyle(color: primaryColor,),
+                              onTap: () {
+                                loginProvider.goToForgotScreen();
+                              },
+                              child: Text(
+                                language.forgotPassword,
+                                style: TextStyle(
+                                  color: primaryColor,
+                                ),
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -99,5 +117,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
 }

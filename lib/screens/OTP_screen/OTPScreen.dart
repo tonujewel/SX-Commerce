@@ -19,8 +19,7 @@ class _OTPScreenState extends State<OTPScreen> {
   OTPProvider otpProvider;
   var onTapRecognizer;
 
-  TextEditingController _pinEditingController =
-      TextEditingController(text: '123');
+  TextEditingController _pinEditingController = TextEditingController(text: '123');
 
   // ..text = "123456";
 
@@ -41,48 +40,42 @@ class _OTPScreenState extends State<OTPScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: size.height*.15),
+                  SizedBox(height: size.height * .15),
                   Row(
                     children: [
                       SizedBox(width: 15),
                       Text(language.enterOTP,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22)),
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
                     ],
                   ),
                   Container(
                     height: size.height * 0.5,
                     width: size.width * .9,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: shadow),
+                    decoration:
+                        BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: shadow),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(language.verificationCode,
-                              style: TextStyle(
-                                  color: textColor,
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold)),
+                              style: TextStyle(color: textColor, fontSize: 26, fontWeight: FontWeight.bold)),
                           SizedBox(
                             height: 6,
                           ),
-                          Text("${language.sentTo} +880123456789",style: TextStyle(color: textColor),),
+                          Text(
+                            "${language.sentTo} +880123456789",
+                            style: TextStyle(color: textColor),
+                          ),
                           SizedBox(
                             height: 20,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left:8.0,right: 8.0),
+                            padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                             child: PinInputTextField(
                               pinLength: 4,
                               decoration: CirclePinDecoration(
-                                strokeColorBuilder:
-                                PinListenColorBuilder(primaryColor, textColor),
+                                strokeColorBuilder: PinListenColorBuilder(primaryColor, textColor),
                               ),
                               controller: _pinEditingController,
                               textInputAction: TextInputAction.go,
