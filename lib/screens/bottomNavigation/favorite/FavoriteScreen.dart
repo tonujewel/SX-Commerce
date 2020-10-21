@@ -25,17 +25,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               CustomAppbar(
                 leadingPress: () {},
                 leadIcon: Icons.search,
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: Text(
-                      'Favorite',
-                      style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 24),
-                    ),
-                  ),
-                ],
+                title: 'Favorite',
+                counter: 1,
               ),
               Expanded(
                 child: ListView.builder(
