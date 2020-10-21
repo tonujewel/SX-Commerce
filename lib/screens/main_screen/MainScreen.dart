@@ -46,7 +46,8 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
             },
             child: GestureDetector(
                 child: Scaffold(
-                  bottomNavigationBar: FancyBottomNavigation(
+                  bottomNavigationBar:
+                  FancyBottomNavigation(
                    tabs: provider.tabs.map((e) => TabData(iconData: e.icon, title: e.title)).toList(),
                    onTabChangedListener: (position) => provider.changePage(position),
                  ),
