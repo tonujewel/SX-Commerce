@@ -53,6 +53,10 @@ dependencies:
   rating_bar: ^0.2.0
   # Badges
   badges: ^1.1.3
+  # Stepper
+  cupertino_stepper: ^0.1.2
+  # Stepper
+  timeline_tile: ^1.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
