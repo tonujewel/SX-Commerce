@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.blue, visualDensity: VisualDensity.adaptivePlatformDensity, fontFamily: 'Poppins'),
-      home: OrderSuccessScreen(),
+      home: SplashScreen(),
       //   home: SplashScreen(),
     );
   }

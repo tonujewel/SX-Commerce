@@ -156,32 +156,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                           Row(
                                             children: [
                                               Text(
-                                                cartList[indext]['price'],
+                                                "${cartList[indext]['price']} x 2",
                                                 maxLines: 1,
                                                 style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
                                               ),
                                               SizedBox(
                                                 width: 5,
                                               ),
-                                              Container(
-                                                padding: EdgeInsets.only(left: 2, right: 2),
-                                                decoration: BoxDecoration(
-                                                    color: primaryColor, borderRadius: BorderRadius.circular(2)),
-                                                child: Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: Colors.white,
-                                                      size: 14,
-                                                    ),
-                                                    Text(
-                                                      '${cartList[indext]['rating']}',
-                                                      maxLines: 1,
-                                                      style: TextStyle(color: Colors.white, fontSize: 14),
-                                                    ),
-                                                  ],
-                                                ),
-                                              )
+
                                             ],
                                           )
                                         ],
