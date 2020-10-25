@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:sx_commerece/screens/drawerNavigation/main/MainDrawerScreen.dart';
 import 'package:sx_commerece/screens/forgot_password/ForgotPassword.dart';
+import 'package:sx_commerece/screens/main_screen/MainScreen.dart';
 import 'package:sx_commerece/screens/signUp/SignUp.dart';
 
 class LoginProvider with ChangeNotifier {
@@ -28,7 +28,7 @@ class LoginProvider with ChangeNotifier {
       loading = false;
       notifyListeners();
       Navigator.pushAndRemoveUntil(
-          context, MaterialPageRoute(builder: (context) => MainDrawerScreen()), (Route<dynamic> route) => false);
+          context, MaterialPageRoute(builder: (context) => MainScreen()), (Route<dynamic> route) => false);
     });
   }
 }

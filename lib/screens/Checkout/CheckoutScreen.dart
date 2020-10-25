@@ -44,16 +44,16 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   paymentMethodContainer(size),
                   titleText("Items ( 4 )"),
                   itemsList(size),
-                  SizedBox(height: size.height * 0.1,)
+                  SizedBox(
+                    height: size.height * 0.1,
+                  )
                 ],
               ),
               Positioned(
                   bottom: 0,
-                  child:   Container(
+                  child: Container(
                     width: size.width,
-                    decoration: BoxDecoration(
-                      color: bgColor
-                    ),
+                    decoration: BoxDecoration(color: bgColor),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8.0, left: 15, right: 15),
                       child: Row(
@@ -82,9 +82,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   padding: const EdgeInsets.all(10),
                                   child: Center(
                                       child: Text(
-                                        "Place Order",
-                                        style: TextStyle(color: Colors.white),
-                                      )),
+                                    "Place Order",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
                                 ),
                               ),
                             ),
@@ -102,152 +102,145 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   Expanded itemsList(Size size) {
     return Expanded(
-                  child: ListView.builder(
-                      itemCount: cartList.length,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (context, indext) {
-                        return Padding(
-                          padding: const EdgeInsets.only(
-                            left: 15,
-                            right: 15,
-                            top: 15
-                          ),
-                          child: Container(
-                            height: size.height * 0.14,
-                            width: size.width,
-                            decoration: BoxDecoration(
-                                color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: primaryShadow),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: Color(0xFFECEFF1),
-                                      borderRadius: new BorderRadius.only(
-                                          topLeft: const Radius.circular(10), bottomLeft: const Radius.circular(10))),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Image.asset(cartList[indext]['image'],
-                                        height: size.height * 0.14, width: size.width * 0.28),
+      child: ListView.builder(
+          itemCount: cartList.length,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, indext) {
+            return Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Container(
+                height: size.height * 0.14,
+                width: size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: primaryShadow),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFECEFF1),
+                          borderRadius: new BorderRadius.only(
+                              topLeft: const Radius.circular(10), bottomLeft: const Radius.circular(10))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Image.asset(cartList[indext]['image'],
+                            height: size.height * 0.14, width: size.width * 0.28),
+                      ),
+                    ),
+                    SizedBox(
+                      width: size.width * 0.02,
+                    ),
+                    Container(
+                      child: Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  cartList[indext]['name'],
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  softWrap: false,
+                                ),
+                              ),
+                              Text('Medium, light blue'),
+                              SizedBox(
+                                height: size.height * 0.03,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "${cartList[indext]['price']} x 2",
+                                    maxLines: 1,
+                                    style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: size.width * 0.02,
-                                ),
-                                Container(
-                                  child: Flexible(
-                                    child: Padding(
-                                      padding: EdgeInsets.only(top: 8.0),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Flexible(
-                                            child: Text(
-                                              cartList[indext]['name'],
-                                              overflow: TextOverflow.ellipsis,
-                                              maxLines: 1,
-                                              softWrap: false,
-                                            ),
-                                          ),
-                                          Text('Medium, light blue'),
-                                          SizedBox(
-                                            height: size.height * 0.03,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                "${cartList[indext]['price']} x 2",
-                                                maxLines: 1,
-                                                style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
-                                              ),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
+                                  SizedBox(
+                                    width: 5,
                                   ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              )
+                            ],
                           ),
-                        );
-                      }),
-                );
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }),
+    );
   }
 
   Container paymentMethodContainer(Size size) {
     return Container(
-              width: size.width,
-              padding: EdgeInsets.all(15),
-              margin: EdgeInsets.only(left: 15,right: 15,top: 5),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(children: [
-                    Icon(
-                      Icons.credit_card_outlined,
-                      color: primaryColor,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Cash On Delivery",
-                      style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
-                    ),
-                  ]),
-                  Container(
-                      decoration: BoxDecoration(shape: BoxShape.circle, color: Color(0xFFD9DCDF)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4),
-                        child: Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Colors.white,
-                        ),
-                      )),
-                ],
-              ),
-            );
+      width: size.width,
+      padding: EdgeInsets.all(15),
+      margin: EdgeInsets.only(left: 15, right: 15, top: 5),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(children: [
+            Icon(
+              Icons.credit_card_outlined,
+              color: primaryColor,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              "Cash On Delivery",
+              style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+            ),
+          ]),
+          Container(
+              decoration: BoxDecoration(shape: BoxShape.circle, color: Color(0xFFD9DCDF)),
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.white,
+                ),
+              )),
+        ],
+      ),
+    );
   }
 
   Container addressContainer(Size size) {
     return Container(
-              width: size.width,
-              padding: EdgeInsets.all(15),
-              margin: EdgeInsets.only(left: 15,right: 15,top: 5),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
-              child: Stack(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Mirpur DOHS', style: TextStyle(color: textColor, fontWeight: FontWeight.bold)),
-                      Text('House no: 2, Avenue: 1'),
-                      Text('Dhaka, Bangladesh'),
-                    ],
+      width: size.width,
+      padding: EdgeInsets.all(15),
+      margin: EdgeInsets.only(left: 15, right: 15, top: 5),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: primaryShadow),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Mirpur DOHS', style: TextStyle(color: textColor, fontWeight: FontWeight.bold)),
+              Text('House no: 2, Avenue: 1'),
+              Text('Dhaka, Bangladesh'),
+            ],
+          ),
+          Positioned(
+            right: 0,
+            child: Container(
+                decoration: BoxDecoration(shape: BoxShape.circle, color: Color(0xFFD9DCDF)),
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Icon(
+                    Icons.edit,
+                    color: Colors.white,
                   ),
-                  Positioned(
-                    right: 0,
-                    child: Container(
-                        decoration: BoxDecoration(shape: BoxShape.circle, color: Color(0xFFD9DCDF)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(4),
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
-                          ),
-                        )),
-                  )
-                ],
-              ),
-            );
+                )),
+          )
+        ],
+      ),
+    );
   }
 
   Padding titleText(String text) {

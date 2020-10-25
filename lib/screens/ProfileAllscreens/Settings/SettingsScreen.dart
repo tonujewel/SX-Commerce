@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/backgroundDesign.dart';
 import 'package:sx_commerece/components/buttonWithShadow.dart';
-import 'package:sx_commerece/screens/drawerNavigation/Settings/SettingsProvider.dart';
+import 'package:sx_commerece/screens/ProfileAllscreens/Settings/SettingsProvider.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override

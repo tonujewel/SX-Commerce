@@ -1,7 +1,7 @@
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:provider/provider.dart';
+import 'package:sx_commerece/CustomIcon/custom_icon_icons.dart';
+import 'package:sx_commerece/main.dart';
 import 'package:sx_commerece/screens/bottomNavigation/favorite/FavoriteScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomeScreen.dart';
 import 'package:sx_commerece/screens/bottomNavigation/profile/ProfileScreen.dart';
@@ -15,7 +15,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin {
   MainPageProvider provider;
-  bool isOpen = false;
+  int _currentIndex = 0;
+  PageController _pageController;
 
   List<Widget> tabList = [
     HomeScreen(),
@@ -27,38 +28,52 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MainPageProvider>(
-      create: (_) => MainPageProvider()..setVIew(context, this),
-      child: Consumer<MainPageProvider>(
-        builder: (context, model, child) {
-          provider = model;
-          return ValueListenableBuilder<DrawerState>(
-            valueListenable: ZoomDrawer.of(context).stateNotifier,
-            builder: (context, state, child) {
-              return AbsorbPointer(
-                absorbing: state != DrawerState.closed,
-                child: child,
-              );
-            },
-            child: GestureDetector(
-                child: Scaffold(
-                  bottomNavigationBar:
-                  FancyBottomNavigation(
-                   tabs: provider.tabs.map((e) => TabData(iconData: e.icon, title: e.title)).toList(),
-                   onTabChangedListener: (position) => provider.changePage(position),
-                 ),
-                   body: TabBarView(
-                    controller: provider.controller,
-                    children: tabList,
-                    physics: NeverScrollableScrollPhysics(),
-              ),
-            )),
-          );
+    return Scaffold(
+      body: SizedBox.expand(
+        child: PageView(
+          controller: _pageController,
+          physics:new NeverScrollableScrollPhysics(),
+          onPageChanged: (index) {
+            setState(() => _currentIndex = index);
+          },
+          children: tabList,
+        ),
+      ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        onItemSelected: (index) {
+          setState(() => _currentIndex = index);
+          _pageController.jumpToPage(index);
         },
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+              title: Text(language.home),
+              icon: Icon(CustomIcon.home)
+          ),
+          BottomNavyBarItem(
+              title: Text(language.cart),
+              icon: Icon(CustomIcon.cart)
+          ),
+          BottomNavyBarItem(
+              title: Text(language.favorite),
+              icon: Icon(CustomIcon.favorite_border)
+          ),
+          BottomNavyBarItem(
+              title: Text(language.profile),
+              icon: Icon(Icons.person_outline)
+          ),
+        ],
       ),
     );
   }

@@ -1,9 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/backgroundDesign.dart';
-import 'package:sx_commerece/screens/drawerNavigation/about_us/AboutProvider.dart';
+import 'package:sx_commerece/screens/ProfileAllscreens/about_us/AboutProvider.dart';
 
 class AboutScreen extends StatefulWidget {
   @override
@@ -83,7 +82,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.all(12),
-                                        child: Text(tr('description_text')),
+                                        child: Text('description_text')
                                       ),
                                     ],
                                   )

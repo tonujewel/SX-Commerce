@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -67,14 +66,6 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
-// navigation drawer items
-List<MenuItem> mainMenu = [
-  MenuItem(tr("home"), Icons.home, 0),
-  MenuItem(tr("settings"), Icons.settings, 1),
-  MenuItem(tr("notifications"), Icons.notifications, 2),
-  MenuItem(tr("help"), Icons.help, 3),
-  MenuItem(tr("about_us"), Icons.info_outline, 4),
-];
 
 //................... notification list  ................
 List<Map> notificationLIst = [
@@ -198,6 +189,53 @@ List<Map> cartList = [
     "discount": "\$1700"
   },
 ];
+List<Map> orderList = [
+  {
+    "id": "0",
+    "name": 'Black T-shirt',
+    "image": "assets/images/t_shirt.png",
+    "price": "\$500",
+    "rating": 5.0,
+    "isFavorite": true,
+    "discount": "\$700"
+  },
+  {
+    "id": "1",
+    "name": 'iMac 2020 ',
+    "image": "assets/images/imac.png",
+    "price": "\$2700",
+    "rating": 3.0,
+    "isFavorite": false,
+    "discount": "\$3000"
+  },
+  {
+    "id": "2",
+    "name": 'Adidas shoe - blue ',
+    "image": "assets/images/shoe_colored.png",
+    "price": "\$430",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "\$700"
+  },
+  {
+    "id": "4",
+    "name": 'Redmi Display 1A Monitor 23.8- Inch Full HD IPS',
+    "image": "assets/images/redmi_monitor.png",
+    "price": "\$1050",
+    "rating": 4.5,
+    "isFavorite": true,
+    "discount": "\$1170"
+  },
+  {
+    "id": "5",
+    "name": 'Mackbook Pro 2020',
+    "image": "assets/images/macbook_pro.png",
+    "price": "\$1050",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "\$1700"
+  },
+];
 
 class MenuItem {
   final String title;
@@ -225,3 +263,12 @@ String dollarSign = String.fromCharCodes(new Runes('\u0024'));
 String heroTag = '';
 
 List<BoxShadow> greyShadow = [BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))];
+
+// Delivery status
+List deliverySteps = [
+  'Order Placed',
+  'Invoice',
+  'Pick and pack',
+  'Delivery',
+
+];

@@ -28,6 +28,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
     return ChangeNotifierProvider<ProductDetailsProvider>(
       create: (_) => ProductDetailsProvider()..setView(context),
       child: Consumer<ProductDetailsProvider>(builder: (context, model, child) {
+        productDetailsProvider = model;
         return Scaffold(
           backgroundColor: Colors.white,
           appBar: buildAppBar(),
@@ -86,7 +87,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
                 top: 10,
               ),
               child: Container(
-                height: size.height * 0.15,
+                height: size.height * 0.16,
                 width: size.width,
                 decoration: BoxDecoration(
                     color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: primaryShadow),
@@ -324,14 +325,17 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
                       border: Border.all(color: Colors.blueAccent),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Center(
-                          child: Text(
-                        "Add To Cart",
-                        style: TextStyle(color: primaryColor),
-                      )),
-                    ),
+                    child: FlatButton(
+                        onPressed: () {
+                          productDetailsProvider.addCartAction();
+                        },
+                        child: Text(
+                          "Add To Cart",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: primaryColor,
+                          ),
+                        )),
                   ),
                 ),
                 Container(
@@ -340,7 +344,9 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
                     borderRadius: BorderRadius.circular(10),
                     child: FlatButton(
                       color: primaryColor,
-                      onPressed: () {},
+                      onPressed: () {
+                        productDetailsProvider.buyNowAction();
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(12),
                         child: Center(
@@ -362,7 +368,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
     return Container(
       decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(20), boxShadow: primaryShadow),
       child: Padding(
-        padding: const EdgeInsets.only(left: 18.0, right: 18, top: 5, bottom: 5),
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
         child: Text('$name'),
       ),
     );

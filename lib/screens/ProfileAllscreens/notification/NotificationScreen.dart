@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/backgroundDesign.dart';
-import 'package:sx_commerece/screens/drawerNavigation/notification/NotificationProvider.dart';
+import 'package:sx_commerece/screens/ProfileAllscreens/notification/NotificationProvider.dart';
 
 class NotificationScreen extends StatefulWidget {
   @override
