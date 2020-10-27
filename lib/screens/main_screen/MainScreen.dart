@@ -43,7 +43,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
       body: SizedBox.expand(
         child: PageView(
           controller: _pageController,
-          physics:new NeverScrollableScrollPhysics(),
+          physics: NeverScrollableScrollPhysics(),
           onPageChanged: (index) {
             setState(() => _currentIndex = index);
           },

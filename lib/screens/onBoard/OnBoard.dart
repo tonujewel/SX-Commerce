@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
+import 'package:sx_commerece/components/Animation/FadeAnimation.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/main.dart';
 import 'package:sx_commerece/screens/login/Login.dart';
@@ -55,21 +56,22 @@ class _OnBoardState extends State<OnBoard> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Padding(
-                            padding: EdgeInsets.only(left: 35, right: 35),
-                            child: RoundedButton(
-                                text: language.login,
-                                press: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-                                })),
+                        FadeAnimation(1,Padding(
+                              padding: EdgeInsets.only(left: 35, right: 35),
+                              child: RoundedButton(
+                                  text: language.login,
+                                  press: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                                  })),
+                        ),
                         SizedBox(height: size.height * 0.03),
-                        Padding(
+                  FadeAnimation(1.5, Padding(
                             padding: EdgeInsets.only(left: 35, right: 35),
                             child: RoundedButton(
                                 text: language.signUp,
                                 press: () {
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-                                })),
+                                }))),
                       ],
                     ),
                     Spacer(),

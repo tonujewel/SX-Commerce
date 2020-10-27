@@ -63,10 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     // category list
-                    Padding(
-                      padding: EdgeInsets.only(right: 15, left: 15),
-                      child: categoryContainer(),
-                    ),
+                    categoryContainer(),
                     // new title
                     Padding(
                       padding: EdgeInsets.only(right: 15, left: 15),
@@ -83,10 +80,23 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-
-                    // category title
-
                     //new items
+                    newProductContainer(),
+                    Padding(
+                      padding: EdgeInsets.only(right: 15, left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Most Favorite",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: Dimension.textSizeBig, color: textColor)),
+                          Text(
+                            "See all",
+                            style: TextStyle(fontSize: Dimension.textSizeBig, color: textColor),
+                          ),
+                        ],
+                      ),
+                    ),
                     newProductContainer(),
                   ],
                 ),
@@ -179,6 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container categoryContainer() {
     return Container(
+      padding: EdgeInsets.only(right: 10, left: 10),
       height: size.height * .19,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -189,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 width: size.width * .25,
                 padding: EdgeInsets.all(10),
-                margin: EdgeInsets.only(left: 10, top: 5),
+                margin: EdgeInsets.only(left: 5, top: 5, right: 5),
                 decoration: BoxDecoration(
                   color: bgColor,
                   borderRadius: BorderRadius.circular(8),
@@ -222,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container newProductContainer() {
     return Container(
-      height: size.height * .6,
+      height: size.height * .44,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: newProductList.length,
@@ -235,7 +246,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        heroTag = "product$index";
                         Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetails()));
                       },
                       child: Container(
@@ -246,13 +256,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 8, right: 8),
-                              child: Hero(
-                                tag: "product$index",
-                                child: Image.asset(
-                                  newProductList[index]["image"],
-                                  height: size.height * .25,
-                                  width: size.width,
-                                ),
+                              child: Image.asset(
+                                newProductList[index]["image"],
+                                height: size.height * .25,
+                                width: size.width,
                               ),
                             ),
                             Padding(
@@ -263,9 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     newProductList[index]["price"],
                                     maxLines: 1,
                                     style: TextStyle(
-                                        color: textColor,
-                                        fontSize: Dimension.textSizeBig,
-                                        fontWeight: FontWeight.bold),
+                                        color: textColor, fontSize: Dimension.textSizeBig, fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(
                                     width: size.width * .02,
@@ -286,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 10,
                             ),
                             GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 Provider.of<AppbarProvider>(context, listen: false).incrementCounter();
                               },
                               child: Container(
@@ -297,12 +302,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                       borderRadius: BorderRadius.only(
                                           bottomRight: Radius.circular(10.0), bottomLeft: Radius.circular(10.0))),
                                   child: GestureDetector(
-                                    onTap: (){
-                                    //  homePageProvider.callIncrementMethod();
+                                    onTap: () {
+                                      //  homePageProvider.callIncrementMethod();
                                       setState(() {
-                                        counternew ++;
+                                        counternew++;
                                       });
-
                                     },
                                     child: Center(
                                         child: Text(

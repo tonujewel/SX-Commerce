@@ -513,13 +513,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
         },
       ),
       backgroundColor: Colors.white,
-      actions: <Widget>[
-        // ShoppingCartBadge(
-        //     counter: 5,
-        //     onPress: () {
-        //       Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
-        //     }),
-      ],
+
     );
   }
 

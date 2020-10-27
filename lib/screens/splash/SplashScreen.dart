@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:sx_commerece/components/Animation/FadeAnimation.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoard.dart';
 import '../../main.dart';
 
@@ -14,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 2),
         () => Navigator.pushAndRemoveUntil(
             context, MaterialPageRoute(builder: (context) => OnBoard()), (Route<dynamic> route) => false));
   }
@@ -28,15 +29,19 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.asset('assets/images/logo.jpg'),
-            SizedBox(height: 60.0),
-          ],
-        ),
+        child: FadeAnimation(2, ImageColumn()),
       ),
     );
+  }
+
+  Column ImageColumn() {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Image.asset('assets/images/logo.jpg'),
+          SizedBox(height: 60.0),
+        ],
+      );
   }
 }
