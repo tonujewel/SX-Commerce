@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/CustomBackground.dart';
 import 'package:sx_commerece/screens/OrderSuccess/OrderSuccessProvider.dart';
 
 class OrderSuccessScreen extends StatefulWidget {

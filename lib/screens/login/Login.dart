@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/CustomBackground.dart';
+import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/components/PasswordTextFieldWithShadow.dart';
 import 'package:provider/provider.dart';
@@ -28,19 +28,19 @@ class _LoginScreenState extends State<LoginScreen> {
         builder: (context, model, child) {
           loginProvider = model;
           return Scaffold(
-            body: CustomBackground(
+            body: CustomBackground2(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(height: size.height * .15),
+                    SizedBox(height: size.height * .25),
                     Row(
                       children: [
                         SizedBox(width: 15),
                         Text(language.letsStart,
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
+                            style: TextStyle(color:textColor, fontWeight: FontWeight.bold, fontSize: 22)),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Container(
                       height: size.height * 0.52,
                       width: size.width * .9,
@@ -55,12 +55,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               hintText: language.email,
                               controller: emailController,
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 10),
                             PasswordTextFieldWithShadow(
                               hintText: language.password,
                               controller: passwordController,
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 10),
                             LoadingButton(
                               isLoading: loginProvider.loading,
                               defaultStyle: true,

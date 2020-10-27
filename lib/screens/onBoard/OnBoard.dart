@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/Animation/FadeAnimation.dart';
+import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/main.dart';
-import 'package:sx_commerece/screens/login/Login.dart';
-import 'package:sx_commerece/screens/onBoard/OnBoardContent.dart';
-import 'package:sx_commerece/screens/signUp/SignUp.dart';
+import 'package:sx_commerece/screens/onBoard/OnBoardProvider.dart';
 
 class OnBoard extends StatefulWidget {
   @override
@@ -13,74 +13,82 @@ class OnBoard extends StatefulWidget {
 }
 
 class _OnBoardState extends State<OnBoard> {
-  int currentPage = 0;
+  OnBoardProvider onBoardProvider;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Spacer(),
-            Expanded(
-              flex: 5,
-              child: PageView.builder(
-                onPageChanged: (value) {
-                  setState(() {
-                    currentPage = value;
-                  });
-                },
-                itemCount: onBoardData.length,
-                itemBuilder: (context, index) => OnBoardContent(
-                  text: onBoardData[index]['text'],
-                  image: onBoardData[index]['image'],
+    return ChangeNotifierProvider<OnBoardProvider>(
+      create: (_) => OnBoardProvider()..setView(context),
+      child: Consumer<OnBoardProvider>(builder: (context, molde, child) {
+        onBoardProvider = molde;
+        return Scaffold(
+          body: CustomBackground2(
+            child: Column(
+              children: [
+                SizedBox(height: size.height * 0.2),
+                topImageContainer(size),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(onBoardData.length, (index) => buildDot(index: index)),
                 ),
-              ),
-            ),
-            Expanded(
-              flex: 4,
-              child: Center(
-                child: Column(
+                SizedBox(height: size.height * 0.015),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(onBoardData.length, (index) => buildDot(index: index)),
+                    FadeAnimation(
+                      1,
+                      Padding(
+                          padding: EdgeInsets.only(left: 35, right: 35),
+                          child: RoundedButton(
+                              text: language.login,
+                              press: () {
+                                onBoardProvider.gotoLoginPage();
+                              })),
                     ),
-                    SizedBox(height: size.height * 0.1),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        FadeAnimation(1,Padding(
-                              padding: EdgeInsets.only(left: 35, right: 35),
-                              child: RoundedButton(
-                                  text: language.login,
-                                  press: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-                                  })),
-                        ),
-                        SizedBox(height: size.height * 0.03),
-                  FadeAnimation(1.5, Padding(
+                    SizedBox(height: size.height * 0.015),
+                    FadeAnimation(
+                        1.5,
+                        Padding(
                             padding: EdgeInsets.only(left: 35, right: 35),
                             child: RoundedButton(
                                 text: language.signUp,
                                 press: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                                  onBoardProvider.goToSignUpPage();
                                 }))),
-                      ],
-                    ),
-                    Spacer(),
                   ],
                 ),
-              ),
-            )
-          ],
-        ),
+              ],
+            ),
+          ),
+        );
+      }),
+    );
+  }
+
+  Container topImageContainer(Size size) {
+    return Container(
+      height: size.height * .5,
+      width: size.width,
+      child: PageView.builder(
+        onPageChanged: (value) {
+          setState(() {
+            onBoardProvider.currentPage = value;
+          });
+        },
+        itemCount: onBoardData.length,
+        itemBuilder: (context, index) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(onBoardData[index]['text'],
+                  style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold, fontSize: 18)),
+              Image.asset(onBoardData[index]['image'], height: size.height * .35),
+            ],
+          );
+        },
       ),
     );
   }
@@ -90,9 +98,9 @@ class _OnBoardState extends State<OnBoard> {
       duration: Duration(milliseconds: 200),
       margin: EdgeInsets.only(right: 5),
       height: 8,
-      width: currentPage == index ? 20 : 8,
+      width: onBoardProvider.currentPage == index ? 20 : 8,
       decoration: BoxDecoration(
-        color: currentPage == index ? primaryColor : Color(0xFFD8D8D8),
+        color: onBoardProvider.currentPage == index ? primaryColor : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(5),
       ),
     );

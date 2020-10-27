@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/components/appbar/AppBarProvider.dart';
-import 'package:sx_commerece/screens/search_screen.dart';
+import 'package:sx_commerece/screens/SearchScreen/search_screen.dart';
 
 class HomePageProvider with ChangeNotifier {
   BuildContext context;

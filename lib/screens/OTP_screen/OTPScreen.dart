@@ -1,10 +1,8 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/CustomBackground.dart';
+import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/main.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
@@ -21,13 +19,6 @@ class _OTPScreenState extends State<OTPScreen> {
 
   TextEditingController _pinEditingController = TextEditingController(text: '123');
 
-  // ..text = "123456";
-
-  // ignore: close_sinks
-  StreamController<ErrorAnimationType> errorController;
-  String currentText = "";
-  bool hasError = false;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -37,16 +28,16 @@ class _OTPScreenState extends State<OTPScreen> {
         otpProvider = model;
         return Scaffold(
           backgroundColor: Colors.white,
-          body: CustomBackground(
+          body: CustomBackground2(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: size.height * .15),
+                  SizedBox(height: size.height * .25),
                   Row(
                     children: [
                       SizedBox(width: 15),
                       Text(language.enterOTP,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
+                          style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold, fontSize: 22)),
                     ],
                   ),
                   Container(

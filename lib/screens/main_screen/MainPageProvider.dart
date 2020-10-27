@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/CustomIcon/custom_icon_icons.dart' as CustomIcon;
 import 'package:sx_commerece/main.dart';
-import 'package:sx_commerece/screens/search_screen.dart';
+import 'package:sx_commerece/screens/SearchScreen/search_screen.dart';
 
 class MainPageProvider with ChangeNotifier {
   BuildContext context;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
-import 'package:sx_commerece/components/CustomBackground.dart';
+import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/components/PasswordTextFieldWithShadow.dart';
 import 'package:sx_commerece/components/TextFieldWithShadow.dart';
@@ -28,28 +28,28 @@ class _SignUpState extends State<SignUp> {
 
         return Scaffold(
           backgroundColor: Colors.white,
-          body: CustomBackground(
+          body: CustomBackground2(
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: size.height * .15),
+                  SizedBox(height: size.height * .25),
                   Row(
                     children: [
                       SizedBox(width: 15),
                       Text(language.letsStartSignUp,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22)),
+                          style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold, fontSize: 22)),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Container(
                     height: size.height * 0.56,
                     width: size.width * .9,
                     decoration: BoxDecoration(
                         color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: primaryShadow),
                     child: Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -57,17 +57,17 @@ class _SignUpState extends State<SignUp> {
                               hintText: language.email,
                               controller: null,
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 10),
                             PasswordTextFieldWithShadow(
                               hintText: language.password,
                               controller: null,
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 10),
                             PasswordTextFieldWithShadow(
                               hintText: language.confirmPassword,
                               controller: null,
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 10),
                             LoadingButton(
                               isLoading: signUpProvider.loading,
                               defaultStyle: true,

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:sx_commerece/components/Animation/FadeAnimation.dart';
+import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoard.dart';
 import '../../main.dart';
 
@@ -28,19 +29,20 @@ class _SplashScreenState extends State<SplashScreen> {
     paddingBottom = MediaQuery.of(context).padding.bottom;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: FadeAnimation(2, ImageColumn()),
+      body: CustomBackground2(
+        child: Center(
+          child: FadeAnimation(2, imageColumn()),
+        ),
       ),
     );
   }
 
-  Column ImageColumn() {
+  Column imageColumn() {
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Image.asset('assets/images/logo.jpg'),
-          SizedBox(height: 60.0),
         ],
       );
   }
