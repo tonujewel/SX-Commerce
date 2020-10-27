@@ -5,6 +5,7 @@ import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/CustomBackground.dart';
 import 'package:sx_commerece/screens/bottomNavigation/profile/ProfileProvider.dart';
 import 'package:sx_commerece/CustomIcon/custom_icon_icons.dart' as CustomIcon;
+import 'package:sx_commerece/Utils/mColor.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override

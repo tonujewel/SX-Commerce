@@ -4,8 +4,9 @@ class TextFieldWithShadow extends StatelessWidget {
   String hintText;
   String label;
   TextEditingController controller;
+  Color mFillColor;
 
-  TextFieldWithShadow({Key key, @required this.controller, this.hintText, this.label}) : super(key: key);
+  TextFieldWithShadow({Key key, @required this.controller, this.hintText, this.label,this.mFillColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class TextFieldWithShadow extends StatelessWidget {
               hintText: hintText,
               labelText: label,
               hintStyle: TextStyle(letterSpacing: 2, color: Colors.black54, fontWeight: FontWeight.bold),
-              fillColor: Colors.white30,
+              fillColor: mFillColor==null?Colors.white30:mFillColor,
               filled: true,
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none)),
         ),

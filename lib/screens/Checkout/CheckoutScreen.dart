@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/Checkout/CheckoutProvider.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
 
 class CheckoutScreen extends StatefulWidget {
   @override

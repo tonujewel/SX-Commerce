@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/appbar/CustomAppbar.dart';
 import 'package:sx_commerece/screens/bottomNavigation/favorite/FavoriteProvider.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
 
 class FavoriteScreen extends StatefulWidget {
   @override

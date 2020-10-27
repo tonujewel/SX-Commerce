@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/appbar/CustomAppbar.dart';
 import 'package:sx_commerece/screens/cart/CartProvider.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
 
 int countern = 0;
 

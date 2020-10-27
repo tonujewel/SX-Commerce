@@ -6,7 +6,8 @@ import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/main.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
-import 'OTPProvider.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
+import 'package:sx_commerece/screens/OTP_screen/OTPProvider.dart';
 
 class OTPScreen extends StatefulWidget {
   @override

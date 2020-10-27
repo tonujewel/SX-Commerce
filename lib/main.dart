@@ -25,3 +25,4 @@ class MyApp extends StatelessWidget {
 }
 
 double mainHeight, mainWidth, paddingTop, paddingBottom;
+

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rating_bar/rating_bar.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetailsProvider.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
 
 class ProductDetails extends StatefulWidget {
   @override

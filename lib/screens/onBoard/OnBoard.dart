@@ -6,6 +6,7 @@ import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/components/RoundedButton.dart';
 import 'package:sx_commerece/main.dart';
 import 'package:sx_commerece/screens/onBoard/OnBoardProvider.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
 
 class OnBoard extends StatefulWidget {
   @override

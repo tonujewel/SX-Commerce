@@ -7,7 +7,8 @@ import 'package:sx_commerece/components/CustomBackground2.dart';
 import 'package:sx_commerece/components/Loading_Button.dart';
 import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'package:sx_commerece/main.dart';
-import 'ForgotProvider.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
+import 'package:sx_commerece/screens/forgot_password/ForgotProvider.dart';
 
 class ForgotPassword extends StatefulWidget {
   @override

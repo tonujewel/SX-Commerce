@@ -8,6 +8,7 @@ import 'package:sx_commerece/components/appbar/CustomAppbar.dart';
 import 'package:sx_commerece/screens/bottomNavigation/home/HomePageProvider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sx_commerece/screens/product_details/ProductDetails.dart';
+import 'package:sx_commerece/Utils/mColor.dart';
 
 int _current = 0;
 Size size;

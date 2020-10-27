@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sx_commerece/Utils/AppConstant.dart';
-
+import 'package:sx_commerece/Utils/mColor.dart';
 class RoundedButton extends StatelessWidget {
   final String text;
   final Function press;
