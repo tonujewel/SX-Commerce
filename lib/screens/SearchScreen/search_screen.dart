@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sx_commerece/Dimension/Dimension.dart';
 import 'package:sx_commerece/Utils/AppConstant.dart';
 import 'package:sx_commerece/components/SearchTextField.dart';
-import 'package:sx_commerece/components/TextFieldWithShadow.dart';
 import 'package:sx_commerece/screens/SearchScreen/SearchProvider.dart';
 import 'package:sx_commerece/Utils/mColor.dart';
 

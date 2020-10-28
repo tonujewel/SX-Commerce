@@ -56,9 +56,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: Dimension.textSizeBig, color: textColor),
                           ),
-                          Text(
-                            "See all",
-                            style: TextStyle(fontSize: Dimension.textSizeBig, color: textColor),
+                          GestureDetector(
+                            onTap: (){
+                              homePageProvider.callAllCategories();
+                            },
+                            child: Text(
+                              "See all",
+                              style: TextStyle(fontSize: Dimension.textSizeBig, color: textColor),
+                            ),
                           ),
                         ],
                       ),
@@ -200,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               GestureDetector(
                 onTap: (){
-                  homePageProvider.callAllCategories();
+                  homePageProvider.callCategoryWisedProduct(categoryList[index]['name']);
                 },
                 child: Container(
                   width: size.width * .25,

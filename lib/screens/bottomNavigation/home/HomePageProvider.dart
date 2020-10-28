@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/components/appbar/AppBarProvider.dart';
 import 'package:sx_commerece/screens/AllCategories/AllCategories.dart';
+import 'package:sx_commerece/screens/CategoryWiseProduct/CategoryWiseProduct.dart';
 import 'package:sx_commerece/screens/SearchScreen/search_screen.dart';
 
 class HomePageProvider with ChangeNotifier {
@@ -26,5 +27,8 @@ class HomePageProvider with ChangeNotifier {
 
   void callAllCategories(){
     Navigator.push(context, MaterialPageRoute(builder: (context)=>AllCategories()));
+  }
+  void callCategoryWisedProduct(String productName){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>CategoryWiseProduct(productName: productName,)));
   }
 }
