@@ -18,7 +18,7 @@ class _PasswordTextFieldWithShadowState extends State<PasswordTextFieldWithShado
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 4,
+      elevation: 2,
       shadowColor: Colors.blue,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Padding(
@@ -30,6 +30,8 @@ class _PasswordTextFieldWithShadowState extends State<PasswordTextFieldWithShado
           decoration: InputDecoration(
               hintText: widget.hintText,
               labelText: widget.label,
+              isDense: true, // important line
+              contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),// control your hints text size
               suffixIcon: IconButton(
                 onPressed: () {
                   _showPassword = !_showPassword;

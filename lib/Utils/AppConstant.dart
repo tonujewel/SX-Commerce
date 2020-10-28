@@ -18,8 +18,6 @@ List<Map> productDetails = [
   {"image": "assets/images/redmi_monitor.png"},
 ];
 
-
-
 // shadow
 List<BoxShadow> shadow = [
   BoxShadow(
@@ -52,7 +50,6 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
-
 
 //................... notification list  ................
 List<Map> notificationLIst = [
@@ -117,6 +114,74 @@ List<Map> newProductList = [
     "rating": 4.5,
     "isFavorite": true,
     "discount": "\$1170"
+  },
+  {
+    "id": "5",
+    "name": 'Mackbook Pro 2020',
+    "image": "assets/images/macbook_pro.png",
+    "price": "\$1050",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "\$1700"
+  },
+];
+
+//................... New product list  ................
+List<Map> searchResultList = [
+
+  {
+    "id": "1",
+    "name": 'iMac 2020 ',
+    "image": "assets/images/imac.png",
+    "price": "\$2700",
+    "rating": 3.0,
+    "isFavorite": false,
+    "discount": "\$3000"
+  },
+  {
+    "id": "2",
+    "name": 'Adidas shoe - blue ',
+    "image": "assets/images/shoe_colored.png",
+    "price": "\$430",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "\$700"
+  },
+  {
+    "id": "0",
+    "name": 'Black T-shirt',
+    "image": "assets/images/t_shirt.png",
+    "price": "\$500",
+    "rating": 5.0,
+    "isFavorite": true,
+    "discount": "\$700"
+  },
+  {
+    "id": "4",
+    "name": 'Redmi Display 1A Monitor 23.8- Inch Full HD IPS',
+    "image": "assets/images/redmi_monitor.png",
+    "price": "\$1050",
+    "rating": 4.5,
+    "isFavorite": true,
+    "discount": "\$1170"
+  },
+  {
+    "id": "0",
+    "name": 'Black T-shirt',
+    "image": "assets/images/t_shirt.png",
+    "price": "\$500",
+    "rating": 5.0,
+    "isFavorite": true,
+    "discount": "\$700"
+  },
+  {
+    "id": "2",
+    "name": 'Adidas shoe - blue ',
+    "image": "assets/images/shoe_colored.png",
+    "price": "\$430",
+    "rating": 4.0,
+    "isFavorite": true,
+    "discount": "\$700"
   },
   {
     "id": "5",
@@ -257,5 +322,4 @@ List deliverySteps = [
   'Invoice',
   'Pick and pack',
   'Delivery',
-
 ];

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sx_commerece/components/appbar/AppBarProvider.dart';
+import 'package:sx_commerece/screens/AllCategories/AllCategories.dart';
 import 'package:sx_commerece/screens/SearchScreen/search_screen.dart';
 
 class HomePageProvider with ChangeNotifier {
@@ -12,9 +13,7 @@ class HomePageProvider with ChangeNotifier {
   void setView(BuildContext context){
     this.context = context;
      appbarProvider = Provider.of<AppbarProvider>(context);
-
   }
-
 
   void goToSearchScreen(){
     Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
@@ -23,5 +22,9 @@ class HomePageProvider with ChangeNotifier {
   void callIncrementMethod(){
     Provider.of<AppbarProvider>(context, listen: false).incrementCounter();
     notifyListeners();
+  }
+
+  void callAllCategories(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>AllCategories()));
   }
 }
