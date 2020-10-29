@@ -161,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    showToast('edit icon clicked');
+                    profileProvider.updateProfile();
                   }))
         ],
       ),

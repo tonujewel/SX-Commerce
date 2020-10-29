@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SettingsProvider with ChangeNotifier {
+class UpdateProfileProvider with ChangeNotifier {
   BuildContext context;
 
-  SettingsProvider();
+  UpdateProfileProvider();
 
   void setView(BuildContext context) => this.context = context;
 

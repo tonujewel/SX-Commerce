@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sx_commerece/screens/ProfileAllscreens/UpdateProfile/UpdateProfile.dart';
 
 class ProfileProvider with ChangeNotifier {
   BuildContext context;
@@ -6,4 +7,8 @@ class ProfileProvider with ChangeNotifier {
   ProfileProvider();
 
   void setViwe(BuildContext context) => this.context = context;
+
+  void updateProfile(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>UpdateProfile()));
+  }
 }

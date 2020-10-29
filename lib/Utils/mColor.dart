@@ -18,4 +18,3 @@ const editButtonBg = Color(0xFF4297ED);
 
 // Search
 const searchIconColor = Color(0xFFDCE0E3);
-
