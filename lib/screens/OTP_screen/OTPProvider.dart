@@ -14,10 +14,14 @@ class OTPProvider with ChangeNotifier {
   void goToResetPage() {
     loading = true;
     notifyListeners();
-    Timer(Duration(seconds: 2), () {
-      loading = false;
-      notifyListeners();
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ResetScreen()));
-    });
+    Timer(
+      Duration(seconds: 2),
+      () {
+        loading = false;
+        notifyListeners();
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ResetScreen()));
+      },
+    );
   }
 }

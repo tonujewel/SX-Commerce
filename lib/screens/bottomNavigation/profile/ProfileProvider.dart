@@ -6,7 +6,7 @@ class ProfileProvider with ChangeNotifier {
 
   ProfileProvider();
 
-  void setViwe(BuildContext context) => this.context = context;
+  void setView(BuildContext context) => this.context = context;
 
   void updateProfile(){
     Navigator.push(context, MaterialPageRoute(builder: (context)=>UpdateProfile()));

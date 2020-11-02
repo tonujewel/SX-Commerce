@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Container(
                           child: Container(
-                            margin: EdgeInsets.all(5.0),
+                              margin: EdgeInsets.all(5.0),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                 child: Stack(

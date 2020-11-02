@@ -19,7 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return ChangeNotifierProvider<ProfileProvider>(
-      create: (_) => ProfileProvider()..setViwe(context),
+      create: (_) => ProfileProvider()..setView(context),
       child: Consumer<ProfileProvider>(
         builder: (context, model, child) {
           profileProvider = model;
@@ -33,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     topTitle(),
                     accountInfo(),
                     firstContainer(),
-                    secondContainer()
+                    secondContainer(),
                   ],
                 ),
               ),
